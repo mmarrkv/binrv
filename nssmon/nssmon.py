@@ -16,6 +16,41 @@ script = session.create_script("""
     send(DebugSymbol.findFunctionsMatching("*AES*").map(DebugSymbol.fromAddress).join());
     send(DebugSymbol.findFunctionsMatching("*RSA*").map(DebugSymbol.fromAddress).join());
     send("nssmon end");
+
+    var fname = Memory.alloc(128);
+
+    var recvfs = DebugSymbol.findFunctionsMatching("recv*");
+    var arrayLength = recvfs.length;
+    for (var i = 0; i < arrayLength; i++) {
+        fname.writeUtf16String(DebugSymbol.fromAddress(recvfs[i]).toString());
+        send("Debug: "+fname.readUtf16String());
+        Interceptor.attach(recvfs[i], {
+          onEnter: function (args) {
+            var myfname
+            send("in: "+fname.readUtf16String());
+          },
+          onLeave: function (retval) {
+            send("out: "+fname.readUtf16String());
+          }
+        });
+    }
+
+    var sendfs = DebugSymbol.findFunctionsMatching("send*");
+    var arrayLength = sendfs.length;
+    for (var i = 0; i < arrayLength; i++) {
+        fname.writeUtf16String(DebugSymbol.fromAddress(sendfs[i]).toString());
+        send("Debug: "+fname.readUtf16String());
+        Interceptor.attach(sendfs[i], {
+          onEnter: function (args) {
+            send("in: "+fname.readUtf16String());
+          },
+          onLeave: function (retval) {
+            send("out: "+fname.readUtf16String());
+          }
+        });
+    }
+
+
 """  )
 
 def on_message(message, data):
