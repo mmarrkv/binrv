@@ -3,8 +3,8 @@ import frida
 import sys
 
 """
-Argument must the pid of chrome's Utility: Network Service process. Check it out from Shift+Esc
-
+Cmdline argument: pid of chrome's Utility: Network Service process. Check it out from Shift+Esc
+Requires: Replacing /usr/lib/x86_64-linux-gnu/nss/libfreeblpriv3.so with one re-compiled with debug symbols
 """
 
 session = frida.attach(int(sys.argv[1]))
