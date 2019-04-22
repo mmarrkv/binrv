@@ -23,7 +23,6 @@ script = session.create_script("""
         send("Debug: "+DebugSymbol.fromAddress(recvfs[i]).toString());
         Interceptor.attach(recvfs[i], {
           onEnter: function (args) {
-            var myfname
             send("in: recv*");
           },
           onLeave: function (retval) {
@@ -66,7 +65,11 @@ script = session.create_script("""
         send("Debug: "+DebugSymbol.fromAddress(rsafs[i]).toString());
         Interceptor.attach(rsafs[i], {
           onEnter: function (args) {
-            send("in: *RSA*");
+            send("in: *RSA* ");
+            var nparray = Thread.backtrace(this.context, Backtracer.ACCURATE);
+            for (var j = 0; j < nparray.length; j++) {
+                send(DebugSymbol.fromAddress(nparray[j]));
+            }
           },
           onLeave: function (retval) {
             send("out: *RSA*");
@@ -84,6 +87,20 @@ script = session.create_script("""
           },
           onLeave: function (retval) {
             send("out: *DH_*");
+          }
+        });
+    }
+
+    var rdfs = DebugSymbol.findFunctionsMatching("*rijndael*");
+    var arrayLength = rdfs.length;
+    for (var i = 0; i < arrayLength; i++) {
+        send("Debug: "+DebugSymbol.fromAddress(rdfs[i]).toString());
+        Interceptor.attach(rdfs[i], {
+          onEnter: function (args) {
+            send("in: *rijndael*");
+          },
+          onLeave: function (retval) {
+            send("out: *rijndael*");
           }
         });
     }
