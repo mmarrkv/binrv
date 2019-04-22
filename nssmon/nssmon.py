@@ -105,6 +105,21 @@ script = session.create_script("""
         });
     }
 
+    var pkfs = DebugSymbol.findFunctionsMatching("PK11_*");
+    var arrayLength = pkfs.length;
+    for (var i = 0; i < arrayLength; i++) {
+        send("Debug: "+DebugSymbol.fromAddress(pkfs[i]).toString());
+        Interceptor.attach(pkfs[i], {
+          onEnter: function (args) {
+            send("in: PK_*");
+          },
+          onLeave: function (retval) {
+            send("out: PK_*");
+          }
+        });
+
+    }
+
 
 """  )
 
