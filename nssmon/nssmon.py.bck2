@@ -1,0 +1,222 @@
+from __future__ import print_function
+import frida
+import sys
+
+"""
+Cmdline argument: pid of chrome's Utility: Network Service process. Check it out from Shift+Esc
+Requires: Replacing /usr/lib/x86_64-linux-gnu/nss/libfreeblpriv3.so with one re-compiled with debug symbols
+"""
+
+session = frida.attach(int(sys.argv[1]))
+script = session.create_script("""
+    send("nssmon DBI start");
+
+    var faddr = DebugSymbol.findFunctionsMatching("recv");
+    var arrayLength = faddr.length;
+    for (var i = 0; i < arrayLength; i++) {
+        send("Debug: "+DebugSymbol.fromAddress(faddr[i]));
+        Interceptor.attach(faddr[i], {
+          onEnter: function (args) {
+            send("in: recv");
+          },
+          onLeave: function (retval) {
+            send("out: recv");
+          }
+        });
+    }
+
+    var faddr = DebugSymbol.findFunctionsMatching("recvfrom");
+    var arrayLength = faddr.length;
+    for (var i = 0; i < arrayLength; i++) {
+        send("Debug: "+DebugSymbol.fromAddress(faddr[i]));
+        Interceptor.attach(faddr[i], {
+          onEnter: function (args) {
+            send("in: recvfrom");
+          },
+          onLeave: function (retval) {
+            send("out: recvfrom");
+          }
+        });
+    }
+
+    var faddr = DebugSymbol.findFunctionsMatching("recvmsg");
+    var arrayLength = faddr.length;
+    for (var i = 0; i < arrayLength; i++) {
+        send("Debug: "+DebugSymbol.fromAddress(faddr[i]));
+        Interceptor.attach(faddr[i], {
+          onEnter: function (args) {
+            send("in: recvmsg");
+          },
+          onLeave: function (retval) {
+            send("out: recvmsg");
+          }
+        });
+    }
+
+
+    var faddr = DebugSymbol.findFunctionsMatching("read");
+    var arrayLength = faddr.length;
+    for (var i = 0; i < arrayLength; i++) {
+        send("Debug: "+DebugSymbol.fromAddress(faddr[i]));
+        Interceptor.attach(faddr[i], {
+          onEnter: function (args) {
+            send("in: read");
+          },
+          onLeave: function (retval) {
+            send("out: read");
+          }
+        });
+    }
+
+    var faddr = DebugSymbol.findFunctionsMatching("write");
+    var arrayLength = faddr.length;
+    for (var i = 0; i < arrayLength; i++) {
+        send("Debug: "+DebugSymbol.fromAddress(faddr[i]));
+        Interceptor.attach(faddr[i], {
+          onEnter: function (args) {
+            send("in: write");
+          },
+          onLeave: function (retval) {
+            send("out: write");
+          }
+        });
+    }
+
+    var faddr = DebugSymbol.findFunctionsMatching("send");
+    var arrayLength = faddr.length;
+    for (var i = 0; i < arrayLength; i++) {
+        send("Debug: "+DebugSymbol.fromAddress(faddr[i]));
+        Interceptor.attach(faddr[i], {
+          onEnter: function (args) {
+            send("in: send");
+          },
+          onLeave: function (retval) {
+            send("out: send");
+          }
+        });
+    }
+
+    var faddr = DebugSymbol.findFunctionsMatching("sendto");
+    var arrayLength = faddr.length;
+    for (var i = 0; i < arrayLength; i++) {
+        send("Debug: "+DebugSymbol.fromAddress(faddr[i]));
+        Interceptor.attach(faddr[i], {
+          onEnter: function (args) {
+            send("in: sendto");
+          },
+          onLeave: function (retval) {
+            send("out: sendto");
+          }
+        });
+    }
+
+    var faddr = DebugSymbol.findFunctionsMatching("sendmsg");
+    var arrayLength = faddr.length;
+    for (var i = 0; i < arrayLength; i++) {
+        send("Debug: "+DebugSymbol.fromAddress(faddr[i]));
+        Interceptor.attach(faddr[i], {
+          onEnter: function (args) {
+            send("in: sendmsg");
+          },
+          onLeave: function (retval) {
+            send("out: sendmsg");
+          }
+        });
+    }
+
+
+
+    var faddr = DebugSymbol.findFunctionsMatching("DH_NewKey");
+    var arrayLength = faddr.length;
+    for (var i = 0; i < arrayLength; i++) {
+        send("Debug: "+DebugSymbol.fromAddress(faddr[i]));
+        Interceptor.attach(faddr[i], {
+          onEnter: function (args) {
+            send("in: DH_NewKey");
+          },
+          onLeave: function (retval) {
+            send("out: DH_NewKey");
+          }
+        });
+    }
+
+    var faddr = DebugSymbol.findFunctionsMatching("ECDH_Derive");
+    var arrayLength = faddr.length;
+    for (var i = 0; i < arrayLength; i++) {
+        send("Debug: "+DebugSymbol.fromAddress(faddr[i]));
+        Interceptor.attach(faddr[i], {
+          onEnter: function (args) {
+            send("in: ECDH_Derive");
+          },
+          onLeave: function (retval) {
+            send("out: ECDH_Derive");
+          }
+        });
+    }
+
+    var faddr = DebugSymbol.findFunctionsMatching("DH_Derive");
+    var arrayLength = faddr.length;
+    for (var i = 0; i < arrayLength; i++) {
+        send("Debug: "+DebugSymbol.fromAddress(faddr[i]));
+        Interceptor.attach(faddr[i], {
+          onEnter: function (args) {
+            send("in: DH_Derive");
+          },
+          onLeave: function (retval) {
+            send("out: DH_Derive");
+          }
+        });
+    }
+
+
+    var faddr = DebugSymbol.findFunctionsMatching("DH_GenParam");
+    var arrayLength = faddr.length;
+    for (var i = 0; i < arrayLength; i++) {
+        send("Debug: "+DebugSymbol.fromAddress(faddr[i]));
+        Interceptor.attach(faddr[i], {
+          onEnter: function (args) {
+            send("in: DH_GenParam");
+          },
+          onLeave: function (retval) {
+            send("out: DH_GenParam");
+          }
+        });
+    }
+
+    var faddr = DebugSymbol.findFunctionsMatching("AES_Encrypt");
+    var arrayLength = faddr.length;
+    for (var i = 0; i < arrayLength; i++) {
+        send("Debug: "+DebugSymbol.fromAddress(faddr[i]));
+        Interceptor.attach(faddr[i], {
+          onEnter: function (args) {
+            send("in: AES_Encrypt");
+          },
+          onLeave: function (retval) {
+            send("out: AES_Encrypt");
+          }
+        });
+    }
+
+    var faddr = DebugSymbol.findFunctionsMatching("AES_Decrypt");
+    var arrayLength = faddr.length;
+    for (var i = 0; i < arrayLength; i++) {
+        send("Debug: "+DebugSymbol.fromAddress(faddr[i]));
+        Interceptor.attach(faddr[i], {
+          onEnter: function (args) {
+            send("in: AES_Decrypt");
+          },
+          onLeave: function (retval) {
+            send("out: AES_Decrypt");
+          }
+        });
+    }
+
+    send("nssmon DBI end");
+
+"""  )
+
+def on_message(message, data):
+    print(message)
+script.on('message', on_message)
+script.load()
+sys.stdin.read()
