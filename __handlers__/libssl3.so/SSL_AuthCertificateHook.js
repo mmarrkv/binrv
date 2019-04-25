@@ -21,6 +21,7 @@
    */
   onEnter: function (log, args, state) {
     log('SSL_AuthCertificateHook()');
+    log('fd:'+args[0]);
   },
 
   /**
@@ -34,5 +35,6 @@
    * @param {object} state - Object allowing you to keep state across function calls.
    */
   onLeave: function (log, retval, state) {
+    log('ret:'+retval);
   }
 }
