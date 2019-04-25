@@ -14,57 +14,11 @@ script = session.create_script("""
     send("Debug: "+Process.id);
     send("Debug: "+Process.getCurrentThreadId());
 
-    var threads = Process.enumerateThreadsSync();
-    for (var i = 0; i < threads.length; i++) {
-        send("Debug: "+threads[i].id);
-    }
 
     var modules = Process.enumerateModules();
     for (var i = 0; i < modules.length; i++) {
         send("Debug: "+modules[i].name);
     }
-
-
-    var np_prconnect = DebugSymbol.getFunctionByName('PR_Connect');
-    send("Debug: PR_Connect@"+np_prconnect);
-    var res = Interceptor.attach(np_prconnect, {
-      onEnter: function (args) {
-        send("in: PR_Connect "+this.threadId);
-        send("fd="+args[0]);
-      },
-      onLeave: function (retval) {
-        send("out: PR_Connect "+this.threadId);
-      }
-    });
-    send("Debug: PR_Connect attach res"+res.toString());
-
-
-    var np_prshutdown = DebugSymbol.getFunctionByName('PR_Shutdown');
-    send("Debug: PR_Shutdown@"+np_prshutdown);
-    var res = Interceptor.attach(np_prshutdown, {
-      onEnter: function (args) {
-        send("in: PR_Shutdown "+this.threadId);
-        send("fd="+args[0]);
-      },
-      onLeave: function (retval) {
-        send("out: PR_Shutdown "+this.threadId);
-      }
-    });
-    send("Debug: PR_Shutdown attach res"+res.toString());
-
-
-    var np_prclose = DebugSymbol.getFunctionByName('PR_Close');
-    send("Debug: PR_Close@"+np_prclose);
-    var res = Interceptor.attach(np_prclose, {
-      onEnter: function (args) {
-        send("in: PR_Close "+this.threadId);
-        send("fd="+args[0]);
-      },
-      onLeave: function (retval) {
-        send("out: PR_Close "+this.threadId);
-      }
-    });
-    send("Debug: PR_Close attach res"+res.toString());
 
 
     var np_sslimportfd = DebugSymbol.getFunctionByName('SSL_ImportFD');
@@ -79,18 +33,19 @@ script = session.create_script("""
       }
     });
 
-
-
-    var np_prnewtcpsocket = DebugSymbol.getFunctionByName('PR_NewTCPSocket');
-    send("Debug: PR_NewTCPSocket@"+np_prnewtcpsocket);
-    Interceptor.attach(np_prnewtcpsocket, {
+    var np_prconnect = DebugSymbol.getFunctionByName('PR_Connect');
+    send("Debug: PR_Connect@"+np_prconnect);
+    var res = Interceptor.attach(np_prconnect, {
       onEnter: function (args) {
-        send("in: PR_NewTCPSocket "+this.threadId);
+        send("in: PR_Connect "+this.threadId);
+        send("fd="+args[0]);
       },
       onLeave: function (retval) {
-        send("out: PR_NewTCPSocket "+this.threadId);
+        send("out: PR_Connect "+this.threadId);
       }
     });
+    send("Debug: PR_Connect attach res"+res.toString());
+
 
     var np_prsend = DebugSymbol.getFunctionByName('PR_Send');
     send("Debug: PR_Send@"+np_prsend);
@@ -139,8 +94,35 @@ script = session.create_script("""
       }
     });
 
+
+    var np_prshutdown = DebugSymbol.getFunctionByName('PR_Shutdown');
+    send("Debug: PR_Shutdown@"+np_prshutdown);
+    var res = Interceptor.attach(np_prshutdown, {
+      onEnter: function (args) {
+        send("in: PR_Shutdown "+this.threadId);
+        send("fd="+args[0]);
+      },
+      onLeave: function (retval) {
+        send("out: PR_Shutdown "+this.threadId);
+      }
+    });
+    send("Debug: PR_Shutdown attach res"+res.toString());
+
+
+    var np_prclose = DebugSymbol.getFunctionByName('PR_Close');
+    send("Debug: PR_Close@"+np_prclose);
+    var res = Interceptor.attach(np_prclose, {
+      onEnter: function (args) {
+        send("in: PR_Close "+this.threadId);
+        send("fd="+args[0]);
+      },
+      onLeave: function (retval) {
+        send("out: PR_Close "+this.threadId);
+      }
+    });
+    send("Debug: PR_Close attach res"+res.toString());
+
     
-    Interceptor.flush();
     send("nssmon init end");
 
 """  )
