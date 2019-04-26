@@ -1,0 +1,9 @@
+rule CompleteConnection
+{
+    strings:
+        $prconnect = "PR_Connect()"
+        $prclose = "PR_Close()"
+
+    condition:
+        $prconnect and $prclose
+}
