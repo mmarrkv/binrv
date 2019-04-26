@@ -1,9 +1,8 @@
-rule CompleteConnection
+rule fds
 {
     strings:
-        $prconnect = "PR_Connect()"
-        $prclose = "PR_Close()"
+        $sslimport = /SSL_ImportFD\(\)(\s|\S)+?ret:(\S)+?\s/
 
     condition:
-        $prconnect and $prclose
+        $sslimport
 }
