@@ -20,8 +20,8 @@
    * use "this" which is an object for keeping state local to an invocation.
    */
   onEnter: function (log, args, state) {
-    log('SECKEY_DestroyPrivateKey()');
-    log('privk:'+args[0]+'::'+hexdump(ptr(args[0]),{length:4,header:false,ansi:false}));
+    log('0x'+Process.getCurrentThreadId().toString(16)+' SECKEY_DestroyPrivateKey()');
+    log('0x'+Process.getCurrentThreadId().toString(16)+' privk:'+args[0]+'::'+hexdump(ptr(args[0]),{length:4,header:false,ansi:false}));
     this.privk=args[0];
   },
 
@@ -36,6 +36,6 @@
    * @param {object} state - Object allowing you to keep state across function calls.
    */
   onLeave: function (log, retval, state) {
-    log('privk:'+this.privk+'::'+hexdump(ptr(this.privk),{length:4,header:false,ansi:false}));
+    log('0x'+Process.getCurrentThreadId().toString(16)+' privk:'+this.privk+'::'+hexdump(ptr(this.privk),{length:4,header:false,ansi:false}));
   }
 }

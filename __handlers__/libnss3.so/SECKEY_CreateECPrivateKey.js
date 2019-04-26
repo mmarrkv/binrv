@@ -20,8 +20,8 @@
    * use "this" which is an object for keeping state local to an invocation.
    */
   onEnter: function (log, args, state) {
-    log('SECKEY_CreateECPrivateKey()');
-    log('cx:'+args[2]);
+    log('0x'+Process.getCurrentThreadId().toString(16)+' SECKEY_CreateECPrivateKey()');
+    log('0x'+Process.getCurrentThreadId().toString(16)+' cx:'+args[2]);
   },
 
   /**
@@ -35,6 +35,6 @@
    * @param {object} state - Object allowing you to keep state across function calls.
    */
   onLeave: function (log, retval, state) {
-    log('ret:'+retval+'::'+hexdump(ptr(retval),{length:4,header:false,ansi:false}));
+    log('0x'+Process.getCurrentThreadId().toString(16)+' ret:'+retval+'::'+hexdump(ptr(retval),{length:4,header:false,ansi:false}));
   }
 }

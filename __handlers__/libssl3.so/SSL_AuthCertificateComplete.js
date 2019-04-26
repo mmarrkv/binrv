@@ -20,9 +20,9 @@
    * use "this" which is an object for keeping state local to an invocation.
    */
   onEnter: function (log, args, state) {
-    log('SSL_AuthCertificateComplete()');
-    log('fd:'+args[0]);
-    log('err:'+args[1]);
+    log('0x'+Process.getCurrentThreadId().toString(16)+' SSL_AuthCertificateComplete()');
+    log('0x'+Process.getCurrentThreadId().toString(16)+' fd:'+args[0]);
+    log('0x'+Process.getCurrentThreadId().toString(16)+' err:'+args[1]);
   },
 
   /**

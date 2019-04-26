@@ -20,7 +20,7 @@
    * use "this" which is an object for keeping state local to an invocation.
    */
   onEnter: function (log, args, state) {
-    log('_ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()');
+    log('0x'+Process.getCurrentThreadId().toString(16)+' _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()');
   },
 
   /**
@@ -34,6 +34,6 @@
    * @param {object} state - Object allowing you to keep state across function calls.
    */
   onLeave: function (log, retval, state) {
-	log('ret:'+retval);
+	log('0x'+Process.getCurrentThreadId().toString(16)+' ret:'+retval);
   }
 }

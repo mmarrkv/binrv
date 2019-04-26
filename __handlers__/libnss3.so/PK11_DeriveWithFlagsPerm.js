@@ -20,7 +20,7 @@
    * use "this" which is an object for keeping state local to an invocation.
    */
   onEnter: function (log, args, state) {
-    log('PK11_DeriveWithFlagsPerm()');
+    log('0x'+Process.getCurrentThreadId().toString(16)+' PK11_DeriveWithFlagsPerm()');
   },
 
   /**

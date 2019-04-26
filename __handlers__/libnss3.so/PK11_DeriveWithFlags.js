@@ -20,8 +20,8 @@
    * use "this" which is an object for keeping state local to an invocation.
    */
   onEnter: function (log, args, state) {
-    log('PK11_DeriveWithFlags()');
-    log('basekey:'+args[0]);
+    log('0x'+Process.getCurrentThreadId().toString(16)+' PK11_DeriveWithFlags()');
+    log('0x'+Process.getCurrentThreadId().toString(16)+' basekey:'+args[0]);
   },
 
   /**
@@ -35,6 +35,6 @@
    * @param {object} state - Object allowing you to keep state across function calls.
    */
   onLeave: function (log, retval, state) {
-    log('ret:'+retval);
+    log('0x'+Process.getCurrentThreadId().toString(16)+' ret:'+retval);
   }
 }

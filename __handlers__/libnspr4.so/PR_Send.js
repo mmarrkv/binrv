@@ -20,8 +20,8 @@
    * use "this" which is an object for keeping state local to an invocation.
    */
   onEnter: function (log, args, state) {
-    log('PR_Send()');
-    log('fd'+args[0]);
+    log('0x'+Process.getCurrentThreadId().toString(16)+' PR_Send()');
+    log('0x'+Process.getCurrentThreadId().toString(16)+' fd'+args[0]);
   },
 
   /**
