@@ -21,6 +21,7 @@
    */
   onEnter: function (log, args, state) {
     log('PR_Close()');
+    log('fd:'+args[0]);
   },
 
   /**

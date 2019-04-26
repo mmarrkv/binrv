@@ -21,6 +21,7 @@
    */
   onEnter: function (log, args, state) {
     log('PK11_Encrypt()');
+    log('symkey:'+args[0]);
   },
 
   /**

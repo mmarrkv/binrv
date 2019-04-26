@@ -35,6 +35,6 @@
    * @param {object} state - Object allowing you to keep state across function calls.
    */
   onLeave: function (log, retval, state) {
-    log('ret:'+hexdump(ptr(retval),{length:4,header:false,ansi:false}));
+    log('ret:'+retval+'::'+hexdump(ptr(retval),{length:4,header:false,ansi:false}));
   }
 }

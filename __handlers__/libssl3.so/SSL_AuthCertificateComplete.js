@@ -21,6 +21,8 @@
    */
   onEnter: function (log, args, state) {
     log('SSL_AuthCertificateComplete()');
+    log('fd:'+args[0]);
+    log('err:'+args[1]);
   },
 
   /**
