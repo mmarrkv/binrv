@@ -1,0 +1,9 @@
+rule connectfd
+{
+    strings:
+        $prconnectfd = /PR_Connect\(\)(\s|\S)+?fd:0x7fd9ae3ea940\s/
+
+    condition:
+        $prconnectfd
+
+}

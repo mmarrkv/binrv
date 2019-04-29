@@ -1,0 +1,8 @@
+rule fds
+{
+    strings:
+        $prclose = /SSL_ImportFD\(\)(\s|\S)+?ret:(\S)+?\s/
+
+    condition:
+        $prclose
+}
