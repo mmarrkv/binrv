@@ -1,9 +1,8 @@
 rule fds
 {
     strings:
-        $sslimport = /SSL_ImportFD\(\)(\s|\S)+?ret:(\S)+?\s/
         $sslauthcertcompl = /SSL_AuthCertificateComplete\(\)(\s|\S)+?fd:(\S)+?\s/
 
     condition:
-        $sslimport or $sslauthcertcompl
+        $sslauthcertcompl
 }

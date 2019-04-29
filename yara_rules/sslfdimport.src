@@ -1,0 +1,8 @@
+rule fds
+{
+    strings:
+        $sslimport = /SSL_ImportFD\(\)(\s|\S)+?ret:(\S)+?\s/
+
+    condition:
+        $sslimport
+}
