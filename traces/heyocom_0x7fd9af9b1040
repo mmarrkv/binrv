@@ -22,16 +22,3 @@
   2531 ms     | 0x813 PK11_Encrypt()
   2531 ms     | 0x813 symkey:0x7fd9b1ffef00
            /* TID 0x81d */
-  3230 ms  0x813 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
-  3230 ms  0x813 ret:0x0
-  3340 ms  0x11e8 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
-  3341 ms  0x11e8 ret:0x0
-           /* TID 0x813 */
-  3852 ms  0x11e8 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
-  3853 ms  0x11e8 ret:0x0
-           /* TID 0x813 */
-  4255 ms  0x813 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
-  4260 ms  0x813 ret:0x0
-  4283 ms  0x11e8 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
-  4283 ms  0x11e8 ret:0x0
-           /* TID 0x813 */

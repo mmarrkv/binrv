@@ -52,19 +52,30 @@ for thisfd in fds:
 
     recordsfd = []
 
-    #3a) eliminate all records having a different fd, anywhere!
+    #3a) eliminate all records having a different fd, as well as this falling prior/subsequent to the SSL_ImportFD() - PR_Close() range <<<<<<<<<<
+    startfound=0
+    endreached=0
     for currentrec in records:
         currentrecstr = ''.join(currentrec)
-        matchObj = re.match( r'.*?fd:(.*?)\s', currentrecstr, re.I|re.S)
-        if  matchObj and matchObj.group(1)==thisfd:
-            print('match appending'+currentrecstr+' for current fd: '+thisfd)
-            recordsfd.append(currentrec)
-        elif not(matchObj):
-            print('not match appending'+currentrecstr+' for current fd: '+thisfd)
-            recordsfd.append(currentrec)
+        matchObj1 = re.match( r'.*?SSL_ImportFD.*?ret:'+thisfd, currentrecstr, re.I|re.S)        
+        if matchObj1:
+            print("startfound")
+            startfound=1
+        if startfound:
+            matchObj3 = re.match( r'.*?fd:(.*?)\s', currentrecstr, re.I|re.S)
+            if  matchObj3 and matchObj3.group(1)==thisfd:
+                print('match appending'+currentrecstr+' for current fd: '+thisfd)
+                recordsfd.append(currentrec)
+            elif not(matchObj3):
+                print('not match appending'+currentrecstr+' for current fd: '+thisfd)
+                recordsfd.append(currentrec)
+            matchObj4 = re.match( r'.*?PR_Close.*?fd:'+thisfd, currentrecstr, re.I|re.S)        
+            if matchObj4:
+                break
+
+    #sys.exit("Debug")
 
     #3b) extract session keywords for current fd
-
 
     # set keywords to contain just the current fd 
     keywds = [thisfd]    
