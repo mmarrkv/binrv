@@ -14,7 +14,7 @@ records = []
 fds = []
 keywds = []
 
-#tokenization
+#1) tokenization into records
 for line in fp:
     #print(line)
     matchObj1 = re.match( r'.*\(\).*', line, re.I)
@@ -32,7 +32,10 @@ for line in fp:
 
 fp.close()
 
-#xtract fds from SSL_ImportFD calls
+#pop first element: that is just the initial frida-trace info
+records.pop(0)
+
+#2) xtract fds from SSL_ImportFD calls
 for currentrec in records:
     print(currentrec) #debug
     matchObj1 = re.match( r'.*SSL_ImportFD.*', currentrec[0], re.I)
@@ -42,17 +45,65 @@ for currentrec in records:
 
 print(fds) #debug
 
-# per fd: 
+
+
+#3) per fd: 
 for thisfd in fds:
 
-    # set keywords to contain just the current fd + reset breakflag
+    recordsfd = []
+
+    #3a) eliminate all records having a different fd, anywhere!
+    for currentrec in records:
+        currentrecstr = ''.join(currentrec)
+        matchObj = re.match( r'.*?fd:(.*?)\s', currentrecstr, re.I|re.S)
+        if  matchObj and matchObj.group(1)==thisfd:
+            print('match appending'+currentrecstr+' for current fd: '+thisfd)
+            recordsfd.append(currentrec)
+        elif not(matchObj):
+            print('not match appending'+currentrecstr+' for current fd: '+thisfd)
+            recordsfd.append(currentrec)
+
+    #3b) extract session keywords for current fd
+
+
+    # set keywords to contain just the current fd 
     keywds = [thisfd]    
+
+    # traverse all records a first time (for look-aheads) and populate other keywords except for further fd's or args of different fds:
+    for currentrec in recordsfd:
+        breakflag = 0
+        # iterate all fields of current rec
+        for field in currentrec:
+            # try matching all current keys
+            for key in keywds:
+                matchObj1 = re.match( r'.*'+key+r'.*', field, re.I)
+                matchObj2 = re.match( r'.*VerifySignedData.*', field, re.I)
+                #on match:
+                if matchObj1 or matchObj2:
+                    breakflag=1
+                    break
+            if breakflag:
+                print("hello") #debug
+                for field in currentrec:
+                    print("field"+field) #debug
+                    matchObj3 = re.match( r'.*:(0x.{10,}?)(\s|:)', field, re.I)
+                    if matchObj3:
+                        print("match") #debug
+                        if keywds.count(matchObj3.group(1))<1:
+                            keywds.append(matchObj3.group(1))
+                        print('keywds:') #debug
+                        print(keywds) #debug
+                        print('') #debug
+                break
+
+
+    #3c) use previous keywords in order to extract subtraces for current fd + continue accumulating keywords (again, no futher fds or args of different fds)
 
     # open in write-mode tracefile_fd
     fpout = open(sys.argv[1]+'_'+thisfd, "w")
 
-    # traverse all records:
-    for currentrec in records:
+    # re-traverse all records:
+    for currentrec in recordsfd:
         breakflag = 0
         # iterate all fields of current rec
         for field in currentrec:
@@ -69,17 +120,17 @@ for thisfd in fds:
                 print("hello") #debug
                 for field in currentrec:
                     print("field"+field) #debug
-                    matchObj3 = re.match( r'.*:(.{8,}?)\s', field, re.I)
+                    matchObj3 = re.match( r'.*:(0x.{10,}?)(\s|:)', field, re.I)
                     if matchObj3:
                         print("match") #debug
-                        keywds.append(matchObj3.group(1))
+                        if keywds.count(matchObj3.group(1))<1:
+                            keywds.append(matchObj3.group(1))
                         print('keywds:') #debug
                         print(keywds) #debug
                         print('') #debug
                 break
 
+
      # close current trace file
     fpout.close()
-
-
 
