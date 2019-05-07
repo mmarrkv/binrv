@@ -52,7 +52,7 @@ for thisfd in fds:
 
     recordsfd = []
 
-    #3a) eliminate all records having a different fd, as well as this falling prior/subsequent to the SSL_ImportFD() - PR_Close() range <<<<<<<<<<
+    #3a) eliminate all records having a different fd, as well as those falling prior/subsequent to the SSL_ImportFD() - PR_Close() range 
     startfound=0
     endreached=0
     for currentrec in records:
@@ -80,7 +80,7 @@ for thisfd in fds:
     # set keywords to contain just the current fd 
     keywds = [thisfd]    
 
-    # traverse all records a first time (for look-aheads) and populate other keywords except for further fd's or args of different fds:
+    # traverse all records a first time (for look-aheads) and populate other keywords (except for further fd's or args of different fds):
     for currentrec in recordsfd:
         breakflag = 0
         # iterate all fields of current rec
