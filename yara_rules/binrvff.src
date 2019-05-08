@@ -1,7 +1,9 @@
 /*
 
-[SSL_ImportFD()ret:__x__][]*[PR_Connect()fd:__x__][]*[SSL_AuthCertificateComplete()ret:!0x0][]*[PK11_Encrypt()] → REJECT
-[SSL_ImportFD()ret:__x__][]*[PR_Connect()fd:__x__][]*[SSL_AuthCertificateComplete()ret:!0x0]![PK11_Encrypt()]*[PR_Close()fd:__x__] → ACCEPT
+Assumes subtraces already in place as per taint inferene policy based on taint_vars set
+
+[SSL_ImportFD()ret:][]*[PR_Connect()fd:][]*[SSL_AuthCertificateComplete()ret:!0x0][]*[PK11_Encrypt()] → REJECT
+[SSL_ImportFD()ret:][]*[PR_Connect()fd:][]*[SSL_AuthCertificateComplete()ret:!0x0]![PK11_Encrypt()]*[PR_Close()fd:] → ACCEPT
 
 */
 
