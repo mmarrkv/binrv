@@ -1,0 +1,49 @@
+/*
+
+The larva code below encode the following 2 regular expressions:
+
+Assumes subtraces already in place as per taint inferene policy based on taint_vars set
+
+[SSL_ImportFD()ret:][]*[PR_Connect()fd:][]*[SSL_AuthCertificateComplete()ret:!0x0][]*[PK11_Encrypt()] → REJECT
+[SSL_ImportFD()ret:][]*[PR_Connect()fd:][]*[SSL_AuthCertificateComplete()ret:!0x0]![PK11_Encrypt()]*[PR_Close()fd:] → ACCEPT
+
+*/
+
+
+Global{
+  
+  Foreach (Connection c) {
+
+    Events {
+      sslimport() = {SSL_ImportFD(Connection c1)} 
+                      Where {c=c1;}        
+      prconnect() = {PR_Connect(Connection c1)} 
+                      Where {c=c1;}
+      sslauthcertcompl() = {SSL_AuthCertificateComplete(Connection c1, Error err)} 
+                      Where {c=c1;} Filter (err != 0x0)
+      pk11encrypt() = {PK11_Encrypt(Connection c1)}
+                      Where {c=c1;}
+      /*not sure the following means  /[^\|] 0x[^\n]+?PK11_Encrypt/ */
+      prclose() = {PR_Close(Connection c1)} 
+                    Where {c=c1;}
+    }
+
+   Property wrongcert {
+
+     States {
+       Bad {wrongcert}
+       Accepting {ok}
+       Normal {import, connect,sslauthcertcompl }
+       Starting {start}
+     }
+
+     Transitions {
+       start -> import [sslimport]
+       import -> connect [prconnect]
+       connect -> sslauthcertcompl [authcomp]
+       sslauthcertcompl -> ok [prclose]
+       sslauthcertcompl -> wrongcert [pk11encrypt]
+     }
+   }
+  } 
+}
