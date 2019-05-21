@@ -1,0 +1,34 @@
+/*
+
+Assumes subtraces already in place as per taint inferene policy based on taint_vars set
+
+[SSL_ImportFD()ret:][]*[PR_Connect()fd:][]*[SSL_AuthCertificateComplete()ret:!0x0][]*[PK11_Encrypt()] → REJECT
+[SSL_ImportFD()ret:][]*[PR_Connect()fd:][]*[SSL_AuthCertificateComplete()ret:!0x0]![PK11_Encrypt()]*[PR_Close()fd:] → ACCEPT
+
+*/
+
+rule wrongcert_ok
+{
+    strings:
+        $sslimport = /SSL_ImportFD/          
+        $prconnect =  /PR_Connect/
+        $sslauthcertcompl = /SSL_AuthCertificateComplete[\s\S]+?err:0x[\s\S]*?[^0]/
+        $prclose = /PR_Close/
+
+    condition:
+        $sslimport and $prconnect and $sslauthcertcompl and $prclose
+}
+
+
+rule wrongcert_bad
+{
+    strings:
+        $sslimport = /SSL_ImportFD/          
+        $prconnect =  /PR_Connect/
+        $sslauthcertcompl = /SSL_AuthCertificateComplete[\s\S]+?err:0x[\s\S]*?[^0]/
+        $pk11encrypt = /[^\|] 0x[^\n]+?PK11_Encrypt/
+        $prclose = /PR_Close/
+
+    condition:
+        $sslimport and $prconnect and $sslauthcertcompl and $pk11encrypt and $prclose and @sslimport[1] < @prconnect[1] and @prconnect[1] < @sslauthcertcompl[1] and @sslauthcertcompl[1] < @prclose[1] and @sslauthcertcompl[1] < @pk11encrypt
+}
