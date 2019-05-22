@@ -5,54 +5,52 @@ Assumes subtraces already in place as per taint inferene policy based on taint_v
 */
 
 
-// Property 1
-rule wrongcert_accept
-{
-    strings:
-        $sslimport = /SSL_ImportFD/          
-        $prconnect =  /PR_Connect/
-        $sslauthcertcompl = /SSL_AuthCertificateComplete[\s\S]+?err:0xffffd00c/
-        $prclose = /PR_Close/
 
-    condition:
-        $sslimport and $prconnect and $sslauthcertcompl and $prclose  and @sslimport[1] < @prconnect[1] and @prconnect[1] < @sslauthcertcompl[1] and @sslauthcertcompl[1] < @prclose[1] 
-}
-
-
-rule wrongcert_bad
-{
-    strings:
-        $sslimport = /SSL_ImportFD/          
-        $prconnect =  /PR_Connect/
-        $sslauthcertcompl = /SSL_AuthCertificateComplete[\s\S]+?err:0xffffd00c/
-        $pk11encrypt = /[^\|] 0x[^\n]+?PK11_Encrypt/
-
-    condition:
-        $sslimport and $prconnect and $sslauthcertcompl and $pk11encrypt and @sslimport[1] < @prconnect[1] and @prconnect[1] < @sslauthcertcompl[1] and @sslauthcertcompl[1] < @pk11encrypt
-}
-
-// Property 2
+// Rule 1: newsession[Start] ->  server_connect[Normal] -> failed_cert_auth[Normal] -> abort[Accepting]
 rule certerr_accept
 {
     strings:
-        $sslimport = /SSL_ImportFD/          
-        $prconnect =  /PR_Connect/
-        $sslauthcertcompl = /SSL_AuthCertificateComplete[\s\S]+?err:0x[^0][0-9a-fA-F]+?\x0A/
-        $prclose = /PR_Close/
+        $newsession = /SSL_ImportFD/          
+        $server_connect =  /PR_Connect/
+        $failed_cert_auth = /SSL_AuthCertificateComplete[\s\S]+?err:0x[^0][0-9a-fA-F]+?\x0A/
+        $abort = /PR_Close[^\|]+\|[^\|]+DestroyPrivateKey/
 
     condition:
-        $sslimport and $prconnect and $sslauthcertcompl and $prclose  and @sslimport[1] < @prconnect[1] and @prconnect[1] < @sslauthcertcompl[1] and @sslauthcertcompl[1] < @prclose[1] 
+        $newsession and $server_connect and $failed_cert_auth and $abort  and @newsession[1] < @server_connect[1] and @server_connect[1] < @failed_cert_auth[1] and @failed_cert_auth[1] < @abort[1] 
 }
 
 
+// Rule 2: newsession[Start] ->  server_connect[Normal] -> failed_cert_auth[Normal] -> encrypted_comm[Bad]
 rule certerr_bad
 {
     strings:
-        $sslimport = /SSL_ImportFD/          
-        $prconnect =  /PR_Connect/
-        $sslauthcertcompl = /SSL_AuthCertificateComplete[\s\S]+?err:0x[^0][0-9a-fA-F]+?\x0A/
-        $pk11encrypt = /[^\|] 0x[^\n]+?PK11_Encrypt/
+        $newsession = /SSL_ImportFD/          
+        $server_connect =  /PR_Connect/
+        $failed_cert_auth = /SSL_AuthCertificateComplete[\s\S]+?err:0x[^0][0-9a-fA-F]+?\x0A/
+        $encrypted_comm = /[^\|] 0x[^\n]+?PK11_Encrypt/
 
     condition:
-        $sslimport and $prconnect and $sslauthcertcompl and $pk11encrypt and @sslimport[1] < @prconnect[1] and @prconnect[1] < @sslauthcertcompl[1] and @sslauthcertcompl[1] < @pk11encrypt
+        $newsession and $server_connect and $failed_cert_auth and @newsession[1] < @server_connect[1] and @server_connect[1] < @failed_cert_auth[1] and @failed_cert_auth[1] < @encrypted_comm[1] 
 }
+
+
+// Rule 3: newsession[Start] ->  server_connect[Normal] -> ecdhe_error[Normal] -> abort[Accepting]
+// ecdhe_error/success - SECStatus EC_ValidatePublicKey https://dxr.mozilla.org/mozilla-central/source/security/nss/lib/freebl/blapi.h#468
+
+
+// Rule 4: newsession[Start] ->  server_connect[Normal] -> ecdhe_error[Normal] -> encrypted_comm[Bad]
+
+
+// Rule 5: newsession[Start] ->  server_connect[Normal] -> ecdhe_success[Normal] -> scrub_priv_key -> encrypted_comm[Accepting]
+
+
+// Rule 6: newsession[Start] ->  server_connect[Normal] -> ecdhe_success[Normal] -> encrypted_comm[Bad]
+
+
+// Rule 7: newsession[Start] ->  server_connect[Normal] -> success_key_derive[Normal] -> encrypted_comm[Accepting]
+ 
+
+// Rule 8: newsession[Start] ->  server_connect[Normal] -> success_key_derive[Normal] -> abort[Bad]
+
+
+
