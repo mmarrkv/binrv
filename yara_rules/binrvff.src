@@ -11,7 +11,7 @@ rule wrongcert_accept
     strings:
         $sslimport = /SSL_ImportFD/          
         $prconnect =  /PR_Connect/
-        $sslauthcertcompl = /SSL_AuthCertificateComplete[\s\S]+?err:0x[^0][0-9a-fA-F]+?\x0A/
+        $sslauthcertcompl = /SSL_AuthCertificateComplete[\s\S]+?err:0xffffd00c/
         $prclose = /PR_Close/
 
     condition:
@@ -20,6 +20,32 @@ rule wrongcert_accept
 
 
 rule wrongcert_bad
+{
+    strings:
+        $sslimport = /SSL_ImportFD/          
+        $prconnect =  /PR_Connect/
+        $sslauthcertcompl = /SSL_AuthCertificateComplete[\s\S]+?err:0xffffd00c/
+        $pk11encrypt = /[^\|] 0x[^\n]+?PK11_Encrypt/
+
+    condition:
+        $sslimport and $prconnect and $sslauthcertcompl and $pk11encrypt and @sslimport[1] < @prconnect[1] and @prconnect[1] < @sslauthcertcompl[1] and @sslauthcertcompl[1] < @pk11encrypt
+}
+
+// Property 2
+rule certerr_accept
+{
+    strings:
+        $sslimport = /SSL_ImportFD/          
+        $prconnect =  /PR_Connect/
+        $sslauthcertcompl = /SSL_AuthCertificateComplete[\s\S]+?err:0x[^0][0-9a-fA-F]+?\x0A/
+        $prclose = /PR_Close/
+
+    condition:
+        $sslimport and $prconnect and $sslauthcertcompl and $prclose  and @sslimport[1] < @prconnect[1] and @prconnect[1] < @sslauthcertcompl[1] and @sslauthcertcompl[1] < @prclose[1] 
+}
+
+
+rule certerr_bad
 {
     strings:
         $sslimport = /SSL_ImportFD/          
