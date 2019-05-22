@@ -4,12 +4,14 @@ Assumes subtraces already in place as per taint inferene policy based on taint_v
 
 */
 
+
+// Property 1
 rule wrongcert_accept
 {
     strings:
         $sslimport = /SSL_ImportFD/          
         $prconnect =  /PR_Connect/
-        $sslauthcertcompl = /SSL_AuthCertificateComplete[\s\S]+?err:0x[^\n]*?[^0]/
+        $sslauthcertcompl = /SSL_AuthCertificateComplete[\s\S]+?err:0x[^0][0-9a-fA-F]+?\x0A/
         $prclose = /PR_Close/
 
     condition:
@@ -22,7 +24,7 @@ rule wrongcert_bad
     strings:
         $sslimport = /SSL_ImportFD/          
         $prconnect =  /PR_Connect/
-        $sslauthcertcompl = /SSL_AuthCertificateComplete[\s\S]+?err:0x[\S]*?[^0]/
+        $sslauthcertcompl = /SSL_AuthCertificateComplete[\s\S]+?err:0x[^0][0-9a-fA-F]+?\x0A/
         $pk11encrypt = /[^\|] 0x[^\n]+?PK11_Encrypt/
 
     condition:
