@@ -24,52 +24,34 @@ vaDeriveImage: Loaded handler at "/home/blockio/binrv/__handlers__/libva.so.2.10
 PK11_Encrypt: Loaded handler at "/home/blockio/binrv/__handlers__/libnss3.so/PK11_Encrypt.js"
 PR_Send: Loaded handler at "/home/blockio/binrv/__handlers__/libnspr4.so/PR_Send.js"
 PR_Close: Loaded handler at "/home/blockio/binrv/__handlers__/libnspr4.so/PR_Close.js"
-Started tracing 23 functions. Press Ctrl+C to stop.
-           /* TID 0x224f */
-   456 ms  0x224f SSL_ImportFD()
-   456 ms  0x224f ret:0x7ffa28e3e640
-   456 ms  0x224f SSL_AuthCertificateHook()
-   456 ms  0x224f fd:0x7ffa28e3e640
-   456 ms  0x224f ret:0x0
-   456 ms  0x224f PR_Connect()
-   456 ms  0x224f fd:0x7ffa28e3e640
-   505 ms  0x224f SSL_ImportFD()
-   505 ms  0x224f ret:0x7ffa2f469460
-   505 ms  0x224f SSL_AuthCertificateHook()
-   505 ms  0x224f fd:0x7ffa2f469460
-   505 ms  0x224f ret:0x0
-   505 ms  0x224f PR_Connect()
-   505 ms  0x224f fd:0x7ffa2f469460
-   604 ms  0x224f SECKEY_CreateECPrivateKey()
-   604 ms  0x224f cx:0x7ffa1fd13948
-   604 ms  0x224f ret:0x7ffa23f3a820::7ffa23f3a820  60 c0 3d 24                                      `.=$
-   604 ms  0x224f SECKEY_CreateECPrivateKey()
-   604 ms  0x224f cx:0x7ffa1fd13948
-   606 ms  0x224f ret:0x7ffa23f46820::7ffa23f46820  a0 31 71 24                                      .1q$
-   651 ms  0x224f SECKEY_CreateECPrivateKey()
-   651 ms  0x224f cx:0x7ffa1fd13ae8
-   651 ms  0x224f ret:0x7ffa24388820::7ffa24388820  50 a1 71 24                                      P.q$
-   651 ms  0x224f SECKEY_CreateECPrivateKey()
-   651 ms  0x224f cx:0x7ffa1fd13ae8
-   653 ms  0x224f ret:0x7ffa2438c020::7ffa2438c020  c0 a4 71 24                                      ..q$
-   755 ms  0x224f PR_Close()
-   755 ms  0x224f fd:0x7ffa28e3e640
-   755 ms     | 0x224f SECKEY_DestroyPrivateKey()
-   755 ms     | 0x224f privk:0x7ffa23f46820::7ffa23f46820  a0 31 71 24                                      .1q$
-   755 ms     | 0x224f privk:0x7ffa23f46820::7ffa23f46820  e5 e5 e5 e5                                      ....
-   755 ms     | 0x224f SECKEY_DestroyPrivateKey()
-   755 ms     | 0x224f privk:0x7ffa23f3a820::7ffa23f3a820  60 c0 3d 24                                      `.=$
-   755 ms     | 0x224f privk:0x7ffa23f3a820::7ffa23f3a820  e5 e5 e5 e5                                      ....
-   801 ms  0x224f PR_Close()
-   801 ms  0x224f fd:0x7ffa2f469460
-   801 ms     | 0x224f SECKEY_DestroyPrivateKey()
-   801 ms     | 0x224f privk:0x7ffa2438c020::7ffa2438c020  c0 a4 71 24                                      ..q$
-   801 ms     | 0x224f privk:0x7ffa2438c020::7ffa2438c020  e5 e5 e5 e5                                      ....
-   801 ms     | 0x224f SECKEY_DestroyPrivateKey()
-   801 ms     | 0x224f privk:0x7ffa24388820::7ffa24388820  50 a1 71 24                                      P.q$
-   801 ms     | 0x224f privk:0x7ffa24388820::7ffa24388820  e5 e5 e5 e5                                      ....
-           /* TID 0x2259 */
-  5506 ms  0x2259 PR_Close()
-  5506 ms  0x2259 fd:0x7ffa2102c5b0
-  5507 ms  0x2259 PR_Close()
-  5507 ms  0x2259 fd:0x7ffa2102c5b0
+EC_ValidatePublicKey: Loaded handler at "/home/blockio/binrv/__handlers__/libfreeblpriv3.so/EC_ValidatePublicKey.js"
+ECPoint_validate: Loaded handler at "/home/blockio/binrv/__handlers__/libfreeblpriv3.so/ECPoint_validate.js"
+Started tracing 25 functions. Press Ctrl+C to stop.
+           /* TID 0xc8f */
+  1802 ms  0xc8f SSL_ImportFD()
+  1803 ms  0xc8f ret:0x7f9a70b49ee0
+  1803 ms  0xc8f SSL_AuthCertificateHook()
+  1803 ms  0xc8f fd:0x7f9a70b49ee0
+  1803 ms  0xc8f ret:0x0
+  1803 ms  0xc8f PR_Connect()
+  1803 ms  0xc8f fd:0x7f9a70b49ee0
+  1949 ms  0xc8f SECKEY_CreateECPrivateKey()
+  1949 ms  0xc8f cx:0x7f9a6f629c48
+  1951 ms     | 0xc8f EC_ValidatePublicKey()
+  1951 ms     | 0xc8f ret:0x0
+  1951 ms  0xc8f ret:0x7f9a6f33f820::7f9a6f33f820  c0 e9 6f 69                                      ..oi
+  1952 ms  0xc8f SECKEY_CreateECPrivateKey()
+  1952 ms  0xc8f cx:0x7f9a6f629c48
+  1954 ms     | 0xc8f EC_ValidatePublicKey()
+  1954 ms     |    | 0xc8f ECPoint_validate()
+  1962 ms     |    | 0xc8f ret:0x0
+  1962 ms     | 0xc8f ret:0x0
+  1962 ms  0xc8f ret:0x7f9a6f3d7020::7f9a6f3d7020  a0 eb 6f 69                                      ..oi
+  2110 ms  0xc8f PR_Close()
+  2110 ms  0xc8f fd:0x7f9a70b49ee0
+  2110 ms     | 0xc8f SECKEY_DestroyPrivateKey()
+  2110 ms     | 0xc8f privk:0x7f9a6f3d7020::7f9a6f3d7020  a0 eb 6f 69                                      ..oi
+  2110 ms     | 0xc8f privk:0x7f9a6f3d7020::7f9a6f3d7020  e5 e5 e5 e5                                      ....
+  2110 ms     | 0xc8f SECKEY_DestroyPrivateKey()
+  2110 ms     | 0xc8f privk:0x7f9a6f33f820::7f9a6f33f820  c0 e9 6f 69                                      ..oi
+  2113 ms     | 0xc8f privk:0x7f9a6f33f820::7f9a6f33f820  e5 e5 e5 e5                                      ....

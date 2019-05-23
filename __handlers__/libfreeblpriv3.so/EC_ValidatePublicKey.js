@@ -20,7 +20,7 @@
    * use "this" which is an object for keeping state local to an invocation.
    */
   onEnter: function (log, args, state) {
-    log('EC_ValidatePublicKey()');
+    log('0x'+Process.getCurrentThreadId().toString(16)+' EC_ValidatePublicKey()');
   },
 
   /**
@@ -34,5 +34,6 @@
    * @param {object} state - Object allowing you to keep state across function calls.
    */
   onLeave: function (log, retval, state) {
+    log('0x'+Process.getCurrentThreadId().toString(16)+' ret:'+retval);
   }
 }
