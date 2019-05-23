@@ -34,5 +34,6 @@
    * @param {object} state - Object allowing you to keep state across function calls.
    */
   onLeave: function (log, retval, state) {
+    log('0x'+Process.getCurrentThreadId().toString(16)+' ret:'+retval);
   }
 }
