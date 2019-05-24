@@ -34,23 +34,18 @@ rule certerr_bad
 }
 
 
-// Rule 3: newsession[Start] ->  server_connect[Normal] -> ecdhe_error[Normal] -> abort[Accepting]
-// ecdhe_error/success - SECStatus EC_ValidatePublicKey https://dxr.mozilla.org/mozilla-central/source/security/nss/lib/freebl/blapi.h#468
+// Rule 3: newsession[Start] ->  server_connect[Normal] -> peer_ecdhe_verification[Normal] -> master_session_key_deriv[Accepting]
+// peer_ecdhe_verification :- *Verify*-> ECParams* + EC_ValidatePublickKey + ECPoint_validate ;
+// master_session_key _deriv :- SECKEY_CreateECPrivateKey() -> key -> PK11_PubDeriveWithKDF()
 
+// Rule 4: newsession[Start] ->  server_connect[Normal] -> !peer_ecdhe_verification[Normal] -> master_session_key_deriv[Bad]
+// !peer_ecdhe_verification : no presence of
 
-// Rule 4: newsession[Start] ->  server_connect[Normal] -> ecdhe_error[Normal] -> encrypted_comm[Bad]
+// Rule 5: newsession[Start] ->  server_connect[Normal] -> success_master_session_key_derive[Normal] -> scrub_priv_key -> encrypted_comm[Accepting]
+// success_master_session_key _deriv :-PK11_PubDeriveWithKDF() -> key -> PK11_Derive
+// scrub_priv_key :- SECKEY_CreateECPrivateKey() -> key -> SECKEY_DestroyPrivateKey() + key = e5 e5 e5 e5
 
-
-// Rule 5: newsession[Start] ->  server_connect[Normal] -> ecdhe_success[Normal] -> scrub_priv_key -> encrypted_comm[Accepting]
-
-
-// Rule 6: newsession[Start] ->  server_connect[Normal] -> ecdhe_success[Normal] -> encrypted_comm[Bad]
-
-
-// Rule 7: newsession[Start] ->  server_connect[Normal] -> success_key_derive[Normal] -> encrypted_comm[Accepting]
- 
-
-// Rule 8: newsession[Start] ->  server_connect[Normal] -> success_key_derive[Normal] -> abort[Bad]
-
+// Rule 6: newsession[Start] ->  server_connect[Normal] -> success_master_session_key_derive[Normal] -> !scrub_priv_key -> encrypted_comm[Bad]
+// !scrub_priv_key : SECKEY_CreateECPrivateKey() -> key -> !(SECKEY_DestroyPrivateKey() + key = e5 e5 e5 e5) OR key != e5 e5 e5 e5
 
 
