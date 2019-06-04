@@ -34,23 +34,22 @@ rule certerr_bad
 }
 
 
-// Rule 3: newsession[Start] ->  server_connect[Normal] -> peer_ecdhe_verification[Normal] -> master_session_key_deriv[Accepting]
-// master_session_key _deriv :- SECKEY_CreateECPrivateKey() -> key -> PK11_PubDeriveWithKDF()
+// Rule 3: newsession[Start] ->  server_connect[Normal] -> peer_ecdhe_verification + master_session_key_deriv[Accepting]
 rule masterkeyderive_accept
 {
     strings:
         $newsession = /SSL_ImportFD/          
         $server_connect =  /PR_Connect/
-        $peer_ecdhe_verification_success = /VerifySignedDataERNS0[\s\S]+?SECKEY_ECParamsToBasePointOrderLen[\s\S]+?EC_ValidatePublicKey[\s\S]+?ECPoint_validate[\s\S]+?ms  0x[^\|\x0A]+?ret:0x0/
         $master_session_key_deriv1 = /SECKEY_CreateECPrivateKey[\s\S]+?ms  0x[^\|\x0A]+?ret:0x[0-9a-fA-F]+?::/
         $master_session_key_deriv2 = /PK11_PubDeriveWithKDF[^\x0A]+?\x0A[^\x0A]+?seckey:0x[0-9a-fA-F]+?\s/
+        $peer_ecdhe_verification_success = /VerifySignedDataERNS0[\s\S]+?SECKEY_ECParamsToBasePointOrderLen[\s\S]+?EC_ValidatePublicKey[\s\S]+?ECPoint_validate[\s\S]+?ms  0x[^\|\x0A]+?ret:0x0/
 
     condition:
-        $newsession and $server_connect and $peer_ecdhe_verification_success and $master_session_key_deriv1 and $master_session_key_deriv2
+        $newsession and $server_connect and $peer_ecdhe_verification_success and $master_session_key_deriv1 and $master_session_key_deriv2 and @newsession[1] < @server_connect[1] and @server_connect[1] < @peer_ecdhe_verification_success[1] 
 }
 
 
-// Rule 4: newsession[Start] ->  server_connect[Normal] -> !peer_ecdhe_verification[Normal] -> master_session_key_deriv[Bad]
+// Rule 4: newsession[Start] ->  server_connect[Normal] -> !peer_ecdhe_verification[Normal] + master_session_key_deriv[Bad]
 // !peer_ecdhe_verification : no presence of
 
 // Rule 5: newsession[Start] ->  server_connect[Normal] -> success_master_session_key_derive[Normal] -> scrub_priv_key -> encrypted_comm[Accepting]
