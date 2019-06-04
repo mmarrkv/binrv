@@ -1,0 +1,17 @@
+  2584 ms  0x139a SSL_ImportFD()
+  2584 ms  0x139a ret:0x7f37d50d5970
+  2584 ms  0x139a SSL_AuthCertificateHook()
+  2584 ms  0x139a fd:0x7f37d50d5970
+  2584 ms  0x139a ret:0x0
+  2584 ms  0x139a PR_Connect()
+  2584 ms  0x139a fd:0x7f37d50d5970
+  2685 ms  0x139a _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+  2685 ms     | SECKEY_ECParamsToBasePointOrderLen()
+  2685 ms     | 0x139a ret:0x180
+  2685 ms     | SECKEY_ECParamsToBasePointOrderLen()
+  2685 ms     | 0x139a ret:0x180
+  2685 ms     | 0x139a EC_ValidatePublicKey()
+  2685 ms     |    | 0x139a ECPoint_validate()
+  2687 ms     |    | 0x139a ret:0x0
+  2687 ms     | 0x139a ret:0x0
+  2690 ms  0x139a ret:0x0

@@ -35,8 +35,20 @@ rule certerr_bad
 
 
 // Rule 3: newsession[Start] ->  server_connect[Normal] -> peer_ecdhe_verification[Normal] -> master_session_key_deriv[Accepting]
-// peer_ecdhe_verification :- *Verify*-> ECParams* + EC_ValidatePublickKey + ECPoint_validate ;
 // master_session_key _deriv :- SECKEY_CreateECPrivateKey() -> key -> PK11_PubDeriveWithKDF()
+rule masterkeyderive_accept
+{
+    strings:
+        $newsession = /SSL_ImportFD/          
+        $server_connect =  /PR_Connect/
+        $peer_ecdhe_verification_success = /VerifySignedDataERNS0[\s\S]+?SECKEY_ECParamsToBasePointOrderLen[\s\S]+?EC_ValidatePublicKey[\s\S]+?ECPoint_validate[\s\S]+?ms  0x[^\|\x0A]+?ret:0x0/
+        $master_session_key_deriv1 = /SECKEY_CreateECPrivateKey[\s\S]+?ms  0x[^\|\x0A]+?ret:0x[0-9a-fA-F]+?::/
+        $master_session_key_deriv2 = /PK11_PubDeriveWithKDF[^\x0A]+?\x0A[^\x0A]+?seckey:0x[0-9a-fA-F]+?\s/
+
+    condition:
+        $newsession and $server_connect and $peer_ecdhe_verification_success and $master_session_key_deriv1 and $master_session_key_deriv2
+}
+
 
 // Rule 4: newsession[Start] ->  server_connect[Normal] -> !peer_ecdhe_verification[Normal] -> master_session_key_deriv[Bad]
 // !peer_ecdhe_verification : no presence of
