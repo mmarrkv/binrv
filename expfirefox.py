@@ -1,8 +1,10 @@
-#requires sudo -H pip3 install -U selenium
+# requires sudo -H pip3 install -U selenium
+# requires curl
 # has to be reside in binrv root along with binrvff.sh
-# yara_rules in subdirectory
-# creates traces in tracesexp1 in subdirectory
-# creates results in results1 subdirectory
+# yara_rules and exp1 as subdirectories
+# creates traces in exp1/traces
+# creates results in exp1/results
+# creates ground truth in exp1/truth
 
 from selenium.webdriver import Firefox
 from selenium.webdriver.common.by import By
@@ -15,12 +17,13 @@ import os
 import threading
 import time
 import glob
+import socket
 
 def start_dbi(tracefilename):
     print('Setting up DBI...')
     fo = os.popen("pidof firefox | awk '{print $NF}'")
     pid = fo.readline().strip('\r\n')
-    os.system('binrvff.sh '+pid+' > exptraces1/'+tracefilename)    
+    os.system('binrvff.sh '+pid+' > exp1/traces/'+tracefilename)    
 
 
 if __name__ == "__main__":
@@ -43,7 +46,16 @@ if __name__ == "__main__":
         driver.quit()
 
     print('Expanding to subtraces...')
-    for f in glob.glob('exptraces1/*com*'):
+    for f in glob.glob('exp1/traces/*com*'):
         os.system('python3 yara_rules/xtract.py '+'~/binrv/'+f+' > /dev/null')    
 
     print('Executing yara rules on all files...')
+    for f in glob.glob('exp1/traces/*_0x*'):
+        os.system('yara -s yara_rules/binrvff.src '+f+' > exp1/monitor/'+f.split("/")[2])    
+
+
+    print('Obtaining ground truth...')
+    #ip=socket.gethostbyname('google.com')
+    #os.system('curl -o exp1/truth/google.com https://api.ssllabs.com/api/v3/getEndpointData?host=google.com&s='+ip)    
+    os.system('curl -o exp1/truth/google.com https://api.ssllabs.com/api/v3/analyze?host=google.com')    
+
