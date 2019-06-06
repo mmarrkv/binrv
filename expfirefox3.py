@@ -42,14 +42,14 @@ if __name__ == "__main__":
 
     print('Start non-instrumented sessions...')
     fo = open("exp3/without.csv", "w")
-    for i in range(0,10):
+    for i in range(0,100):
         driver = Firefox(executable_path='geckodriver', options=options)
         wait = WebDriverWait(driver, timeout=10)
 
         mytracefilename=urls[i][1]
 
         print('Continuing...')
-        for j in range(0,100):
+        for j in range(0,10):
             a = datetime.datetime.now()
             try:
                 driver.get('https://'+mytracefilename)
