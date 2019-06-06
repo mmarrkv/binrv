@@ -42,7 +42,7 @@ if __name__ == "__main__":
 
     print('Start non-instrumented sessions...')
     fo = open("exp3/without.csv", "w")
-    for i in range(0,100):
+    for i in range(0,10):
         driver = Firefox(executable_path='geckodriver', options=options)
         wait = WebDriverWait(driver, timeout=10)
 
@@ -66,7 +66,7 @@ if __name__ == "__main__":
 
     print('Start instrumented sessions...')
     fo = open("exp3/with.csv", "w")
-    for i in range(0,100):
+    for i in range(0,10):
         driver = Firefox(executable_path='geckodriver', options=options)
         wait = WebDriverWait(driver, timeout=10)
 
