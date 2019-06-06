@@ -1,0 +1,23 @@
+   275 ms  0x22e1 SSL_ImportFD()
+   275 ms  0x22e1 ret:0x7fecad097bb0
+   275 ms  0x22e1 SSL_AuthCertificateHook()
+   275 ms  0x22e1 fd:0x7fecad097bb0
+   275 ms  0x22e1 ret:0x0
+   275 ms  0x22e1 PR_Connect()
+   275 ms  0x22e1 fd:0x7fecad097bb0
+   652 ms  0x2353 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+   652 ms  0x2353 ret:0x0
+           /* TID 0x22e1 */
+   762 ms  0x22e1 PK11_Encrypt()
+   762 ms  0x22e1 symkey:0x7fecaf2ec600
+   762 ms  0x22e1 SSL_AuthCertificateComplete()
+   762 ms  0x22e1 fd:0x7fecad097bb0
+   762 ms  0x22e1 err:0x0
+  1223 ms  0x2353 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+  1223 ms  0x2353 ret:0x0
+           /* TID 0x22e1 */
+  5565 ms  0x22e1 PR_Close()
+  5565 ms  0x22e1 fd:0x7fecad097bb0
+  5565 ms     | 0x22e1 PK11_Encrypt()
+  5565 ms     | 0x22e1 symkey:0x7fecaf2ec600
+           /* TID 0x232e */

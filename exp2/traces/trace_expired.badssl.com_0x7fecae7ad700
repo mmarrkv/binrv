@@ -1,0 +1,22 @@
+  4311 ms  0x22e1 SSL_ImportFD()
+  4312 ms  0x22e1 ret:0x7fecae7ad700
+  4312 ms  0x22e1 SSL_AuthCertificateHook()
+  4312 ms  0x22e1 fd:0x7fecae7ad700
+  4312 ms  0x22e1 ret:0x0
+  4312 ms  0x22e1 PR_Connect()
+  4312 ms  0x22e1 fd:0x7fecae7ad700
+  4736 ms  0x22e1 PK11_Encrypt()
+  4736 ms  0x22e1 symkey:0x7fecae7b1d00
+  4737 ms  0x22e1 SSL_AuthCertificateComplete()
+  4737 ms  0x22e1 fd:0x7fecae7ad700
+  4737 ms  0x22e1 err:0x0
+  4738 ms  0x22e1 PK11_Encrypt()
+  4738 ms  0x22e1 symkey:0x7fecae7b1d00
+  5265 ms  0x22e1 PK11_Encrypt()
+  5265 ms  0x22e1 symkey:0x7fecae7b1d00
+  5437 ms  0x22e1 PK11_Encrypt()
+  5437 ms  0x22e1 symkey:0x7fecae7b1d00
+  5611 ms  0x22e1 PR_Close()
+  5611 ms  0x22e1 fd:0x7fecae7ad700
+  5611 ms     | 0x22e1 PK11_Encrypt()
+  5611 ms     | 0x22e1 symkey:0x7fecae7b1d00

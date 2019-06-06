@@ -42,7 +42,7 @@ if __name__ == "__main__":
         #print(urls[0][1])
 
     print('Start tracing sessions...')
-    for i in range(0,100):
+    for i in range(0,5):
         driver = Firefox(executable_path='geckodriver', options=options)
         wait = WebDriverWait(driver, timeout=10)
 
@@ -75,6 +75,9 @@ if __name__ == "__main__":
     print('Obtaining ground truth...')
     #ip=socket.gethostbyname('google.com')
     #os.system('curl -o exp1/truth/google.com https://api.ssllabs.com/api/v3/getEndpointData?host=google.com&s='+ip)    
-    for i in range(0,100):
-        os.system('curl -o exp1/truth/'+urls[i][1] +' https://api.ssllabs.com/api/v3/analyze?host='+urls[i][1])    
+    for i in range(0,5):
+        if(mytracefilename.count('.')==1):
+            os.system('curl -o exp1/truth/'+urls[i][1] +' https://api.ssllabs.com/api/v3/analyze?host=www.'+urls[i][1])    
+        else:
+            os.system('curl -o exp1/truth/'+urls[i][1] +' https://api.ssllabs.com/api/v3/analyze?host='+urls[i][1])    
 

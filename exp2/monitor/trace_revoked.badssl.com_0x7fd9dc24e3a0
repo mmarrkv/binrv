@@ -1,0 +1,21 @@
+certerr_accept exp2/traces/trace_revoked.badssl.com_0x7fd9dc24e3a0
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x845:$failed_cert_auth: SSL_AuthCertificateComplete()\x0A  4713 ms  0x2589 fd:0x7fd9dc24e3a0\x0A  4713 ms  0x2589 err:0xffffe00c\x0A
+0x90d:$abort: PR_Close()\x0A  4724 ms  0x2589 fd:0x7fd9dc24e3a0\x0A  4724 ms     | 0x2589 SECKEY_DestroyPrivateKey
+masterkeyderive_accept exp2/traces/trace_revoked.badssl.com_0x7fd9dc24e3a0
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x105:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  4416 ms  0x2589 cx:0x7fd9dabb5728\x0A  4418 ms     | 0x2589 EC_ValidatePublicKey()\x0A  4418 ms     | 0x2589 ret:0x0
+0x20e:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  4419 ms  0x2589 cx:0x7fd9dabb5728\x0A  4421 ms     | 0x2589 EC_ValidatePublicKey()\x0A  4429 ms     | 0x2589 ret:0x0
+0x317:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  4635 ms  0x2589 cx:0x7fd9dabb5728\x0A  4636 ms     | 0x2589 EC_ValidatePublicKey()\x0A  4639 ms     | 0x2589 ret:0x0
+0x421:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  4639 ms  0x2589 seckey:0x7fd9ca0f1820\x0A  4639 ms     | 0x2589 EC_ValidatePublicKey()\x0A  4641 ms     | 0x2589 ret:0x0
+0x727:$encrypted_comm:   0x2589 PK11_Encrypt
+scrubprivkey_accept exp2/traces/trace_revoked.badssl.com_0x7fd9dc24e3a0
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x420:$master_session_key_derive: PK11_PubDeriveWithKDF()\x0A  4639 ms  0x2589 seckey:0x7fd9ca0f1820\x0A
+0x62b:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  4644 ms  0x2589 privk:0x7fd9ca0f1820::7fd9ca0f1820  f0 81 0c ca                                      ....\x0A  4645 ms  0x2589 privk:0x7fd9ca0f1820::7fd9ca0f1820  e5 e5 e5 e5
+0x953:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  4724 ms     | 0x2589 privk:0x7fd9ca0e4020::7fd9ca0e4020  10 0a 5a dc                                      ..Z.\x0A  4725 ms     | 0x2589 privk:0x7fd9ca0e4020::7fd9ca0e4020  e5 e5 e5 e5
+0xa67:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  4725 ms     | 0x2589 privk:0x7fd9ca0e2020::7fd9ca0e2020  90 07 5a dc                                      ..Z.\x0A  4725 ms     | 0x2589 privk:0x7fd9ca0e2020::7fd9ca0e2020  e5 e5 e5 e5
+0x727:$encrypted_comm:   0x2589 PK11_Encrypt

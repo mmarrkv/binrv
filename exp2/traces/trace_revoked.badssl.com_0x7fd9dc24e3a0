@@ -1,0 +1,57 @@
+  4162 ms  0x2589 SSL_ImportFD()
+  4163 ms  0x2589 ret:0x7fd9dc24e3a0
+  4163 ms  0x2589 SSL_AuthCertificateHook()
+  4163 ms  0x2589 fd:0x7fd9dc24e3a0
+  4163 ms  0x2589 ret:0x0
+  4163 ms  0x2589 PR_Connect()
+  4163 ms  0x2589 fd:0x7fd9dc24e3a0
+  4416 ms  0x2589 SECKEY_CreateECPrivateKey()
+  4416 ms  0x2589 cx:0x7fd9dabb5728
+  4418 ms     | 0x2589 EC_ValidatePublicKey()
+  4418 ms     | 0x2589 ret:0x0
+  4418 ms  0x2589 ret:0x7fd9ca0e2020::7fd9ca0e2020  90 07 5a dc                                      ..Z.
+  4419 ms  0x2589 SECKEY_CreateECPrivateKey()
+  4419 ms  0x2589 cx:0x7fd9dabb5728
+  4421 ms     | 0x2589 EC_ValidatePublicKey()
+  4429 ms     | 0x2589 ret:0x0
+  4429 ms  0x2589 ret:0x7fd9ca0e4020::7fd9ca0e4020  10 0a 5a dc                                      ..Z.
+  4635 ms  0x2589 SECKEY_CreateECPrivateKey()
+  4635 ms  0x2589 cx:0x7fd9dabb5728
+  4636 ms     | 0x2589 EC_ValidatePublicKey()
+  4639 ms     | 0x2589 ret:0x0
+  4639 ms  0x2589 ret:0x7fd9ca0f1820::7fd9ca0f1820  f0 81 0c ca                                      ....
+  4639 ms  0x2589 PK11_PubDeriveWithKDF()
+  4639 ms  0x2589 seckey:0x7fd9ca0f1820
+  4639 ms     | 0x2589 EC_ValidatePublicKey()
+  4641 ms     | 0x2589 ret:0x0
+  4644 ms  0x2589 ret:0x7fd9dcaf8c80
+  4644 ms  0x2589 PK11_DeriveWithFlags()
+  4644 ms  0x2589 basekey:0x7fd9dcaf8c80
+  4644 ms     | 0x2589 PK11_DeriveWithTemplate()
+  4644 ms  0x2589 ret:0x7fd9dc252800
+  4644 ms  0x2589 PK11_Derive()
+  4644 ms  0x2589 basekey:0x7fd9dc252800
+  4644 ms     | 0x2589 PK11_DeriveWithTemplate()
+  4644 ms  0x2589 ret:0x7fd9dc252980
+  4644 ms  0x2589 SECKEY_DestroyPrivateKey()
+  4644 ms  0x2589 privk:0x7fd9ca0f1820::7fd9ca0f1820  f0 81 0c ca                                      ....
+  4645 ms  0x2589 privk:0x7fd9ca0f1820::7fd9ca0f1820  e5 e5 e5 e5                                      ....
+  4645 ms  0x2589 PK11_Encrypt()
+  4645 ms  0x2589 symkey:0x7fd9dc252b00
+           /* TID 0x2591 */
+  4706 ms  0x25e3 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
+  4706 ms  0x25e3 ret:0x0
+           /* TID 0x2589 */
+  4713 ms  0x2589 SSL_AuthCertificateComplete()
+  4713 ms  0x2589 fd:0x7fd9dc24e3a0
+  4713 ms  0x2589 err:0xffffe00c
+  4713 ms     | 0x2589 PK11_Encrypt()
+  4713 ms     | 0x2589 symkey:0x7fd9dc252b00
+  4724 ms  0x2589 PR_Close()
+  4724 ms  0x2589 fd:0x7fd9dc24e3a0
+  4724 ms     | 0x2589 SECKEY_DestroyPrivateKey()
+  4724 ms     | 0x2589 privk:0x7fd9ca0e4020::7fd9ca0e4020  10 0a 5a dc                                      ..Z.
+  4725 ms     | 0x2589 privk:0x7fd9ca0e4020::7fd9ca0e4020  e5 e5 e5 e5                                      ....
+  4725 ms     | 0x2589 SECKEY_DestroyPrivateKey()
+  4725 ms     | 0x2589 privk:0x7fd9ca0e2020::7fd9ca0e2020  90 07 5a dc                                      ..Z.
+  4725 ms     | 0x2589 privk:0x7fd9ca0e2020::7fd9ca0e2020  e5 e5 e5 e5                                      ....
