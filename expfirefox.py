@@ -52,8 +52,12 @@ if __name__ == "__main__":
 
         print('Continuing...')
         try:
-            print('get https://www.'+mytracefilename+' '+str(i))
-            driver.get('https://www.'+mytracefilename)
+            if(mytracefilename.count('.')==1):
+                print('get https://www.'+mytracefilename+' '+str(i))
+                driver.get('https://www.'+mytracefilename)
+            else:
+                print('get https://'+mytracefilename+' '+str(i))
+                driver.get('https://'+mytracefilename)
         except Exception as exception:
             print('page error')
             print(type(exception).__name__)
