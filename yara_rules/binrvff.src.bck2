@@ -1,0 +1,98 @@
+/*
+
+Assumes subtraces already in place as per taint inferene policy based on taint_vars set (prototype: execute xtract.py on main traces)
+
+*/
+
+
+
+// Rule 1: newsession[Start] ->  server_connect[Normal] -> failed_cert_auth[Normal] -> abort[Accepting]
+rule certerr_accept
+{
+    strings:
+        $newsession = /SSL_ImportFD/          
+        $server_connect =  /PR_Connect/
+        $failed_cert_auth = /SSL_AuthCertificateComplete[\s\S]+?err:0x[^0][0-9a-fA-F]+?\x0A/
+        $abort = /PR_Close[^\|]+\|[^\|]+DestroyPrivateKey/
+
+    condition:
+        $newsession and $server_connect and $failed_cert_auth and $abort  and @newsession[1] < @server_connect[1] and @server_connect[1] < @failed_cert_auth[1] and @failed_cert_auth[1] < @abort[1] 
+}
+
+
+// Rule 2: newsession[Start] ->  server_connect[Normal] -> failed_cert_auth[Normal] -> encrypted_comm[Bad]
+rule certerr_bad
+{
+    strings:
+        $newsession = /SSL_ImportFD/          
+        $server_connect =  /PR_Connect/
+        $failed_cert_auth = /SSL_AuthCertificateComplete[\s\S]+?err:0x[^0][0-9a-fA-F]+?\x0A/
+        $encrypted_comm = /[^\|] 0x[^\x0A]+?PK11_Encrypt/
+
+    condition:
+        $newsession and $server_connect and $failed_cert_auth and @newsession[1] < @server_connect[1] and @server_connect[1] < @failed_cert_auth[1] and @failed_cert_auth[1] < @encrypted_comm[1] 
+}
+
+
+// Rule 3: newsession[Start] ->  server_connect[Normal] -> (peer_ecdhe_verification -> master_session_key_deriv OR master_session_key_deriv -> peer_ecdhe_verification) [Accepting]
+rule masterkeyderive_accept
+{
+    strings:
+        $newsession = /SSL_ImportFD/          
+        $server_connect =  /PR_Connect/
+        $master_session_key_deriv1 = /SECKEY_CreateECPrivateKey[\s\S]+?ms  0x[^\|\x0A]+?ret:0x[0-9a-fA-F]+?::/
+        $master_session_key_deriv2 = /PK11_PubDeriveWithKDF[^\x0A]+?\x0A[^\x0A]+?seckey:0x[0-9a-fA-F]+?\s/
+        $peer_ecdhe_verification_success = /VerifySignedDataERNS0[\s\S]+?SECKEY_ECParamsToBasePointOrderLen[\s\S]+?EC_ValidatePublicKey[\s\S]+?ECPoint_validate[\s\S]+?ms  0x[^\|\x0A]+?ret:0x0/
+
+    condition:
+        $newsession and $server_connect and $peer_ecdhe_verification_success and $master_session_key_deriv1 and $master_session_key_deriv2 and @newsession[1] < @server_connect[1] and @server_connect[1] < @peer_ecdhe_verification_success[1] and @server_connect[1] < @master_session_key_deriv1[1]  and  @master_session_key_deriv1[1] <  @master_session_key_deriv2[1]
+}
+
+
+// Rule 4: newsession[Start] ->  server_connect[Normal] -> !peer_ecdhe_verification[Normal] + master_session_key_deriv[Bad]
+rule masterkeyderive_bad
+{
+    strings:
+        $newsession = /SSL_ImportFD/          
+        $server_connect =  /PR_Connect/
+        $master_session_key_deriv1 = /SECKEY_CreateECPrivateKey[\s\S]+?ms  0x[^\|\x0A]+?ret:0x[0-9a-fA-F]+?::/
+        $master_session_key_deriv2 = /PK11_PubDeriveWithKDF[^\x0A]+?\x0A[^\x0A]+?seckey:0x[0-9a-fA-F]+?\s/
+        $not_peer_ecdhe_verification_success = /VerifySignedDataERNS0[\s\S]+?SECKEY_ECParamsToBasePointOrderLen[\s\S]+?EC_ValidatePublicKey[\s\S]+?ECPoint_validate[\s\S]+?ms  0x[^\|\x0A]+?ret:0x0/
+
+    condition:
+        $newsession and $server_connect and (not $not_peer_ecdhe_verification_success) and $master_session_key_deriv1 and $master_session_key_deriv2 and @newsession[1] < @server_connect[1] and @server_connect[1] < @master_session_key_deriv1[1]  and  @master_session_key_deriv1[1] <  @master_session_key_deriv2[1]
+}
+
+
+// Rule 5: newsession[Start] ->  server_connect[Normal] -> success_master_session_key_derive[Normal] -> scrub_priv_key[Normal] -> encrypted_comm[Accepting]
+rule scrubprivkey_accept
+{
+    strings:
+        $newsession = /SSL_ImportFD/          
+        $server_connect =  /PR_Connect/
+        $master_session_key_deriv1 = /SECKEY_CreateECPrivateKey[\s\S]+?ms  0x[^\|\x0A]+?ret:0x[0-9a-fA-F]+?::/
+        $master_session_key_deriv2 = /PK11_PubDeriveWithKDF[^\x0A]+?\x0A[^\x0A]+?seckey:0x[0-9a-fA-F]+?\s/
+        $scrub_priv_key = /SECKEY_DestroyPrivateKey[\s\S]+?privk:[^\x0A]+?e5 e5 e5 e5/
+        $encrypted_comm = /[^\|] 0x[^\x0A]+?PK11_Encrypt/
+
+    condition:
+        $newsession and $server_connect and $master_session_key_deriv1 and $master_session_key_deriv2 and $scrub_priv_key and $encrypted_comm and @newsession[1] < @server_connect[1] and @server_connect[1] < @master_session_key_deriv1[1]  and  @master_session_key_deriv1[1] <  @master_session_key_deriv2[1] and @master_session_key_deriv2[1] <  @scrub_priv_key[1] and @scrub_priv_key[1] < @encrypted_comm[1]
+}
+
+
+// Rule 6: newsession[Start] ->  server_connect[Normal] -> success_master_session_key_derive[Normal] -> !scrub_priv_key -> encrypted_comm[Bad]
+rule scrubprivkey_bad
+{
+    strings:
+        $newsession = /SSL_ImportFD/          
+        $server_connect =  /PR_Connect/
+        $master_session_key_deriv1 = /SECKEY_CreateECPrivateKey[\s\S]+?ms  0x[^\|\x0A]+?ret:0x[0-9a-fA-F]+?::/
+        $master_session_key_deriv2 = /PK11_PubDeriveWithKDF[^\x0A]+?\x0A[^\x0A]+?seckey:0x[0-9a-fA-F]+?\s/
+        $scrub_priv_key = /SECKEY_DestroyPrivateKey[\s\S]+?privk:[^\x0A]+?e5 e5 e5 e5/
+        $encrypted_comm = /[^\|] 0x[^\x0A]+?PK11_Encrypt/
+
+    condition:
+        $newsession and $server_connect and $master_session_key_deriv1 and $master_session_key_deriv2 and (not $scrub_priv_key) and $encrypted_comm and @newsession[1] < @server_connect[1] and @server_connect[1] < @master_session_key_deriv1[1]  and  @master_session_key_deriv1[1] <  @master_session_key_deriv2[1] and @master_session_key_deriv2[1] < @encrypted_comm[1]
+}
+
+

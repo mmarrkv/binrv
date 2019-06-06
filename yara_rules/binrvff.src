@@ -34,65 +34,62 @@ rule certerr_bad
 }
 
 
-// Rule 3: newsession[Start] ->  server_connect[Normal] -> (peer_ecdhe_verification -> master_session_key_deriv OR master_session_key_deriv -> peer_ecdhe_verification) [Accepting]
+// Rule 3: newsession[Start] ->  server_connect[Normal] -> (localecvalid -> remoteecvalid OR remoteecvalid -> localecvalid) -> encrypted_comm[Accepting]
 rule masterkeyderive_accept
 {
     strings:
         $newsession = /SSL_ImportFD/          
         $server_connect =  /PR_Connect/
-        $master_session_key_deriv1 = /SECKEY_CreateECPrivateKey[\s\S]+?ms  0x[^\|\x0A]+?ret:0x[0-9a-fA-F]+?::/
-        $master_session_key_deriv2 = /PK11_PubDeriveWithKDF[^\x0A]+?\x0A[^\x0A]+?seckey:0x[0-9a-fA-F]+?\s/
-        $peer_ecdhe_verification_success = /VerifySignedDataERNS0[\s\S]+?SECKEY_ECParamsToBasePointOrderLen[\s\S]+?EC_ValidatePublicKey[\s\S]+?ECPoint_validate[\s\S]+?ms  0x[^\|\x0A]+?ret:0x0/
+        $localecvalid = /SECKEY_CreateECPrivateKey[^\x0A]+?\x0A[^\x0A]+?\x0A[^\x0A]+?EC_ValidatePublicKey[^\|]+?[\|][^\x0A]+?ret:0x0/
+        $remoteecvalid = /K11_PubDeriveWithKDF[^\x0A]+?\x0A[^\x0A]+?\x0A[^\x0A]+?EC_ValidatePublicKey[^\|]+?[\|][^\x0A]+?ret:0x0/
+        $encrypted_comm = /[^\|] 0x[^\x0A]+?PK11_Encrypt/
 
     condition:
-        $newsession and $server_connect and $peer_ecdhe_verification_success and $master_session_key_deriv1 and $master_session_key_deriv2 and @newsession[1] < @server_connect[1] and @server_connect[1] < @peer_ecdhe_verification_success[1] and @server_connect[1] < @master_session_key_deriv1[1]  and  @master_session_key_deriv1[1] <  @master_session_key_deriv2[1]
+        $newsession and $server_connect and $localecvalid and $remoteecvalid and $encrypted_comm and @newsession[1] < @server_connect[1] and @server_connect[1] < @localecvalid[1] and @server_connect[1] < @remoteecvalid[1]  and  @encrypted_comm[1] >  @localecvalid[1] and @encrypted_comm[1] >  @remoteecvalid[1]
 }
 
 
-// Rule 4: newsession[Start] ->  server_connect[Normal] -> !peer_ecdhe_verification[Normal] + master_session_key_deriv[Bad]
+// Rule 4: newsession[Start] ->  server_connect[Normal] -> (localecinvalid OR remoteecinvalid)  -> encrypted_comm[Bad]
 rule masterkeyderive_bad
 {
     strings:
         $newsession = /SSL_ImportFD/          
         $server_connect =  /PR_Connect/
-        $master_session_key_deriv1 = /SECKEY_CreateECPrivateKey[\s\S]+?ms  0x[^\|\x0A]+?ret:0x[0-9a-fA-F]+?::/
-        $master_session_key_deriv2 = /PK11_PubDeriveWithKDF[^\x0A]+?\x0A[^\x0A]+?seckey:0x[0-9a-fA-F]+?\s/
-        $not_peer_ecdhe_verification_success = /VerifySignedDataERNS0[\s\S]+?SECKEY_ECParamsToBasePointOrderLen[\s\S]+?EC_ValidatePublicKey[\s\S]+?ECPoint_validate[\s\S]+?ms  0x[^\|\x0A]+?ret:0x0/
+        $localecinvalid = /SECKEY_CreateECPrivateKey[^\x0A]+?\x0A[^\x0A]+?\x0A[^\x0A]+?EC_ValidatePublicKey[^\|]+?[\|][^\x0A]+?ret:0x[^0][0-9a-fA-F]+?\x0A/
+        $remoteecinvalid = /K11_PubDeriveWithKDF[^\x0A]+?\x0A[^\x0A]+?\x0A[^\x0A]+?EC_ValidatePublicKey[^\|]+?[\|][^\x0A]+?ret:0x[^0][0-9a-fA-F]+?\x0A/
+        $encrypted_comm = /[^\|] 0x[^\x0A]+?PK11_Encrypt/
 
     condition:
-        $newsession and $server_connect and (not $not_peer_ecdhe_verification_success) and $master_session_key_deriv1 and $master_session_key_deriv2 and @newsession[1] < @server_connect[1] and @server_connect[1] < @master_session_key_deriv1[1]  and  @master_session_key_deriv1[1] <  @master_session_key_deriv2[1]
+        $newsession and $server_connect and ($localecinvalid or $remoteecinvalid) and $encrypted_comm and @newsession[1] < @server_connect[1] and (@server_connect[1] < @localecinvalid[1] or @server_connect[1] < @remoteecinvalid[1])  and  (@encrypted_comm[1] >  @localecinvalid[1] or @encrypted_comm[1] > @remoteecinvalid[1])
 }
 
-
-// Rule 5: newsession[Start] ->  server_connect[Normal] -> success_master_session_key_derive[Normal] -> scrub_priv_key[Normal] -> encrypted_comm[Accepting]
+// Rule 5: newsession[Start] ->  server_connect[Normal] -> master_session_key_derive[Normal] -> scrub_priv_key[Normal] -> encrypted_comm[Accepting]
 rule scrubprivkey_accept
 {
     strings:
         $newsession = /SSL_ImportFD/          
         $server_connect =  /PR_Connect/
-        $master_session_key_deriv1 = /SECKEY_CreateECPrivateKey[\s\S]+?ms  0x[^\|\x0A]+?ret:0x[0-9a-fA-F]+?::/
-        $master_session_key_deriv2 = /PK11_PubDeriveWithKDF[^\x0A]+?\x0A[^\x0A]+?seckey:0x[0-9a-fA-F]+?\s/
+        $master_session_key_derive = /PK11_PubDeriveWithKDF[^\x0A]+?\x0A[^\x0A]+?seckey:0x[0-9a-fA-F]+?\s/
         $scrub_priv_key = /SECKEY_DestroyPrivateKey[\s\S]+?privk:[^\x0A]+?e5 e5 e5 e5/
         $encrypted_comm = /[^\|] 0x[^\x0A]+?PK11_Encrypt/
 
     condition:
-        $newsession and $server_connect and $master_session_key_deriv1 and $master_session_key_deriv2 and $scrub_priv_key and $encrypted_comm and @newsession[1] < @server_connect[1] and @server_connect[1] < @master_session_key_deriv1[1]  and  @master_session_key_deriv1[1] <  @master_session_key_deriv2[1] and @master_session_key_deriv2[1] <  @scrub_priv_key[1] and @scrub_priv_key[1] < @encrypted_comm[1]
+        $newsession and $server_connect and $master_session_key_derive and $scrub_priv_key and $encrypted_comm and @newsession[1] < @server_connect[1] and @server_connect[1] < @master_session_key_derive[1]  and  @master_session_key_derive[1] <  @scrub_priv_key[1] and @scrub_priv_key[1] < @encrypted_comm[1]
 }
 
 
-// Rule 6: newsession[Start] ->  server_connect[Normal] -> success_master_session_key_derive[Normal] -> !scrub_priv_key -> encrypted_comm[Bad]
+// Rule 6: newsession[Start] ->  server_connect[Normal] -> master_session_key_derive[Normal] -> !scrub_priv_key -> encrypted_comm[Bad]
 rule scrubprivkey_bad
 {
     strings:
         $newsession = /SSL_ImportFD/          
         $server_connect =  /PR_Connect/
-        $master_session_key_deriv1 = /SECKEY_CreateECPrivateKey[\s\S]+?ms  0x[^\|\x0A]+?ret:0x[0-9a-fA-F]+?::/
-        $master_session_key_deriv2 = /PK11_PubDeriveWithKDF[^\x0A]+?\x0A[^\x0A]+?seckey:0x[0-9a-fA-F]+?\s/
+        $master_session_key_derive = /PK11_PubDeriveWithKDF[^\x0A]+?\x0A[^\x0A]+?seckey:0x[0-9a-fA-F]+?\s/
         $scrub_priv_key = /SECKEY_DestroyPrivateKey[\s\S]+?privk:[^\x0A]+?e5 e5 e5 e5/
         $encrypted_comm = /[^\|] 0x[^\x0A]+?PK11_Encrypt/
 
     condition:
-        $newsession and $server_connect and $master_session_key_deriv1 and $master_session_key_deriv2 and (not $scrub_priv_key) and $encrypted_comm and @newsession[1] < @server_connect[1] and @server_connect[1] < @master_session_key_deriv1[1]  and  @master_session_key_deriv1[1] <  @master_session_key_deriv2[1] and @master_session_key_deriv2[1] < @encrypted_comm[1]
+        $newsession and $server_connect and $master_session_key_derive and (not $scrub_priv_key) and $encrypted_comm and @newsession[1] < @server_connect[1] and @server_connect[1] < @master_session_key_derive[1] and @master_session_key_derive[1] < @encrypted_comm[1]
 }
 
 
