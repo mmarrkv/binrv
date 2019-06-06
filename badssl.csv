@@ -1,0 +1,12 @@
+1,expired.badssl.com
+2,wrong.host.badssl.com
+3,self-signed.badssl.com
+4,untrusted-root.badssl.com
+5,revoked.badssl.com
+6,pinning-test.badssl.com
+7,invalid-expected-sct.badssl.com
+8,superfish.badssl.com
+9,edellroot.badssl.com
+10,dsdtestprovider.badssl.com
+11,preact-cli.badssl.com
+12,webpack-dev-server.badssl.com

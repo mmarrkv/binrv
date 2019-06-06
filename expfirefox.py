@@ -1,3 +1,4 @@
+# requires geckodriver in $PATH
 # requires sudo -H pip3 install -U selenium
 # requires curl
 # has to reside in binrv root along with binrvff.sh
