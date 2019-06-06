@@ -52,6 +52,7 @@ if __name__ == "__main__":
 
         print('Continuing...')
         try:
+            print('get https://'+mytracefilename+' '+str(i))
             driver.get('https://'+mytracefilename)
         except Exception as exception:
             print('page error')

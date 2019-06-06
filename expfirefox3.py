@@ -52,7 +52,8 @@ if __name__ == "__main__":
         for j in range(0,10):
             a = datetime.datetime.now()
             try:
-                driver.get('https://'+mytracefilename)
+                print('get https://www.'+mytracefilename+' '+str(i)+' '+str(j))
+                driver.get('https://www.'+mytracefilename)
             except Exception as exception:
                 print('page error')
                 print(type(exception).__name__)
@@ -78,7 +79,8 @@ if __name__ == "__main__":
         for j in range(0,10):
             a = datetime.datetime.now()
             try:
-                driver.get('https://'+mytracefilename)
+                print('get https://www.'+mytracefilename+' '+str(i)+' '+str(j))
+                driver.get('https://www.'+mytracefilename)
             except Exception as exception:
                 print('page error')
                 print(type(exception).__name__)
