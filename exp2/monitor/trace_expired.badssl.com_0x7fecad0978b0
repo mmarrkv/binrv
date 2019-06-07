@@ -1,5 +1,0 @@
-certerr_accept exp2/traces/trace_expired.badssl.com_0x7fecad0978b0
-0x12:$newsession: SSL_ImportFD
-0xc2:$server_connect: PR_Connect
-0x437:$failed_cert_auth: SSL_AuthCertificateComplete()\x0A  5795 ms  0x22e1 fd:0x7fecad0978b0\x0A  5795 ms  0x22e1 err:0xffffe00b\x0A
-0x4ff:$abort: PR_Close()\x0A  5799 ms  0x22e1 fd:0x7fecad0978b0\x0A  5799 ms     | 0x22e1 SECKEY_DestroyPrivateKey

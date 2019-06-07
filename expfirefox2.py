@@ -30,7 +30,7 @@ def start_dbi(tracefilename):
 
 
 if __name__ == "__main__":
-    
+
     print('Experiment 2: Demonstrating binrv over 12 firefox sessions contacting known insecurely configured sites')
     print('Initializing...')
     options = Options()
@@ -63,12 +63,12 @@ if __name__ == "__main__":
     print('Expanding to subtraces...')
     for f in glob.glob('exp2/traces/trace_*'):
         os.system('python3 yara_rules/xtract.py '+'~/binrv/'+f+' > /dev/null')    
-    
+
     print('Executing yara rules on all files...')
     for f in glob.glob('exp2/traces/*_0x*'):
         os.system('yara -s yara_rules/binrvff.src '+f+' > exp2/monitor/'+f.split("/")[2])    
 
-    
+
     print('Obtaining ground truth...')
     #ip=socket.gethostbyname('google.com')
     #os.system('curl -o exp2/truth/google.com https://api.ssllabs.com/api/v3/getEndpointData?host=google.com&s='+ip)    
