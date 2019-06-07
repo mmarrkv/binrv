@@ -1,0 +1,10 @@
+  1499 ms  0xbfb SSL_ImportFD()
+  1499 ms  0xbfb ret:0x7f9e4bb96a30
+  1499 ms  0xbfb SSL_AuthCertificateHook()
+  1499 ms  0xbfb fd:0x7f9e4bb96a30
+  1499 ms  0xbfb ret:0x0
+  1499 ms  0xbfb PR_Connect()
+  1499 ms  0xbfb fd:0x7f9e4bb96a30
+  1933 ms  0xbfb SSL_AuthCertificateComplete()
+  1933 ms  0xbfb fd:0x7f9e4bb96a30
+  1933 ms  0xbfb err:0x0
