@@ -40,7 +40,7 @@
   4627 ms  0x262d symkey:0x7f09464e8000
   6624 ms  0x262d SSL_AuthCertificateComplete()
   6624 ms  0x262d fd:0x7f09464e36d0
-  6624 ms  0x262d err:0xffffd00c
+  6624 ms  0x262d err:0x0
   6624 ms     | 0x262d SECKEY_DestroyPrivateKey()
   6624 ms     | 0x262d privk:0x7f0933f25020::7f0933f25020  f0 6b 4f 46                                      .kOF
   6625 ms     | 0x262d privk:0x7f0933f25020::7f0933f25020  e5 e5 e5 e5                                      ....
