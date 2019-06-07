@@ -6,17 +6,17 @@ masterkeyderive_accept exp2/traces/trace_pinning-test.badssl.com_0x7f09464e36d0
 0x317:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  4616 ms  0x262d cx:0x7f0944fb6c08\x0A  4617 ms     | 0x262d EC_ValidatePublicKey()\x0A  4620 ms     | 0x262d ret:0x0
 0x421:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  4620 ms  0x262d seckey:0x7f0944f41020\x0A  4620 ms     | 0x262d EC_ValidatePublicKey()\x0A  4624 ms     | 0x262d ret:0x0
 0x727:$encrypted_comm:   0x262d PK11_Encrypt
-0xa06:$encrypted_comm:   0x262d PK11_Encrypt
-0xa6b:$encrypted_comm:   0x262d PK11_Encrypt
-0xab4:$encrypted_comm:   0x262d PK11_Encrypt
+0xa0d:$encrypted_comm:   0x262d PK11_Encrypt
+0xa72:$encrypted_comm:   0x262d PK11_Encrypt
+0xabb:$encrypted_comm:   0x262d PK11_Encrypt
 scrubprivkey_accept exp2/traces/trace_pinning-test.badssl.com_0x7f09464e36d0
 0x12:$newsession: SSL_ImportFD
 0xc2:$server_connect: PR_Connect
 0x420:$master_session_key_derive: PK11_PubDeriveWithKDF()\x0A  4620 ms  0x262d seckey:0x7f0944f41020\x0A
 0x62b:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  4626 ms  0x262d privk:0x7f0944f41020::7f0944f41020  00 41 ef 33                                      .A.3\x0A  4626 ms  0x262d privk:0x7f0944f41020::7f0944f41020  e5 e5 e5 e5
-0x7ec:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  6624 ms     | 0x262d privk:0x7f0933f25020::7f0933f25020  f0 6b 4f 46                                      .kOF\x0A  6625 ms     | 0x262d privk:0x7f0933f25020::7f0933f25020  e5 e5 e5 e5
-0x900:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  6625 ms     | 0x262d privk:0x7f0933f23020::7f0933f23020  c0 69 4f 46                                      .iOF\x0A  6625 ms     | 0x262d privk:0x7f0933f23020::7f0933f23020  e5 e5 e5 e5
+0x7f3:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  6624 ms     | 0x262d privk:0x7f0933f25020::7f0933f25020  f0 6b 4f 46                                      .kOF\x0A  6625 ms     | 0x262d privk:0x7f0933f25020::7f0933f25020  e5 e5 e5 e5
+0x907:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  6625 ms     | 0x262d privk:0x7f0933f23020::7f0933f23020  c0 69 4f 46                                      .iOF\x0A  6625 ms     | 0x262d privk:0x7f0933f23020::7f0933f23020  e5 e5 e5 e5
 0x727:$encrypted_comm:   0x262d PK11_Encrypt
-0xa06:$encrypted_comm:   0x262d PK11_Encrypt
-0xa6b:$encrypted_comm:   0x262d PK11_Encrypt
-0xab4:$encrypted_comm:   0x262d PK11_Encrypt
+0xa0d:$encrypted_comm:   0x262d PK11_Encrypt
+0xa72:$encrypted_comm:   0x262d PK11_Encrypt
+0xabb:$encrypted_comm:   0x262d PK11_Encrypt

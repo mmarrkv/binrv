@@ -12,7 +12,7 @@
            /* TID 0x2389 */
   4712 ms  0x2389 SSL_AuthCertificateComplete()
   4712 ms  0x2389 fd:0x7f50847a61f0
-  4712 ms  0x2389 err:0x0
+  4712 ms  0x2389 err:0xffffd00c
   4712 ms  0x2389 PK11_Encrypt()
   4712 ms  0x2389 symkey:0x7f50847a3b00
   5086 ms  0x2389 PK11_Encrypt()

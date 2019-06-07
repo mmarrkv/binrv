@@ -13,85 +13,138 @@ CERT_VerifySignedDataWithPublicKey: Loaded handler at "/home/blockio/binrv/__han
 CERT_VerifySignedData: Loaded handler at "/home/blockio/binrv/__handlers__/libnss3.so/CERT_VerifySignedData.js"
 CERT_VerifySignedDataWithPublicKeyInfo: Loaded handler at "/home/blockio/binrv/__handlers__/libnss3.so/CERT_VerifySignedDataWithPublicKeyInfo.js"
 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE: Loaded handler at "/home/blockio/binrv/__handlers__/libxul.so/_ZN7mozilla4pkix16VerifySignedDa_bce4259a.js"
-xmlExpExpDerive: Loaded handler at "/home/blockio/binrv/__handlers__/libxml2.so.2.9.4/xmlExpExpDerive.js"
-xmlExpStringDerive: Loaded handler at "/home/blockio/binrv/__handlers__/libxml2.so.2.9.4/xmlExpStringDerive.js"
 PK11_PubDeriveWithKDF: Loaded handler at "/home/blockio/binrv/__handlers__/libnss3.so/PK11_PubDeriveWithKDF.js"
 PK11_DeriveWithFlags: Loaded handler at "/home/blockio/binrv/__handlers__/libnss3.so/PK11_DeriveWithFlags.js"
 PK11_PubDerive: Loaded handler at "/home/blockio/binrv/__handlers__/libnss3.so/PK11_PubDerive.js"
 PK11_Derive: Loaded handler at "/home/blockio/binrv/__handlers__/libnss3.so/PK11_Derive.js"
 PK11_DeriveWithFlagsPerm: Loaded handler at "/home/blockio/binrv/__handlers__/libnss3.so/PK11_DeriveWithFlagsPerm.js"
 PK11_DeriveWithTemplate: Loaded handler at "/home/blockio/binrv/__handlers__/libnss3.so/PK11_DeriveWithTemplate.js"
-vaDeriveImage: Loaded handler at "/home/blockio/binrv/__handlers__/libva.so.2.100.0/vaDeriveImage.js"
 PK11_Encrypt: Loaded handler at "/home/blockio/binrv/__handlers__/libnss3.so/PK11_Encrypt.js"
 PR_Send: Loaded handler at "/home/blockio/binrv/__handlers__/libnspr4.so/PR_Send.js"
 PR_Close: Loaded handler at "/home/blockio/binrv/__handlers__/libnspr4.so/PR_Close.js"
 EC_ValidatePublicKey: Loaded handler at "/home/blockio/binrv/__handlers__/libfreeblpriv3.so/EC_ValidatePublicKey.js"
-ECPoint_validate: Loaded handler at "/home/blockio/binrv/__handlers__/libfreeblpriv3.so/ECPoint_validate.js"
 SECKEY_ECParamsToBasePointOrderLen: Loaded handler at "/home/blockio/binrv/__handlers__/libnss3.so/SECKEY_ECParamsToBasePointOrderLen.js"
 SECKEY_ECParamsToKeySize: Loaded handler at "/home/blockio/binrv/__handlers__/libnss3.so/SECKEY_ECParamsToKeySize.js"
-Started tracing 28 functions. Press Ctrl+C to stop.
-           /* TID 0x2cc3 */
-   563 ms  0x2cc3 SSL_ImportFD()
-   563 ms  0x2cc3 ret:0x7f24f7426d00
-   563 ms  0x2cc3 SSL_AuthCertificateHook()
-   563 ms  0x2cc3 fd:0x7f24f7426d00
-   563 ms  0x2cc3 ret:0x0
-   563 ms  0x2cc3 PR_Connect()
-   563 ms  0x2cc3 fd:0x7f24f7426d00
-   715 ms  0x2cc3 SECKEY_CreateECPrivateKey()
-   715 ms  0x2cc3 cx:0x7f24edefd7a8
-   716 ms     | 0x2cc3 EC_ValidatePublicKey()
-   716 ms     | 0x2cc3 ret:0x0
-   716 ms  0x2cc3 ret:0x7f24ee231020::7f24ee231020  a0 ab 1b 04                                      ....
-   717 ms  0x2cc3 SECKEY_CreateECPrivateKey()
-   717 ms  0x2cc3 cx:0x7f24edefd7a8
-   718 ms     | 0x2cc3 EC_ValidatePublicKey()
-   718 ms     |    | 0x2cc3 ECPoint_validate()
-   723 ms     |    | 0x2cc3 ret:0x0
-   723 ms     | 0x2cc3 ret:0x0
-   723 ms  0x2cc3 ret:0x7f24ee233020::7f24ee233020  80 ad 1b 04                                      ....
-   876 ms  SECKEY_ECParamsToKeySize()
-   876 ms  0x2cc3 ret:0x100
-   876 ms  0x2cc3 SECKEY_CreateECPrivateKey()
-   876 ms  0x2cc3 cx:0x7f24edefd7a8
-   879 ms     | 0x2cc3 EC_ValidatePublicKey()
-   879 ms     |    | 0x2cc3 ECPoint_validate()
-   882 ms     |    | 0x2cc3 ret:0x0
-   882 ms     | 0x2cc3 ret:0x0
-   890 ms  0x2cc3 ret:0x7f24ee236020::7f24ee236020  c0 b4 a6 f1                                      ....
-   890 ms  0x2cc3 PK11_PubDeriveWithKDF()
-   890 ms  0x2cc3 seckey:0x7f24ee236020
-   890 ms     | 0x2cc3 EC_ValidatePublicKey()
-   890 ms     |    | 0x2cc3 ECPoint_validate()
-   892 ms     |    | 0x2cc3 ret:0x0
-   892 ms     | 0x2cc3 ret:0x0
-   896 ms  0x2cc3 ret:0x7f24ef383300
-   896 ms  0x2cc3 PK11_DeriveWithFlags()
-   896 ms  0x2cc3 basekey:0x7f24ef383300
-   897 ms     | 0x2cc3 PK11_DeriveWithTemplate()
-   897 ms  0x2cc3 ret:0x7f24ede80080
-   897 ms  0x2cc3 PK11_Derive()
-   897 ms  0x2cc3 basekey:0x7f24ede80080
-   897 ms     | 0x2cc3 PK11_DeriveWithTemplate()
-   897 ms  0x2cc3 ret:0x7f24ee804680
-   897 ms  0x2cc3 SECKEY_DestroyPrivateKey()
-   897 ms  0x2cc3 privk:0x7f24ee236020::7f24ee236020  c0 b4 a6 f1                                      ....
-   897 ms  0x2cc3 privk:0x7f24ee236020::7f24ee236020  e5 e5 e5 e5                                      ....
-   897 ms  0x2cc3 PK11_Encrypt()
-   897 ms  0x2cc3 symkey:0x7f24ede80180
-   898 ms  0x2cc3 SSL_AuthCertificateComplete()
-   898 ms  0x2cc3 fd:0x7f24f7426d00
-   898 ms  0x2cc3 err:0xffffe00b
-   898 ms     | 0x2cc3 PK11_Encrypt()
-   898 ms     | 0x2cc3 symkey:0x7f24ede80180
-   907 ms  0x2cc3 PR_Close()
-   907 ms  0x2cc3 fd:0x7f24f7426d00
-   909 ms     | 0x2cc3 SECKEY_DestroyPrivateKey()
-   909 ms     | 0x2cc3 privk:0x7f24ee233020::7f24ee233020  80 ad 1b 04                                      ....
-   909 ms     | 0x2cc3 privk:0x7f24ee233020::7f24ee233020  e5 e5 e5 e5                                      ....
-   909 ms     | 0x2cc3 SECKEY_DestroyPrivateKey()
-   909 ms     | 0x2cc3 privk:0x7f24ee231020::7f24ee231020  a0 ab 1b 04                                      ....
-   909 ms     | 0x2cc3 privk:0x7f24ee231020::7f24ee231020  e5 e5 e5 e5                                      ....
-           /* TID 0x2ccd */
-  1065 ms  0x2ccd PR_Close()
-  1065 ms  0x2ccd fd:0x7f24f1437bb0
+Started tracing 24 functions. Press Ctrl+C to stop.
+           /* TID 0x2c54 */
+  3115 ms  0x2c54 PR_Close()
+  3115 ms  0x2c54 fd:0x7ffbc472b2b0
+  3115 ms     | 0x2c54 PK11_Encrypt()
+  3115 ms     | 0x2c54 symkey:0x7ffbc923f300
+  3867 ms  0x2c54 SSL_ImportFD()
+  3868 ms  0x2c54 ret:0x7ffbca06b670
+  3868 ms  0x2c54 SSL_AuthCertificateHook()
+  3868 ms  0x2c54 fd:0x7ffbca06b670
+  3868 ms  0x2c54 ret:0x0
+  3868 ms  0x2c54 PR_Connect()
+  3868 ms  0x2c54 fd:0x7ffbca06b670
+  3932 ms  0x2c54 SSL_ImportFD()
+  3932 ms  0x2c54 ret:0x7ffbca0d8040
+  3932 ms  0x2c54 SSL_AuthCertificateHook()
+  3932 ms  0x2c54 fd:0x7ffbca0d8040
+  3932 ms  0x2c54 ret:0x0
+  3932 ms  0x2c54 PR_Connect()
+  3932 ms  0x2c54 fd:0x7ffbca0d8040
+  4036 ms  0x2c54 SECKEY_CreateECPrivateKey()
+  4036 ms  0x2c54 cx:0x7ffbc3ea6f88
+  4037 ms     | 0x2c54 EC_ValidatePublicKey()
+  4038 ms     | 0x2c54 ret:0x0
+  4038 ms  0x2c54 ret:0x7ffbc4786020::7ffbc4786020  f0 4b e9 c8                                      .K..
+  4038 ms  0x2c54 SECKEY_CreateECPrivateKey()
+  4038 ms  0x2c54 cx:0x7ffbc3ea6f88
+  4039 ms     | 0x2c54 EC_ValidatePublicKey()
+  4045 ms     | 0x2c54 ret:0x0
+  4045 ms  0x2c54 ret:0x7ffbc4788020::7ffbc4788020  40 07 eb c8                                      @...
+  4097 ms  0x2c54 SECKEY_CreateECPrivateKey()
+  4097 ms  0x2c54 cx:0x7ffbc8e3b7e8
+  4098 ms     | 0x2c54 EC_ValidatePublicKey()
+  4098 ms     | 0x2c54 ret:0x0
+  4098 ms  0x2c54 ret:0x7ffbc478a820::7ffbc478a820  d0 08 eb c8                                      ....
+  4098 ms  0x2c54 SECKEY_CreateECPrivateKey()
+  4098 ms  0x2c54 cx:0x7ffbc8e3b7e8
+  4099 ms     | 0x2c54 EC_ValidatePublicKey()
+  4102 ms     | 0x2c54 ret:0x0
+  4102 ms  0x2c54 ret:0x7ffbc478c820::7ffbc478c820  c0 0e eb c8                                      ....
+  4206 ms  SECKEY_ECParamsToKeySize()
+  4206 ms  0x2c54 ret:0x100
+  4206 ms  0x2c54 SECKEY_CreateECPrivateKey()
+  4206 ms  0x2c54 cx:0x7ffbc3ea6f88
+  4207 ms     | 0x2c54 EC_ValidatePublicKey()
+  4213 ms     | 0x2c54 ret:0x0
+  4214 ms  0x2c54 ret:0x7ffbc4790820::7ffbc4790820  f0 e1 eb c8                                      ....
+  4214 ms  0x2c54 PK11_PubDeriveWithKDF()
+  4214 ms  0x2c54 seckey:0x7ffbc4790820
+  4214 ms     | 0x2c54 EC_ValidatePublicKey()
+  4221 ms     | 0x2c54 ret:0x0
+  4224 ms  0x2c54 ret:0x7ffbc923f180
+  4224 ms  0x2c54 PK11_DeriveWithFlags()
+  4224 ms  0x2c54 basekey:0x7ffbc923f180
+  4224 ms     | 0x2c54 PK11_DeriveWithTemplate()
+  4225 ms  0x2c54 ret:0x7ffbc923f100
+  4225 ms  0x2c54 PK11_Derive()
+  4225 ms  0x2c54 basekey:0x7ffbc923f100
+  4225 ms     | 0x2c54 PK11_DeriveWithTemplate()
+  4225 ms  0x2c54 ret:0x7ffbc6ca8700
+  4225 ms  0x2c54 SECKEY_DestroyPrivateKey()
+  4225 ms  0x2c54 privk:0x7ffbc4790820::7ffbc4790820  f0 e1 eb c8                                      ....
+  4225 ms  0x2c54 privk:0x7ffbc4790820::7ffbc4790820  e5 e5 e5 e5                                      ....
+  4225 ms  0x2c54 PK11_Encrypt()
+  4225 ms  0x2c54 symkey:0x7ffbc923f200
+  4227 ms  0x2c54 SSL_AuthCertificateComplete()
+  4227 ms  0x2c54 fd:0x7ffbca06b670
+  4227 ms  0x2c54 err:0xffffd00c
+  4227 ms     | 0x2c54 PK11_Encrypt()
+  4227 ms     | 0x2c54 symkey:0x7ffbc923f200
+  4235 ms  0x2c54 PR_Close()
+  4235 ms  0x2c54 fd:0x7ffbca06b670
+  4237 ms     | 0x2c54 SECKEY_DestroyPrivateKey()
+  4237 ms     | 0x2c54 privk:0x7ffbc4788020::7ffbc4788020  40 07 eb c8                                      @...
+  4237 ms     | 0x2c54 privk:0x7ffbc4788020::7ffbc4788020  e5 e5 e5 e5                                      ....
+  4237 ms     | 0x2c54 SECKEY_DestroyPrivateKey()
+  4237 ms     | 0x2c54 privk:0x7ffbc4786020::7ffbc4786020  f0 4b e9 c8                                      .K..
+  4238 ms     | 0x2c54 privk:0x7ffbc4786020::7ffbc4786020  e5 e5 e5 e5                                      ....
+  4268 ms  SECKEY_ECParamsToKeySize()
+  4268 ms  0x2c54 ret:0x100
+  4269 ms  0x2c54 SECKEY_CreateECPrivateKey()
+  4269 ms  0x2c54 cx:0x7ffbc8e3b7e8
+  4269 ms     | 0x2c54 EC_ValidatePublicKey()
+  4272 ms     | 0x2c54 ret:0x0
+  4272 ms  0x2c54 ret:0x7ffbc478d020::7ffbc478d020  20 e9 eb c8                                       ...
+  4272 ms  0x2c54 PK11_PubDeriveWithKDF()
+  4272 ms  0x2c54 seckey:0x7ffbc478d020
+  4272 ms     | 0x2c54 EC_ValidatePublicKey()
+  4287 ms     | 0x2c54 ret:0x0
+  4289 ms  0x2c54 ret:0x7ffbc6ca8700
+  4290 ms  0x2c54 PK11_DeriveWithFlags()
+  4290 ms  0x2c54 basekey:0x7ffbc6ca8700
+  4290 ms     | 0x2c54 PK11_DeriveWithTemplate()
+  4290 ms  0x2c54 ret:0x7ffbc923f100
+  4290 ms  0x2c54 PK11_Derive()
+  4290 ms  0x2c54 basekey:0x7ffbc923f100
+  4290 ms     | 0x2c54 PK11_DeriveWithTemplate()
+  4290 ms  0x2c54 ret:0x7ffbc923f180
+  4290 ms  0x2c54 SECKEY_DestroyPrivateKey()
+  4290 ms  0x2c54 privk:0x7ffbc478d020::7ffbc478d020  20 e9 eb c8                                       ...
+  4290 ms  0x2c54 privk:0x7ffbc478d020::7ffbc478d020  e5 e5 e5 e5                                      ....
+  4290 ms  0x2c54 PK11_Encrypt()
+  4290 ms  0x2c54 symkey:0x7ffbc923f280
+  4353 ms  0x2c54 SSL_AuthCertificateComplete()
+  4353 ms  0x2c54 fd:0x7ffbca0d8040
+  4353 ms  0x2c54 err:0xffffd00c
+  4353 ms     | 0x2c54 PK11_Encrypt()
+  4353 ms     | 0x2c54 symkey:0x7ffbc923f280
+  4358 ms  0x2c54 PR_Close()
+  4358 ms  0x2c54 fd:0x7ffbca0d8040
+  4358 ms     | 0x2c54 SECKEY_DestroyPrivateKey()
+  4358 ms     | 0x2c54 privk:0x7ffbc478c820::7ffbc478c820  c0 0e eb c8                                      ....
+  4358 ms     | 0x2c54 privk:0x7ffbc478c820::7ffbc478c820  e5 e5 e5 e5                                      ....
+  4359 ms     | 0x2c54 SECKEY_DestroyPrivateKey()
+  4359 ms     | 0x2c54 privk:0x7ffbc478a820::7ffbc478a820  d0 08 eb c8                                      ....
+  4359 ms     | 0x2c54 privk:0x7ffbc478a820::7ffbc478a820  e5 e5 e5 e5                                      ....
+  5265 ms  0x2c54 PR_Close()
+  5265 ms  0x2c54 fd:0x7ffbc5fabb20
+  5265 ms     | 0x2c54 PK11_Encrypt()
+  5265 ms     | 0x2c54 symkey:0x7ffbc4227100
+           /* TID 0x2c5e */
+  8931 ms  0x2c5e PR_Close()
+  8931 ms  0x2c5e fd:0x7ffbc3e342e0

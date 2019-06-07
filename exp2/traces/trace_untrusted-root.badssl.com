@@ -89,7 +89,7 @@ Started tracing 24 functions. Press Ctrl+C to stop.
            /* TID 0x24e2 */
    707 ms  0x24e2 SSL_AuthCertificateComplete()
    707 ms  0x24e2 fd:0x7f6a944afbe0
-   707 ms  0x24e2 err:0x0
+   707 ms  0x24e2 err:0xffffd00c
    708 ms  0x24e2 PK11_Encrypt()
    708 ms  0x24e2 symkey:0x7f6a9749fd00
    893 ms  0x24e2 SECKEY_DestroyPrivateKey()
@@ -150,7 +150,7 @@ Started tracing 24 functions. Press Ctrl+C to stop.
   1356 ms  0x24e2 symkey:0x7f6a9a6aff80
   1356 ms  0x24e2 SSL_AuthCertificateComplete()
   1356 ms  0x24e2 fd:0x7f6a837126a0
-  1356 ms  0x24e2 err:0x0
+  1356 ms  0x24e2 err:0xffffd00c
   1356 ms  0x24e2 PK11_Encrypt()
   1356 ms  0x24e2 symkey:0x7f6a9a6aff80
   1419 ms  0x24e2 SECKEY_DestroyPrivateKey()
@@ -348,7 +348,7 @@ Started tracing 24 functions. Press Ctrl+C to stop.
   4600 ms  0x24e2 symkey:0x7f6a836fb980
   4600 ms  0x24e2 SSL_AuthCertificateComplete()
   4600 ms  0x24e2 fd:0x7f6a836ff7c0
-  4600 ms  0x24e2 err:0x0
+  4600 ms  0x24e2 err:0xffffd00c
   4601 ms  0x24e2 PK11_Encrypt()
   4601 ms  0x24e2 symkey:0x7f6a836fb980
   4785 ms  0x24e2 SECKEY_DestroyPrivateKey()

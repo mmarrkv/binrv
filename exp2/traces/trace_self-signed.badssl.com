@@ -58,7 +58,7 @@ Started tracing 24 functions. Press Ctrl+C to stop.
     58 ms  0x2433 symkey:0x7f0120843480
     58 ms  0x2433 SSL_AuthCertificateComplete()
     58 ms  0x2433 fd:0x7f0120858250
-    58 ms  0x2433 err:0x0
+    58 ms  0x2433 err:0xffffd00c
     58 ms  0x2433 PK11_Encrypt()
     58 ms  0x2433 symkey:0x7f0120843480
    108 ms  0x2433 SECKEY_DestroyPrivateKey()
@@ -268,7 +268,7 @@ Started tracing 24 functions. Press Ctrl+C to stop.
   4562 ms  0x2433 symkey:0x7f0121bd1780
   4563 ms  0x2433 SSL_AuthCertificateComplete()
   4563 ms  0x2433 fd:0x7f0121694520
-  4563 ms  0x2433 err:0x0
+  4563 ms  0x2433 err:0xffffd00c
   4563 ms  0x2433 PK11_Encrypt()
   4563 ms  0x2433 symkey:0x7f0121bd1780
   4748 ms  0x2433 SECKEY_DestroyPrivateKey()

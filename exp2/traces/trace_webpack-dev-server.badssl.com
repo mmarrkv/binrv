@@ -77,7 +77,7 @@ Started tracing 24 functions. Press Ctrl+C to stop.
            /* TID 0x2a23 */
    577 ms  0x2a23 SSL_AuthCertificateComplete()
    577 ms  0x2a23 fd:0x7f5c57a9a8b0
-   577 ms  0x2a23 err:0x0
+   577 ms  0x2a23 err:0xffffd00c
    578 ms  0x2a23 PK11_Encrypt()
    578 ms  0x2a23 symkey:0x7f5c5906be80
    738 ms  0x2a23 SECKEY_DestroyPrivateKey()
@@ -138,7 +138,7 @@ Started tracing 24 functions. Press Ctrl+C to stop.
   1181 ms  0x2a23 symkey:0x7f5c59d74580
   1181 ms  0x2a23 SSL_AuthCertificateComplete()
   1181 ms  0x2a23 fd:0x7f5c57af1190
-  1181 ms  0x2a23 err:0x0
+  1181 ms  0x2a23 err:0xffffd00c
   1181 ms  0x2a23 PK11_Encrypt()
   1181 ms  0x2a23 symkey:0x7f5c59d74580
   1259 ms  0x2a23 SECKEY_DestroyPrivateKey()
@@ -338,7 +338,7 @@ Started tracing 24 functions. Press Ctrl+C to stop.
   4516 ms  0x2a23 symkey:0x7f5c46dad880
   4516 ms  0x2a23 SSL_AuthCertificateComplete()
   4516 ms  0x2a23 fd:0x7f5c46db1550
-  4516 ms  0x2a23 err:0x0
+  4516 ms  0x2a23 err:0xffffd00c
   4518 ms  0x2a23 PK11_Encrypt()
   4518 ms  0x2a23 symkey:0x7f5c46dad880
   4731 ms  0x2a23 SECKEY_DestroyPrivateKey()

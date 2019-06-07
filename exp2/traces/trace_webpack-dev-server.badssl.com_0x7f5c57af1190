@@ -13,7 +13,7 @@
   1181 ms  0x2a23 symkey:0x7f5c59d74580
   1181 ms  0x2a23 SSL_AuthCertificateComplete()
   1181 ms  0x2a23 fd:0x7f5c57af1190
-  1181 ms  0x2a23 err:0x0
+  1181 ms  0x2a23 err:0xffffd00c
   1181 ms  0x2a23 PK11_Encrypt()
   1181 ms  0x2a23 symkey:0x7f5c59d74580
   1317 ms  0x2a23 PK11_Encrypt()

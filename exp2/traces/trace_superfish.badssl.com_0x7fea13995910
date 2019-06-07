@@ -12,7 +12,7 @@
            /* TID 0x278b */
    641 ms  0x2783 SSL_AuthCertificateComplete()
    641 ms  0x2783 fd:0x7fea13995910
-   641 ms  0x2783 err:0x0
+   641 ms  0x2783 err:0xffffd00c
    642 ms  0x2783 PK11_Encrypt()
    642 ms  0x2783 symkey:0x7fea14fd0480
   1125 ms  0x27fc _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()

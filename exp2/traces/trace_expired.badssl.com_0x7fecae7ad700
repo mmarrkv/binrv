@@ -9,7 +9,7 @@
   4736 ms  0x22e1 symkey:0x7fecae7b1d00
   4737 ms  0x22e1 SSL_AuthCertificateComplete()
   4737 ms  0x22e1 fd:0x7fecae7ad700
-  4737 ms  0x22e1 err:0x0
+  4737 ms  0x22e1 err:0xffffd00c
   4738 ms  0x22e1 PK11_Encrypt()
   4738 ms  0x22e1 symkey:0x7fecae7b1d00
   5265 ms  0x22e1 PK11_Encrypt()

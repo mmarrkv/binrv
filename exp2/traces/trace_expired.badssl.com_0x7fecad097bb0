@@ -12,7 +12,7 @@
    762 ms  0x22e1 symkey:0x7fecaf2ec600
    762 ms  0x22e1 SSL_AuthCertificateComplete()
    762 ms  0x22e1 fd:0x7fecad097bb0
-   762 ms  0x22e1 err:0x0
+   762 ms  0x22e1 err:0xffffd00c
   1223 ms  0x2353 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
   1223 ms  0x2353 ret:0x0
            /* TID 0x22e1 */

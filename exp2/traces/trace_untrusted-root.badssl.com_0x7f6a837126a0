@@ -12,7 +12,7 @@
   1356 ms  0x24e2 symkey:0x7f6a9a6aff80
   1356 ms  0x24e2 SSL_AuthCertificateComplete()
   1356 ms  0x24e2 fd:0x7f6a837126a0
-  1356 ms  0x24e2 err:0x0
+  1356 ms  0x24e2 err:0xffffd00c
   1356 ms  0x24e2 PK11_Encrypt()
   1356 ms  0x24e2 symkey:0x7f6a9a6aff80
   1483 ms  0x24e2 PK11_Encrypt()

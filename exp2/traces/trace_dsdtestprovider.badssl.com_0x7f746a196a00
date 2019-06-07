@@ -12,7 +12,7 @@
    979 ms  0x28d1 symkey:0x7f746b9b9c80
    979 ms  0x28d1 SSL_AuthCertificateComplete()
    979 ms  0x28d1 fd:0x7f746a196a00
-   979 ms  0x28d1 err:0x0
+   979 ms  0x28d1 err:0xffffd00c
            /* TID 0x293c */
   1402 ms  0x2929 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()
   1403 ms  0x2929 ret:0x0

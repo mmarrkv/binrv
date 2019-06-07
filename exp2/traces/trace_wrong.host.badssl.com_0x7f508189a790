@@ -12,7 +12,7 @@
            /* TID 0x2389 */
    710 ms  0x2389 SSL_AuthCertificateComplete()
    710 ms  0x2389 fd:0x7f508189a790
-   710 ms  0x2389 err:0x0
+   710 ms  0x2389 err:0xffffd00c
    710 ms  0x2389 PK11_Encrypt()
    710 ms  0x2389 symkey:0x7f50832fe280
   1199 ms  0x23e1 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()

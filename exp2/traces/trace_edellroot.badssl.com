@@ -60,7 +60,7 @@ Started tracing 24 functions. Press Ctrl+C to stop.
     80 ms  0x282c symkey:0x7fbd29136600
     80 ms  0x282c SSL_AuthCertificateComplete()
     80 ms  0x282c fd:0x7fbd2d3eb9a0
-    80 ms  0x282c err:0x0
+    80 ms  0x282c err:0xffffd00c
    104 ms  0x282c SSL_ImportFD()
    104 ms  0x282c ret:0x7fbd38af84c0
    104 ms  0x282c SSL_AuthCertificateHook()
@@ -181,7 +181,7 @@ Started tracing 24 functions. Press Ctrl+C to stop.
            /* TID 0x282c */
   1151 ms  0x282c SSL_AuthCertificateComplete()
   1151 ms  0x282c fd:0x7fbd38af84c0
-  1151 ms  0x282c err:0x0
+  1151 ms  0x282c err:0xffffd00c
   1151 ms     | 0x282c SECKEY_DestroyPrivateKey()
   1151 ms     | 0x282c privk:0x7fbd27d7b820::7fbd27d7b820  20 74 df 27                                       t.'
   1152 ms     | 0x282c privk:0x7fbd27d7b820::7fbd27d7b820  e5 e5 e5 e5                                      ....
@@ -199,7 +199,7 @@ Started tracing 24 functions. Press Ctrl+C to stop.
            /* TID 0x282c */
   1294 ms  0x282c SSL_AuthCertificateComplete()
   1294 ms  0x282c fd:0x7fbd38af8640
-  1294 ms  0x282c err:0x0
+  1294 ms  0x282c err:0xffffd00c
   1295 ms     | 0x282c SECKEY_DestroyPrivateKey()
   1295 ms     | 0x282c privk:0x7fbd27d80020::7fbd27d80020  a0 76 df 27                                      .v.'
   1295 ms     | 0x282c privk:0x7fbd27d80020::7fbd27d80020  e5 e5 e5 e5                                      ....
@@ -254,7 +254,7 @@ Started tracing 24 functions. Press Ctrl+C to stop.
   1782 ms  0x282c symkey:0x7fbd16e7d680
   1783 ms  0x282c SSL_AuthCertificateComplete()
   1783 ms  0x282c fd:0x7fbd27de1b80
-  1783 ms  0x282c err:0x0
+  1783 ms  0x282c err:0xffffd00c
   1783 ms  0x282c PK11_Encrypt()
   1783 ms  0x282c symkey:0x7fbd16e7d680
   1904 ms  0x282c SECKEY_DestroyPrivateKey()
@@ -452,7 +452,7 @@ Started tracing 24 functions. Press Ctrl+C to stop.
   4621 ms  0x282c symkey:0x7fbd16effd00
   4621 ms  0x282c SSL_AuthCertificateComplete()
   4621 ms  0x282c fd:0x7fbd28d40cd0
-  4621 ms  0x282c err:0x0
+  4621 ms  0x282c err:0xffffd00c
   4622 ms  0x282c PK11_Encrypt()
   4622 ms  0x282c symkey:0x7fbd16effd00
   4805 ms  0x282c SECKEY_DestroyPrivateKey()

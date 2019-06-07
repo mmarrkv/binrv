@@ -47,7 +47,7 @@
            /* TID 0x282c */
   1294 ms  0x282c SSL_AuthCertificateComplete()
   1294 ms  0x282c fd:0x7fbd38af8640
-  1294 ms  0x282c err:0x0
+  1294 ms  0x282c err:0xffffd00c
   1295 ms     | 0x282c SECKEY_DestroyPrivateKey()
   1295 ms     | 0x282c privk:0x7fbd27d80020::7fbd27d80020  a0 76 df 27                                      .v.'
   1295 ms     | 0x282c privk:0x7fbd27d80020::7fbd27d80020  e5 e5 e5 e5                                      ....

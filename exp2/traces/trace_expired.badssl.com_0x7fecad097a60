@@ -13,7 +13,7 @@
            /* TID 0x22e1 */
    653 ms  0x22e1 SSL_AuthCertificateComplete()
    653 ms  0x22e1 fd:0x7fecad097a60
-   653 ms  0x22e1 err:0x0
+   653 ms  0x22e1 err:0xffffd00c
    653 ms  0x22e1 PK11_Encrypt()
    653 ms  0x22e1 symkey:0x7fecae5c6a00
   1223 ms  0x2353 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()

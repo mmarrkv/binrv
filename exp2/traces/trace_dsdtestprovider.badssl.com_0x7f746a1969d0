@@ -12,7 +12,7 @@
            /* TID 0x28d1 */
    778 ms  0x28d1 SSL_AuthCertificateComplete()
    778 ms  0x28d1 fd:0x7f746a1969d0
-   778 ms  0x28d1 err:0x0
+   778 ms  0x28d1 err:0xffffd00c
    778 ms  0x28d1 PK11_Encrypt()
    778 ms  0x28d1 symkey:0x7f746c677580
   1402 ms  0x2929 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()

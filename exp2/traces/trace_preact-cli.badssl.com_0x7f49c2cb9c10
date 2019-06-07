@@ -13,7 +13,7 @@
    146 ms  0x2981 symkey:0x7f49c85f6e80
    147 ms  0x2981 SSL_AuthCertificateComplete()
    147 ms  0x2981 fd:0x7f49c2cb9c10
-   147 ms  0x2981 err:0x0
+   147 ms  0x2981 err:0xffffd00c
    147 ms  0x2981 PK11_Encrypt()
    147 ms  0x2981 symkey:0x7f49c85f6e80
    255 ms  0x2981 PK11_Encrypt()

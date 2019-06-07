@@ -12,7 +12,7 @@
   1140 ms  0x2783 symkey:0x7fea139ef600
   1140 ms  0x2783 SSL_AuthCertificateComplete()
   1140 ms  0x2783 fd:0x7fea139ff370
-  1140 ms  0x2783 err:0x0
+  1140 ms  0x2783 err:0xffffd00c
   1141 ms  0x2783 PK11_Encrypt()
   1141 ms  0x2783 symkey:0x7fea139ef600
   1242 ms  0x2783 PK11_Encrypt()

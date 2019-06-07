@@ -68,7 +68,7 @@ Started tracing 24 functions. Press Ctrl+C to stop.
     82 ms  0x2589 symkey:0x7fd9dc2c7080
     85 ms  0x2589 SSL_AuthCertificateComplete()
     85 ms  0x2589 fd:0x7fd9dadff490
-    85 ms  0x2589 err:0x0
+    85 ms  0x2589 err:0xffffd00c
     85 ms  0x2589 PK11_Encrypt()
     85 ms  0x2589 symkey:0x7fd9dc2c7080
    130 ms  0x2589 SECKEY_DestroyPrivateKey()

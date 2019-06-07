@@ -12,7 +12,7 @@
   1416 ms  0x28d1 symkey:0x7f7459646280
   1417 ms  0x28d1 SSL_AuthCertificateComplete()
   1417 ms  0x28d1 fd:0x7f746a1f03a0
-  1417 ms  0x28d1 err:0x0
+  1417 ms  0x28d1 err:0xffffd00c
   1417 ms  0x28d1 PK11_Encrypt()
   1417 ms  0x28d1 symkey:0x7f7459646280
   1528 ms  0x28d1 PK11_Encrypt()

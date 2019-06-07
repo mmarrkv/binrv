@@ -12,7 +12,7 @@
            /* TID 0x2635 */
    637 ms  0x262d SSL_AuthCertificateComplete()
    637 ms  0x262d fd:0x7f0944fb1a90
-   637 ms  0x262d err:0x0
+   637 ms  0x262d err:0xffffd00c
    638 ms  0x262d PK11_Encrypt()
    638 ms  0x262d symkey:0x7f0945630200
   1262 ms  0x26a8 _ZN7mozilla4pkix16VerifySignedDataERNS0_11TrustDomainERKNS0_3der23SignedDataWithSignatureENS0_5InputE()

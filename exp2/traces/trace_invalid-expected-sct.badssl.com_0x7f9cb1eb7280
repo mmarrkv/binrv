@@ -12,7 +12,7 @@
   1266 ms  0x26d4 symkey:0x7f9cb1ebf600
   1266 ms  0x26d4 SSL_AuthCertificateComplete()
   1266 ms  0x26d4 fd:0x7f9cb1eb7280
-  1266 ms  0x26d4 err:0x0
+  1266 ms  0x26d4 err:0xffffd00c
   1267 ms  0x26d4 PK11_Encrypt()
   1267 ms  0x26d4 symkey:0x7f9cb1ebf600
   1399 ms  0x26d4 PK11_Encrypt()

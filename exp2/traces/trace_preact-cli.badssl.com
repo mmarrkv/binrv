@@ -83,7 +83,7 @@ Started tracing 24 functions. Press Ctrl+C to stop.
    146 ms  0x2981 symkey:0x7f49c85f6e80
    147 ms  0x2981 SSL_AuthCertificateComplete()
    147 ms  0x2981 fd:0x7f49c2cb9c10
-   147 ms  0x2981 err:0x0
+   147 ms  0x2981 err:0xffffd00c
    147 ms  0x2981 PK11_Encrypt()
    147 ms  0x2981 symkey:0x7f49c85f6e80
    196 ms  0x2981 SECKEY_DestroyPrivateKey()
@@ -296,7 +296,7 @@ Started tracing 24 functions. Press Ctrl+C to stop.
   4634 ms  0x2981 symkey:0x7f49c6297680
   4634 ms  0x2981 SSL_AuthCertificateComplete()
   4634 ms  0x2981 fd:0x7f49b1fff4c0
-  4634 ms  0x2981 err:0x0
+  4634 ms  0x2981 err:0xffffd00c
   4635 ms  0x2981 PK11_Encrypt()
   4635 ms  0x2981 symkey:0x7f49c6297680
   4636 ms  0x2981 SECKEY_CreateECPrivateKey()
@@ -342,7 +342,7 @@ Started tracing 24 functions. Press Ctrl+C to stop.
   4836 ms  0x2981 symkey:0x7f49c628b480
   4836 ms  0x2981 SSL_AuthCertificateComplete()
   4836 ms  0x2981 fd:0x7f49b1fff670
-  4836 ms  0x2981 err:0x0
+  4836 ms  0x2981 err:0xffffd00c
   5029 ms  0x2981 SECKEY_DestroyPrivateKey()
   5029 ms  0x2981 privk:0x7f49b1fab820::7f49b1fab820  c0 5e 3e c4                                      .^>.
   5029 ms  0x2981 privk:0x7f49b1fab820::7f49b1fab820  e5 e5 e5 e5                                      ....

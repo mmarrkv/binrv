@@ -12,7 +12,7 @@
   4562 ms  0x2433 symkey:0x7f0121bd1780
   4563 ms  0x2433 SSL_AuthCertificateComplete()
   4563 ms  0x2433 fd:0x7f0121694520
-  4563 ms  0x2433 err:0x0
+  4563 ms  0x2433 err:0xffffd00c
   4563 ms  0x2433 PK11_Encrypt()
   4563 ms  0x2433 symkey:0x7f0121bd1780
   5005 ms  0x2433 PK11_Encrypt()

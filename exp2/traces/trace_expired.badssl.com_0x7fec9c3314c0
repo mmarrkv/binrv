@@ -12,7 +12,7 @@
   1237 ms  0x22e1 symkey:0x7fec9c347280
   1237 ms  0x22e1 SSL_AuthCertificateComplete()
   1237 ms  0x22e1 fd:0x7fec9c3314c0
-  1237 ms  0x22e1 err:0x0
+  1237 ms  0x22e1 err:0xffffd00c
   1237 ms  0x22e1 PK11_Encrypt()
   1237 ms  0x22e1 symkey:0x7fec9c347280
   1359 ms  0x22e1 PK11_Encrypt()
