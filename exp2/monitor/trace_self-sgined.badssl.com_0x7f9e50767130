@@ -1,0 +1,12 @@
+certerr_accept exp2/traces/trace_self-sgined.badssl.com_0x7f9e50767130
+0x11:$newsession: SSL_ImportFD
+0xbc:$server_connect: PR_Connect
+0x7fe:$failed_cert_auth: SSL_AuthCertificateComplete()\x0A  2047 ms  0xbfb fd:0x7f9e50767130\x0A  2047 ms  0xbfb err:0xffffc00e\x0A
+0x8c1:$abort: PR_Close()\x0A  2059 ms  0xbfb fd:0x7f9e50767130\x0A  2061 ms     | 0xbfb SECKEY_DestroyPrivateKey
+scrubprivkey_accept exp2/traces/trace_self-sgined.badssl.com_0x7f9e50767130
+0x11:$newsession: SSL_ImportFD
+0xbc:$server_connect: PR_Connect
+0x4b7:$master_session_key_derive: PK11_PubDeriveWithKDF()\x0A  2036 ms  0xbfb seckey:0x7f9e4f9d4020\x0A
+0x6b5:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  2046 ms  0xbfb privk:0x7f9e4f9d4020::7f9e4f9d4020  40 5c 4b 56                                      @\KV\x0A  2046 ms  0xbfb privk:0x7f9e4f9d4020::7f9e4f9d4020  e5 e5 e5 e5
+0x905:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  2061 ms     | 0xbfb privk:0x7f9e4f9d1820::7f9e4f9d1820  d0 4d 49 56                                      .MIV\x0A  2062 ms     | 0xbfb privk:0x7f9e4f9d1820::7f9e4f9d1820  e5 e5 e5 e5
+0xa16:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  2063 ms     | 0xbfb privk:0x7f9e4f9cf820::7f9e4f9cf820  b0 da 48 56                                      ..HV\x0A  2072 ms     | 0xbfb privk:0x7f9e4f9cf820::7f9e4f9cf820  e5 e5 e5 e5

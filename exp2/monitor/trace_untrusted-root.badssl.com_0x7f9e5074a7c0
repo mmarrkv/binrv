@@ -1,0 +1,12 @@
+certerr_accept exp2/traces/trace_untrusted-root.badssl.com_0x7f9e5074a7c0
+0x11:$newsession: SSL_ImportFD
+0xbc:$server_connect: PR_Connect
+0x750:$failed_cert_auth: SSL_AuthCertificateComplete()\x0A  1400 ms  0xbfb fd:0x7f9e5074a7c0\x0A  1400 ms  0xbfb err:0xffffe00d\x0A
+0x813:$abort: PR_Close()\x0A  1411 ms  0xbfb fd:0x7f9e5074a7c0\x0A  1413 ms     | 0xbfb SECKEY_DestroyPrivateKey
+scrubprivkey_accept exp2/traces/trace_untrusted-root.badssl.com_0x7f9e5074a7c0
+0x11:$newsession: SSL_ImportFD
+0xbc:$server_connect: PR_Connect
+0x409:$master_session_key_derive: PK11_PubDeriveWithKDF()\x0A  1386 ms  0xbfb seckey:0x7f9e59c92820\x0A
+0x607:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  1393 ms  0xbfb privk:0x7f9e59c92820::7f9e59c92820  20 59 62 52                                       YbR\x0A  1393 ms  0xbfb privk:0x7f9e59c92820::7f9e59c92820  e5 e5 e5 e5
+0x857:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  1413 ms     | 0xbfb privk:0x7f9e59c8b020::7f9e59c8b020  00 16 2d 50                                      ..-P\x0A  1413 ms     | 0xbfb privk:0x7f9e59c8b020::7f9e59c8b020  e5 e5 e5 e5
+0x968:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  1413 ms     | 0xbfb privk:0x7f9e59c86820::7f9e59c86820  70 de 09 50                                      p..P\x0A  1413 ms     | 0xbfb privk:0x7f9e59c86820::7f9e59c86820  e5 e5 e5 e5

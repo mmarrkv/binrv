@@ -30,7 +30,9 @@ for line in fp:
     else:
         currentrec.append(line)
 
+records.append(currentrec) #last record
 fp.close()
+
 
 #pop first element: that is just the initial frida-trace info
 records.pop(0)

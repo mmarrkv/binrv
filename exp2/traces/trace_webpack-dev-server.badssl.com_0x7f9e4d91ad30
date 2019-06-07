@@ -1,0 +1,54 @@
+   922 ms  0xbfb SSL_ImportFD()
+   923 ms  0xbfb ret:0x7f9e4d91ad30
+   923 ms  0xbfb SSL_AuthCertificateHook()
+   923 ms  0xbfb fd:0x7f9e4d91ad30
+   923 ms  0xbfb ret:0x0
+   923 ms  0xbfb PR_Connect()
+   923 ms  0xbfb fd:0x7f9e4d91ad30
+  1117 ms  0xbfb SECKEY_CreateECPrivateKey()
+  1117 ms  0xbfb cx:0x7f9e53acc4a8
+  1118 ms     | 0xbfb EC_ValidatePublicKey()
+  1118 ms     | 0xbfb ret:0x0
+  1118 ms  0xbfb ret:0x7f9e57f6d820::7f9e57f6d820  a0 e6 90 4d                                      ...M
+  1118 ms  0xbfb SECKEY_CreateECPrivateKey()
+  1118 ms  0xbfb cx:0x7f9e53acc4a8
+  1119 ms     | 0xbfb EC_ValidatePublicKey()
+  1121 ms     | 0xbfb ret:0x0
+  1121 ms  0xbfb ret:0x7f9e59b52020::7f9e59b52020  20 ee 90 4d                                       ..M
+  1322 ms  0xbfb SECKEY_CreateECPrivateKey()
+  1322 ms  0xbfb cx:0x7f9e53acc4a8
+  1323 ms     | 0xbfb EC_ValidatePublicKey()
+  1332 ms     | 0xbfb ret:0x0
+  1334 ms  0xbfb ret:0x7f9e59c7e020::7f9e59c7e020  50 8b c9 4d                                      P..M
+  1335 ms  0xbfb PK11_PubDeriveWithKDF()
+  1335 ms  0xbfb seckey:0x7f9e59c7e020
+  1335 ms     | 0xbfb EC_ValidatePublicKey()
+  1337 ms     | 0xbfb ret:0x0
+  1340 ms  0xbfb ret:0x7f9e51e38980
+  1340 ms  0xbfb PK11_DeriveWithFlags()
+  1340 ms  0xbfb basekey:0x7f9e51e38980
+  1340 ms     | 0xbfb PK11_DeriveWithTemplate()
+  1340 ms  0xbfb ret:0x7f9e4dce2300
+  1340 ms  0xbfb PK11_Derive()
+  1340 ms  0xbfb basekey:0x7f9e4dce2300
+  1340 ms     | 0xbfb PK11_DeriveWithTemplate()
+  1340 ms  0xbfb ret:0x7f9e50152480
+  1340 ms  0xbfb SECKEY_DestroyPrivateKey()
+  1340 ms  0xbfb privk:0x7f9e59c7e020::7f9e59c7e020  50 8b c9 4d                                      P..M
+  1340 ms  0xbfb privk:0x7f9e59c7e020::7f9e59c7e020  e5 e5 e5 e5                                      ....
+  1341 ms  0xbfb PK11_Encrypt()
+  1341 ms  0xbfb symkey:0x7f9e51eae900
+  1342 ms  0xbfb SSL_AuthCertificateComplete()
+  1342 ms  0xbfb fd:0x7f9e4d91ad30
+  1342 ms  0xbfb err:0xffffe00d
+  1342 ms     | 0xbfb PK11_Encrypt()
+  1342 ms     | 0xbfb symkey:0x7f9e51eae900
+  1354 ms  0xbfb PR_Close()
+  1354 ms  0xbfb fd:0x7f9e4d91ad30
+  1361 ms     | 0xbfb SECKEY_DestroyPrivateKey()
+  1361 ms     | 0xbfb privk:0x7f9e59b52020::7f9e59b52020  20 ee 90 4d                                       ..M
+  1368 ms     | 0xbfb privk:0x7f9e59b52020::7f9e59b52020  e5 e5 e5 e5                                      ....
+  1368 ms     | 0xbfb SECKEY_DestroyPrivateKey()
+  1368 ms     | 0xbfb privk:0x7f9e57f6d820::7f9e57f6d820  a0 e6 90 4d                                      ...M
+  1368 ms     | 0xbfb privk:0x7f9e57f6d820::7f9e57f6d820  e5 e5 e5 e5                                      ....
+           /* TID 0xc05 */

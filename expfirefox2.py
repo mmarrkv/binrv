@@ -30,7 +30,7 @@ def start_dbi(tracefilename):
 
 
 if __name__ == "__main__":
-
+    
     print('Experiment 2: Demonstrating binrv over 12 firefox sessions contacting known insecurely configured sites')
     print('Initializing...')
     options = Options()
@@ -59,7 +59,7 @@ if __name__ == "__main__":
             print('page error')
             print(type(exception).__name__)
         driver.quit()
-
+    
     print('Expanding to subtraces...')
     for f in glob.glob('exp2/traces/trace_*'):
         os.system('python3 yara_rules/xtract.py '+'~/binrv/'+f+' > /dev/null')    
