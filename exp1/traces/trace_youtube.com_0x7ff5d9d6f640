@@ -1,0 +1,10 @@
+  7973 ms  0x34ad SSL_ImportFD()
+  7973 ms  0x34ad ret:0x7ff5d9d6f640
+  7973 ms  0x34ad SSL_AuthCertificateHook()
+  7973 ms  0x34ad fd:0x7ff5d9d6f640
+  7973 ms  0x34ad ret:0x0
+  7973 ms  0x34ad PR_Connect()
+  7973 ms  0x34ad fd:0x7ff5d9d6f640
+  7979 ms  0x34ad PR_Close()
+  7979 ms  0x34ad fd:0x7ff5d9d6f640
+           /* TID 0x350e */

@@ -1,0 +1,17 @@
+masterkeyderive_accept exp1/traces/trace_facebook.com_0x7ff8a7838190
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x105:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  5234 ms  0x3561 cx:0x7ff8a7ce5948\x0A  5234 ms     | 0x3561 EC_ValidatePublicKey()\x0A  5234 ms     | 0x3561 ret:0x0
+0x20e:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  5234 ms  0x3561 cx:0x7ff8a7ce5948\x0A  5235 ms     | 0x3561 EC_ValidatePublicKey()\x0A  5238 ms     | 0x3561 ret:0x0
+0x3b7:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5272 ms  0x3561 seckey:0x7ff8a76e7020\x0A  5272 ms     | 0x3561 EC_ValidatePublicKey()\x0A  5272 ms     | 0x3561 ret:0x0
+0xaf0:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5281 ms  0x3561 seckey:0x7ff8a76eb820\x0A  5281 ms     | 0x3561 EC_ValidatePublicKey()\x0A  5281 ms     | 0x3561 ret:0x0
+0x1229:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5287 ms  0x3561 seckey:0x7ff8a76f0820\x0A  5287 ms     | 0x3561 EC_ValidatePublicKey()\x0A  5287 ms     | 0x3561 ret:0x0
+0x24f1:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5308 ms  0x3561 seckey:0x7ff8a797e020\x0A  5308 ms     | 0x3561 EC_ValidatePublicKey()\x0A  5308 ms     | 0x3561 ret:0x0
+0x2d0e:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5321 ms  0x3561 seckey:0x7ff8a7978820\x0A  5321 ms     | 0x3561 EC_ValidatePublicKey()\x0A  5321 ms     | 0x3561 ret:0x0
+scrubprivkey_accept exp1/traces/trace_facebook.com_0x7ff8a7838190
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x105:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A  5234 ms  0x3561 cx:0x7ff8a7ce5948\x0A  5234 ms     | 0x3561 EC_ValidatePublicKey()\x0A  5234 ms     | 0x3561 ret:0x0\x0A  5234 ms  0x3561 ret:0x7ff8a76eb820::7ff8a76eb820  20 f4 8a a7                                       ...\x0A  5234 ms  0x3561 SECKEY_CreateECPrivateKey()\x0A  5234 ms  0x3561 cx:0x7ff8a7ce5948\x0A  5235 ms     | 0x3561 EC_ValidatePublicKey()\x0A  5238 ms     | 0x3561 ret:0x0\x0A  5238 ms  0x3561 ret:0x7ff8a76ed820::7ff8a76ed820  00 31 96 a7                                      .1..\x0A  5272 ms  0x3561 PK11_Derive()\x0A  5272 ms  0x3561 basekey:0x7ff8a79ce800\x0A  5272 ms     | 0x3561 PK11_DeriveWithTemplate()\x0A  5272 ms  0x3561 ret:0x7ff8a79ce700\x0A  5272 ms  0x3561 PK11_PubDeriveWithKDF()\x0A  5272 ms  0x3561 seckey:0x7ff8a76e7020\x0A
+0x20e:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A  5234 ms  0x3561 cx:0x7ff8a7ce5948\x0A  5235 ms     | 0x3561 EC_ValidatePublicKey()\x0A  5238 ms     | 0x3561 ret:0x0\x0A  5238 ms  0x3561 ret:0x7ff8a76ed820::7ff8a76ed820  00 31 96 a7                                      .1..\x0A  5272 ms  0x3561 PK11_Derive()\x0A  5272 ms  0x3561 basekey:0x7ff8a79ce800\x0A  5272 ms     | 0x3561 PK11_DeriveWithTemplate()\x0A  5272 ms  0x3561 ret:0x7ff8a79ce700\x0A  5272 ms  0x3561 PK11_PubDeriveWithKDF()\x0A  5272 ms  0x3561 seckey:0x7ff8a76e7020\x0A
+0x222e:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  5301 ms     | 0x3561 privk:0x7ff8a76ed820::7ff8a76ed820  00 31 96 a7                                      .1..\x0A  5301 ms     | 0x3561 privk:0x7ff8a76ed820::7ff8a76ed820  e5 e5 e5 e5
+0x2342:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  5301 ms     | 0x3561 privk:0x7ff8a76eb820::7ff8a76eb820  20 f4 8a a7                                       ...\x0A  5301 ms     | 0x3561 privk:0x7ff8a76eb820::7ff8a76eb820  e5 e5 e5 e5

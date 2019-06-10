@@ -42,7 +42,7 @@ if __name__ == "__main__":
         #print(urls[0][1])
 
     print('Start tracing sessions...')
-    for i in range(0,5):
+    for i in range(0,100):
         driver = Firefox(executable_path='geckodriver', options=options)
         wait = WebDriverWait(driver, timeout=10)
 
@@ -68,14 +68,15 @@ if __name__ == "__main__":
         os.system('python3 yara_rules/xtract.py '+'~/binrv/'+f+' > /dev/null')    
 
     print('Executing yara rules on all files...')
-    for f in glob.glob('exp1/traces/*_0x*'):
+    #for f in glob.glob('exp1/traces/*_0x*'): # override since subtrace extraction alg does not work all the time
+    for f in glob.glob('exp1/traces/trace_*'): # override since subtrace extraction alg does not work all the time
         os.system('yara -s yara_rules/binrvff.src '+f+' > exp1/monitor/'+f.split("/")[2])    
 
 
     print('Obtaining ground truth...')
     #ip=socket.gethostbyname('google.com')
     #os.system('curl -o exp1/truth/google.com https://api.ssllabs.com/api/v3/getEndpointData?host=google.com&s='+ip)    
-    for i in range(0,5):
+    for i in range(0,100):
         if(mytracefilename.count('.')==1):
             os.system('curl -o exp1/truth/'+urls[i][1] +' https://api.ssllabs.com/api/v3/analyze?host=www.'+urls[i][1])    
         else:

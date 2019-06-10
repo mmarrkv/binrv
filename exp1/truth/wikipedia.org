@@ -1,0 +1,37 @@
+{
+  "host": "www.wikipedia.org",
+  "port": 443,
+  "protocol": "http",
+  "isPublic": false,
+  "status": "READY",
+  "startTime": 1560158200099,
+  "testTime": 1560158336145,
+  "engineVersion": "1.35.1",
+  "criteriaVersion": "2009p",
+  "endpoints": [
+    {
+      "ipAddress": "208.80.154.224",
+      "serverName": "text-lb.eqiad.wikimedia.org",
+      "statusMessage": "Ready",
+      "grade": "A+",
+      "gradeTrustIgnored": "A+",
+      "hasWarnings": false,
+      "isExceptional": true,
+      "progress": 100,
+      "duration": 68403,
+      "delegation": 2
+    },
+    {
+      "ipAddress": "2620:0:861:ed1a:0:0:0:1",
+      "serverName": "text-lb.eqiad.wikimedia.org",
+      "statusMessage": "Ready",
+      "grade": "A+",
+      "gradeTrustIgnored": "A+",
+      "hasWarnings": false,
+      "isExceptional": true,
+      "progress": 100,
+      "duration": 67484,
+      "delegation": 2
+    }
+  ]
+}
