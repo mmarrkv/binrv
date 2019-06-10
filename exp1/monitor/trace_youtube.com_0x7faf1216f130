@@ -1,0 +1,22 @@
+masterkeyderive_accept exp1/traces/trace_youtube.com_0x7faf1216f130
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x105:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  5561 ms  0x24f1 cx:0x7faf23205908\x0A  5562 ms     | 0x24f1 EC_ValidatePublicKey()\x0A  5562 ms     | 0x24f1 ret:0x0
+0x20e:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  5562 ms  0x24f1 cx:0x7faf23205908\x0A  5563 ms     | 0x24f1 EC_ValidatePublicKey()\x0A  5564 ms     | 0x24f1 ret:0x0
+0x3b7:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5583 ms  0x24f1 seckey:0x7faf23265820\x0A  5583 ms     | 0x24f1 EC_ValidatePublicKey()\x0A  5583 ms     | 0x24f1 ret:0x0
+0xa51:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5605 ms  0x24f1 seckey:0x7faf2326d020\x0A  5605 ms     | 0x24f1 EC_ValidatePublicKey()\x0A  5605 ms     | 0x24f1 ret:0x0
+0x118a:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5610 ms  0x24f1 seckey:0x7faf23271020\x0A  5610 ms     | 0x24f1 EC_ValidatePublicKey()\x0A  5610 ms     | 0x24f1 ret:0x0
+0x18ff:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5627 ms  0x24f1 seckey:0x7faf23275820\x0A  5627 ms     | 0x24f1 EC_ValidatePublicKey()\x0A  5627 ms     | 0x24f1 ret:0x0
+0x2038:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5644 ms  0x24f1 seckey:0x7faf2327a020\x0A  5644 ms     | 0x24f1 EC_ValidatePublicKey()\x0A  5644 ms     | 0x24f1 ret:0x0
+0x26d2:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5663 ms  0x24f1 seckey:0x7faf2327e820\x0A  5663 ms     | 0x24f1 EC_ValidatePublicKey()\x0A  5663 ms     | 0x24f1 ret:0x0
+0x2f4e:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5670 ms  0x24f1 seckey:0x7faf121da820\x0A  5670 ms     | 0x24f1 EC_ValidatePublicKey()\x0A  5670 ms     | 0x24f1 ret:0x0
+0x37d7:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5677 ms  0x24f1 seckey:0x7faf121d1820\x0A  5677 ms     | 0x24f1 EC_ValidatePublicKey()\x0A  5677 ms     | 0x24f1 ret:0x0
+0x3f10:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5688 ms  0x24f1 seckey:0x7faf121d6020\x0A  5688 ms     | 0x24f1 EC_ValidatePublicKey()\x0A  5688 ms     | 0x24f1 ret:0x0
+0x45aa:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5692 ms  0x24f1 seckey:0x7faf121df020\x0A  5692 ms     | 0x24f1 EC_ValidatePublicKey()\x0A  5692 ms     | 0x24f1 ret:0x0
+scrubprivkey_accept exp1/traces/trace_youtube.com_0x7faf1216f130
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x105:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A  5561 ms  0x24f1 cx:0x7faf23205908\x0A  5562 ms     | 0x24f1 EC_ValidatePublicKey()\x0A  5562 ms     | 0x24f1 ret:0x0\x0A  5562 ms  0x24f1 ret:0x7faf121d1820::7faf121d1820  b0 00 1d 12                                      ....\x0A  5562 ms  0x24f1 SECKEY_CreateECPrivateKey()\x0A  5562 ms  0x24f1 cx:0x7faf23205908\x0A  5563 ms     | 0x24f1 EC_ValidatePublicKey()\x0A  5564 ms     | 0x24f1 ret:0x0\x0A  5564 ms  0x24f1 ret:0x7faf121d3820::7faf121d3820  90 02 1d 12                                      ....\x0A  5583 ms  0x24f1 PK11_Derive()\x0A  5583 ms  0x24f1 basekey:0x7faf250b7300\x0A  5583 ms     | 0x24f1 PK11_DeriveWithTemplate()\x0A  5583 ms  0x24f1 ret:0x7faf2498bd00\x0A  5583 ms  0x24f1 PK11_PubDeriveWithKDF()\x0A  5583 ms  0x24f1 seckey:0x7faf23265820\x0A
+0x20e:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A  5562 ms  0x24f1 cx:0x7faf23205908\x0A  5563 ms     | 0x24f1 EC_ValidatePublicKey()\x0A  5564 ms     | 0x24f1 ret:0x0\x0A  5564 ms  0x24f1 ret:0x7faf121d3820::7faf121d3820  90 02 1d 12                                      ....\x0A  5583 ms  0x24f1 PK11_Derive()\x0A  5583 ms  0x24f1 basekey:0x7faf250b7300\x0A  5583 ms     | 0x24f1 PK11_DeriveWithTemplate()\x0A  5583 ms  0x24f1 ret:0x7faf2498bd00\x0A  5583 ms  0x24f1 PK11_PubDeriveWithKDF()\x0A  5583 ms  0x24f1 seckey:0x7faf23265820\x0A
+0x5e5c:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  5920 ms     | 0x24f1 privk:0x7faf121d3820::7faf121d3820  90 02 1d 12                                      ....\x0A  5920 ms     | 0x24f1 privk:0x7faf121d3820::7faf121d3820  e5 e5 e5 e5
+0x5f70:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  5920 ms     | 0x24f1 privk:0x7faf121d1820::7faf121d1820  b0 00 1d 12                                      ....\x0A  5920 ms     | 0x24f1 privk:0x7faf121d1820::7faf121d1820  e5 e5 e5 e5

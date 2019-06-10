@@ -80,4 +80,5 @@ if __name__ == "__main__":
             os.system('curl -o exp1/truth/'+urls[i][1] +' https://api.ssllabs.com/api/v3/analyze?host=www.'+urls[i][1])    
         else:
             os.system('curl -o exp1/truth/'+urls[i][1] +' https://api.ssllabs.com/api/v3/analyze?host='+urls[i][1])    
+        time.sleep(10) # Avoiding ""message": "Too many new assessments too fast. Please slow down.""
 

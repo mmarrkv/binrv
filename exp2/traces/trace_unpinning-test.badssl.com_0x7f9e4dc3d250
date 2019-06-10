@@ -1,7 +1,0 @@
-  2425 ms  0xbfb SSL_ImportFD()
-  2425 ms  0xbfb ret:0x7f9e4dc3d250
-  2426 ms  0xbfb SSL_AuthCertificateHook()
-  2426 ms  0xbfb fd:0x7f9e4dc3d250
-  2426 ms  0xbfb ret:0x0
-  2426 ms  0xbfb PR_Connect()
-  2426 ms  0xbfb fd:0x7f9e4dc3d250

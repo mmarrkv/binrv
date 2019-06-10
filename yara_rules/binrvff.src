@@ -70,7 +70,7 @@ rule scrubprivkey_accept
     strings:
         $newsession = /SSL_ImportFD/          
         $server_connect =  /PR_Connect/
-        $master_session_key_derive = /PK11_PubDeriveWithKDF[^\x0A]+?\x0A[^\x0A]+?seckey:0x[0-9a-fA-F]+?\s/
+        $master_session_key_derive = /SECKEY_CreateECPrivateKey[\s\S]+?PK11_PubDeriveWithKDF[^\x0A]+?\x0A[^\x0A]+?seckey:0x[0-9a-fA-F]+?\s/
         $scrub_priv_key = /SECKEY_DestroyPrivateKey[\s\S]+?privk:[^\x0A]+?e5 e5 e5 e5/
 
     condition:
@@ -84,7 +84,7 @@ rule scrubprivkey_bad
     strings:
         $newsession = /SSL_ImportFD/          
         $server_connect =  /PR_Connect/
-        $master_session_key_derive = /PK11_PubDeriveWithKDF[^\x0A]+?\x0A[^\x0A]+?seckey:0x[0-9a-fA-F]+?\s/
+        $master_session_key_derive = /SECKEY_CreateECPrivateKey[\s\S]+?PK11_PubDeriveWithKDF[^\x0A]+?\x0A[^\x0A]+?seckey:0x[0-9a-fA-F]+?\s/
         $scrub_priv_key = /SECKEY_DestroyPrivateKey[\s\S]+?privk:[^\x0A]+?e5 e5 e5 e5/
 
     condition:
