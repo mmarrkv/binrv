@@ -69,7 +69,7 @@ if __name__ == "__main__":
 
     print('Executing yara rules on all files...')
     #for f in glob.glob('exp1/traces/*_0x*'): # override since subtrace extraction alg does not work all the time
-    for f in glob.glob('exp1/traces/trace_*'): # override since subtrace extraction alg does not work all the time
+    for f in glob.glob('exp1/traces/trace_*'): 
         os.system('yara -s yara_rules/binrvff.src '+f+' > exp1/monitor/'+f.split("/")[2])    
 
 
