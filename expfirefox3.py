@@ -39,7 +39,7 @@ if __name__ == "__main__":
         reader = csv.reader(f)
         urls = list(reader)
         #print(urls[0][1])
-
+    '''
     print('Start non-instrumented sessions...')
     fo = open("exp3/without.csv", "w")
     for i in range(0,100):
@@ -66,7 +66,7 @@ if __name__ == "__main__":
             fo.write(mytracefilename+','+str(delta.total_seconds() * 1000)+'\n')
         driver.quit()
     fo.close()
-
+    '''
 
 
     print('Start instrumented sessions...')
