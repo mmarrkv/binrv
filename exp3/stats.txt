@@ -22,5 +22,5 @@ min        26.391000
 75%      2648.052500
 max    300039.824000
 
-
-Statistics=485313.000, p=0.128
+Wilcoxon statistical significance test
+Statistics=194903.000, p=0.000

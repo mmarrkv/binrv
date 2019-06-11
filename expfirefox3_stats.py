@@ -5,7 +5,7 @@
 import pandas as pd
 import numpy as np
 import csv
-from scipy.stats import mannwhitneyu
+from scipy.stats import wilcoxon
 
 print("non-instrumented\n")
 with open('exp3/without.csv', 'r') as f:
@@ -39,5 +39,6 @@ df = pd.DataFrame(d)
 print(df.describe())
 
 # compare samples (median) Mann Whitney
-stat, p = mannwhitneyu(timings1, timings2)
-print('\n\nStatistics=%.3f, p=%.3f' % (stat, p))
+print('\nWilcoxon statistical significance test')
+stat, p = wilcoxon(timings1, timings2)
+print('Statistics=%.3f, p=%.3f' % (stat, p))

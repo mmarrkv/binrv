@@ -46,7 +46,7 @@ rule masterkeyderive_accept
         $abort = /PR_Close[^\|]+\|[^\|\x0A]+DestroyPrivateKey/
 
     condition:
-        $newsession and $server_connect and $localecvalid and $remoteecvalid and not $abort and @newsession[1] < @server_connect[1] and @server_connect[1] < @localecvalid[1] and @server_connect[1] < @remoteecvalid[1] 
+        $newsession and $server_connect and $localecvalid and $remoteecvalid and @newsession[1] < @server_connect[1] and @server_connect[1] < @localecvalid[1] and @server_connect[1] < @remoteecvalid[1] and @abort[1] < @localecvalid[1] and @abort[1] < @localecvalid[1]
 }
 
 
