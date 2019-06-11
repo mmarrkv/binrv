@@ -1,0 +1,13 @@
+masterkeyderive_accept exp1/traces/trace_wordpress.com_0x7fdba7bcf6d0
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x658:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  6755 ms  0x1175 cx:0x7fdba7cf3fc8\x0A  6756 ms     | 0x1175 EC_ValidatePublicKey()\x0A  6756 ms     | 0x1175 ret:0x0
+0x761:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  6756 ms  0x1175 cx:0x7fdba7cf3fc8\x0A  6756 ms     | 0x1175 EC_ValidatePublicKey()\x0A  6758 ms     | 0x1175 ret:0x0
+0x926:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  6783 ms  0x1175 seckey:0x7fdb96c7f820\x0A  6784 ms     | 0x1175 EC_ValidatePublicKey()\x0A  6784 ms     | 0x1175 ret:0x0
+scrubprivkey_accept exp1/traces/trace_wordpress.com_0x7fdba7bcf6d0
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x658:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A  6755 ms  0x1175 cx:0x7fdba7cf3fc8\x0A  6756 ms     | 0x1175 EC_ValidatePublicKey()\x0A  6756 ms     | 0x1175 ret:0x0\x0A  6756 ms  0x1175 ret:0x7fdb96c7f820::7fdb96c7f820  70 de 8e 96                                      p...\x0A  6756 ms  0x1175 SECKEY_CreateECPrivateKey()\x0A  6756 ms  0x1175 cx:0x7fdba7cf3fc8\x0A  6756 ms     | 0x1175 EC_ValidatePublicKey()\x0A  6758 ms     | 0x1175 ret:0x0\x0A  6758 ms  0x1175 ret:0x7fdb96c82820::7fdb96c82820  d0 48 93 96                                      .H..\x0A           /* TID 0x117d */\x0A  6783 ms  0x1175 PK11_Derive()\x0A  6783 ms  0x1175 basekey:0x7fdb96ca8100\x0A  6783 ms     | 0x1175 PK11_DeriveWithTemplate()\x0A  6783 ms  0x1175 ret:0x7fdba97e5c00\x0A  6783 ms  0x1175 PK11_PubDeriveWithKDF()\x0A  6783 ms  0x1175 seckey:0x7fdb96c7f820\x0A
+0x761:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A  6756 ms  0x1175 cx:0x7fdba7cf3fc8\x0A  6756 ms     | 0x1175 EC_ValidatePublicKey()\x0A  6758 ms     | 0x1175 ret:0x0\x0A  6758 ms  0x1175 ret:0x7fdb96c82820::7fdb96c82820  d0 48 93 96                                      .H..\x0A           /* TID 0x117d */\x0A  6783 ms  0x1175 PK11_Derive()\x0A  6783 ms  0x1175 basekey:0x7fdb96ca8100\x0A  6783 ms     | 0x1175 PK11_DeriveWithTemplate()\x0A  6783 ms  0x1175 ret:0x7fdba97e5c00\x0A  6783 ms  0x1175 PK11_PubDeriveWithKDF()\x0A  6783 ms  0x1175 seckey:0x7fdb96c7f820\x0A
+0x19f9:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  6786 ms     | 0x1175 privk:0x7fdb96c82820::7fdb96c82820  d0 48 93 96                                      .H..\x0A  6787 ms     | 0x1175 privk:0x7fdb96c82820::7fdb96c82820  e5 e5 e5 e5
+0x1b0d:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  6787 ms     | 0x1175 privk:0x7fdb96c7f820::7fdb96c7f820  70 de 8e 96                                      p...\x0A  6787 ms     | 0x1175 privk:0x7fdb96c7f820::7fdb96c7f820  e5 e5 e5 e5

@@ -1,0 +1,7 @@
+scrubprivkey_accept exp1/traces/trace_amazon.co.jp_0x7f2f384ebd00
+0x11:$newsession: SSL_ImportFD
+0xbc:$server_connect: PR_Connect
+0x1aa:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A  8946 ms  0x6a9 cx:0x7f2f384f7588\x0A  8946 ms     | 0x6a9 EC_ValidatePublicKey()\x0A  8948 ms     | 0x6a9 ret:0x0\x0A  8948 ms  0x6a9 ret:0x7f2f3ee94020::7f2f3ee94020  60 f5 4f 38                                      `.O8\x0A  8948 ms  0x6a9 PK11_PubDeriveWithKDF()\x0A  8948 ms  0x6a9 seckey:0x7f2f3ee94020\x0A
+0x4ac:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  8951 ms  0x6a9 privk:0x7f2f3ee94020::7f2f3ee94020  60 f5 4f 38                                      `.O8\x0A  8951 ms  0x6a9 privk:0x7f2f3ee94020::7f2f3ee94020  e5 e5 e5 e5
+0xf70:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  9151 ms     | 0x6a9 privk:0x7f2f3ee94020::7f2f3ee94020  80 f8 48 39                                      ..H9\x0A  9151 ms     | 0x6a9 privk:0x7f2f3ee94020::7f2f3ee94020  e5 e5 e5 e5
+0x1081:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  9151 ms     | 0x6a9 privk:0x7f2f3ee91820::7f2f3ee91820  00 f1 48 39                                      ..H9\x0A  9151 ms     | 0x6a9 privk:0x7f2f3ee91820::7f2f3ee91820  e5 e5 e5 e5

@@ -1,0 +1,37 @@
+{
+  "host": "www.google.fr",
+  "port": 443,
+  "protocol": "http",
+  "isPublic": false,
+  "status": "READY",
+  "startTime": 1560246398616,
+  "testTime": 1560246589834,
+  "engineVersion": "1.35.1",
+  "criteriaVersion": "2009p",
+  "endpoints": [
+    {
+      "ipAddress": "2607:f8b0:4005:806:0:0:0:2003",
+      "serverName": "sfo03s06-in-x03.1e100.net",
+      "statusMessage": "Ready",
+      "grade": "A+",
+      "gradeTrustIgnored": "A+",
+      "hasWarnings": false,
+      "isExceptional": true,
+      "progress": 100,
+      "duration": 96007,
+      "delegation": 2
+    },
+    {
+      "ipAddress": "216.58.195.227",
+      "serverName": "sfo03s06-in-f3.1e100.net",
+      "statusMessage": "Ready",
+      "grade": "A+",
+      "gradeTrustIgnored": "A+",
+      "hasWarnings": false,
+      "isExceptional": true,
+      "progress": 100,
+      "duration": 95111,
+      "delegation": 2
+    }
+  ]
+}

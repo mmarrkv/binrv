@@ -1,0 +1,20 @@
+masterkeyderive_accept exp1/traces/trace_sohu.com_0x7f62617c40a0
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x11a5:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 13333 ms  0x6c80 cx:0x7f626d2b5de8\x0A 13333 ms     | 0x6c80 EC_ValidatePublicKey()\x0A 13335 ms     | 0x6c80 ret:0x0
+0x15be:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 13458 ms  0x6c80 cx:0x7f626d2b5908\x0A 13458 ms     | 0x6c80 EC_ValidatePublicKey()\x0A 13459 ms     | 0x6c80 ret:0x0
+0x16c7:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 13459 ms  0x6c80 cx:0x7f626d2b5908\x0A 13459 ms     | 0x6c80 EC_ValidatePublicKey()\x0A 13461 ms     | 0x6c80 ret:0x0
+0x234c:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 13730 ms  0x6c80 cx:0x7f626d2b5908\x0A 13730 ms     | 0x6c80 EC_ValidatePublicKey()\x0A 13730 ms     | 0x6c80 ret:0x0
+0x2920:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 13904 ms  0x6c80 cx:0x7f626cba20e8\x0A 13905 ms     | 0x6c80 EC_ValidatePublicKey()\x0A 13908 ms     | 0x6c80 ret:0x0
+0x39c:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 13269 ms  0x6c80 seckey:0x7f6269af0020\x0A 13269 ms     | 0x6c80 EC_ValidatePublicKey()\x0A 13269 ms     | 0x6c80 ret:0x0
+0x6ac:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 13272 ms  0x6c80 seckey:0x7f6269ecc820\x0A 13272 ms     | 0x6c80 EC_ValidatePublicKey()\x0A 13272 ms     | 0x6c80 ret:0x0
+0x9bc:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 13275 ms  0x6c80 seckey:0x7f6269ed1820\x0A 13275 ms     | 0x6c80 EC_ValidatePublicKey()\x0A 13275 ms     | 0x6c80 ret:0x0
+0xde6:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 13322 ms  0x6c80 seckey:0x7f6269f7a020\x0A 13322 ms     | 0x6c80 EC_ValidatePublicKey()\x0A 13323 ms     | 0x6c80 ret:0x0
+0x12af:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 13335 ms  0x6c80 seckey:0x7f6269f7a820\x0A 13335 ms     | 0x6c80 EC_ValidatePublicKey()\x0A 13337 ms     | 0x6c80 ret:0x0
+0x1918:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 13539 ms  0x6c80 seckey:0x7f6261779020\x0A 13539 ms     | 0x6c80 EC_ValidatePublicKey()\x0A 13539 ms     | 0x6c80 ret:0x0
+0x1c28:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 13651 ms  0x6c80 seckey:0x7f6269f84020\x0A 13651 ms     | 0x6c80 EC_ValidatePublicKey()\x0A 13651 ms     | 0x6c80 ret:0x0
+0x1f38:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 13726 ms  0x6c80 seckey:0x7f626a76c820\x0A 13726 ms     | 0x6c80 EC_ValidatePublicKey()\x0A 13726 ms     | 0x6c80 ret:0x0
+0x2456:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 13730 ms  0x6c80 seckey:0x7f6261774820\x0A 13730 ms     | 0x6c80 EC_ValidatePublicKey()\x0A 13730 ms     | 0x6c80 ret:0x0
+0x2a2a:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 13908 ms  0x6c80 seckey:0x7f626a773020\x0A 13908 ms     | 0x6c80 EC_ValidatePublicKey()\x0A 13911 ms     | 0x6c80 ret:0x0
+0x2d3a:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 13923 ms  0x6c80 seckey:0x7f6269f82820\x0A 13923 ms     | 0x6c80 EC_ValidatePublicKey()\x0A 13925 ms     | 0x6c80 ret:0x0
+0x304a:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 13972 ms  0x6c80 seckey:0x7f6269f83020\x0A 13972 ms     | 0x6c80 EC_ValidatePublicKey()\x0A 13972 ms     | 0x6c80 ret:0x0

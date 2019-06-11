@@ -1,0 +1,12 @@
+masterkeyderive_accept exp1/traces/trace_sohu.com_0x7f624d73f160
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x415:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 17791 ms  0x6c80 cx:0x7f624d737468\x0A 17792 ms     | 0x6c80 EC_ValidatePublicKey()\x0A 17793 ms     | 0x6c80 ret:0x0
+0x82e:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 17817 ms  0x6c80 cx:0x7f626df5cde8\x0A 17818 ms     | 0x6c80 EC_ValidatePublicKey()\x0A 17818 ms     | 0x6c80 ret:0x0
+0x937:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 17818 ms  0x6c80 cx:0x7f626df5cde8\x0A 17818 ms     | 0x6c80 EC_ValidatePublicKey()\x0A 17820 ms     | 0x6c80 ret:0x0
+0x2007:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 17946 ms  0x6c80 cx:0x7f624d7384a8\x0A 17946 ms     | 0x6c80 EC_ValidatePublicKey()\x0A 17948 ms     | 0x6c80 ret:0x0
+0x106:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 17754 ms  0x6c80 seckey:0x7f624d9b1020\x0A 17754 ms     | 0x6c80 EC_ValidatePublicKey()\x0A 17755 ms     | 0x6c80 ret:0x0
+0x51f:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 17793 ms  0x6c80 seckey:0x7f624b677820\x0A 17793 ms     | 0x6c80 EC_ValidatePublicKey()\x0A 17795 ms     | 0x6c80 ret:0x0
+0xafc:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 17889 ms  0x6c80 seckey:0x7f624b677820\x0A 17889 ms     | 0x6c80 EC_ValidatePublicKey()\x0A 17889 ms     | 0x6c80 ret:0x0
+0x1cf8:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 17937 ms  0x6c80 seckey:0x7f624b6db820\x0A 17937 ms     | 0x6c80 EC_ValidatePublicKey()\x0A 17938 ms     | 0x6c80 ret:0x0
+0x2111:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 17948 ms  0x6c80 seckey:0x7f624b6dd820\x0A 17948 ms     | 0x6c80 EC_ValidatePublicKey()\x0A 17949 ms     | 0x6c80 ret:0x0

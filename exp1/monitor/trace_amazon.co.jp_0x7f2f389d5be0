@@ -1,0 +1,14 @@
+masterkeyderive_accept exp1/traces/trace_amazon.co.jp_0x7f2f389d5be0
+0x11:$newsession: SSL_ImportFD
+0xbc:$server_connect: PR_Connect
+0x68d:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  8020 ms  0x6a9 cx:0x7f2f384fa168\x0A  8020 ms     | 0x6a9 EC_ValidatePublicKey()\x0A  8022 ms     | 0x6a9 ret:0x0
+0xb85:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  8041 ms  0x6a9 cx:0x7f2f384f9fc8\x0A  8041 ms     | 0x6a9 EC_ValidatePublicKey()\x0A  8043 ms     | 0x6a9 ret:0x0
+0x1036:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  8054 ms  0x6a9 cx:0x7f2f384f97a8\x0A  8054 ms     | 0x6a9 EC_ValidatePublicKey()\x0A  8056 ms     | 0x6a9 ret:0x0
+0x143a:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  8108 ms  0x6a9 cx:0x7f2f384fa308\x0A  8109 ms     | 0x6a9 EC_ValidatePublicKey()\x0A  8109 ms     | 0x6a9 ret:0x0
+0x153e:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  8109 ms  0x6a9 cx:0x7f2f384fa308\x0A  8110 ms     | 0x6a9 EC_ValidatePublicKey()\x0A  8111 ms     | 0x6a9 ret:0x0
+0x1642:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  8322 ms  0x6a9 cx:0x7f2f384fa308\x0A  8324 ms     | 0x6a9 EC_ValidatePublicKey()\x0A  8330 ms     | 0x6a9 ret:0x0
+0x214:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  8014 ms  0x6a9 seckey:0x7f2f3eab3020\x0A  8014 ms     | 0x6a9 EC_ValidatePublicKey()\x0A  8016 ms     | 0x6a9 ret:0x0
+0x792:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  8022 ms  0x6a9 seckey:0x7f2f3eac0820\x0A  8022 ms     | 0x6a9 EC_ValidatePublicKey()\x0A  8025 ms     | 0x6a9 ret:0x0
+0xc8a:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  8043 ms  0x6a9 seckey:0x7f2f3ed32820\x0A  8043 ms     | 0x6a9 EC_ValidatePublicKey()\x0A  8045 ms     | 0x6a9 ret:0x0
+0x113b:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  8056 ms  0x6a9 seckey:0x7f2f3ed3c020\x0A  8056 ms     | 0x6a9 EC_ValidatePublicKey()\x0A  8058 ms     | 0x6a9 ret:0x0
+0x180f:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  8332 ms  0x6a9 seckey:0x7f2f3eac5020\x0A  8332 ms     | 0x6a9 EC_ValidatePublicKey()\x0A  8336 ms     | 0x6a9 ret:0x0

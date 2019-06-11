@@ -1,0 +1,10 @@
+masterkeyderive_accept exp1/traces/trace_xhamster.com_0x7fdeba593940
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x20a:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  8870 ms  0x138e cx:0x7fdeba4bff48\x0A  8870 ms     | 0x138e EC_ValidatePublicKey()\x0A  8870 ms     | 0x138e ret:0x0
+0x313:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  8870 ms  0x138e cx:0x7fdeba4bff48\x0A  8871 ms     | 0x138e EC_ValidatePublicKey()\x0A  8872 ms     | 0x138e ret:0x0
+0x439:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  8883 ms  0x138e seckey:0x7fdeba617820\x0A  8883 ms     | 0x138e EC_ValidatePublicKey()\x0A  8883 ms     | 0x138e ret:0x0
+0x977:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  8904 ms  0x138e seckey:0x7fdeba148020\x0A  8904 ms     | 0x138e EC_ValidatePublicKey()\x0A  8904 ms     | 0x138e ret:0x0
+0x1011:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  8927 ms  0x138e seckey:0x7fdeba146020\x0A  8927 ms     | 0x138e EC_ValidatePublicKey()\x0A  8929 ms     | 0x138e ret:0x0
+0x1452:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  8940 ms  0x138e seckey:0x7fdeba53e820\x0A  8940 ms     | 0x138e EC_ValidatePublicKey()\x0A  8940 ms     | 0x138e ret:0x0
+0x2a87:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  9160 ms  0x138e seckey:0x7fdeba4a3020\x0A  9160 ms     | 0x138e EC_ValidatePublicKey()\x0A  9162 ms     | 0x138e ret:0x0

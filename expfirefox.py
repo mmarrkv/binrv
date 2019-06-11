@@ -62,6 +62,7 @@ if __name__ == "__main__":
             print('page error')
             print(type(exception).__name__)
         driver.quit()
+    
 
     print('Expanding to subtraces...')
     for f in glob.glob('exp1/traces/trace_*'):

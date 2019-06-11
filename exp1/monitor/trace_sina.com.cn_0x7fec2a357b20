@@ -1,0 +1,13 @@
+masterkeyderive_accept exp1/traces/trace_sina.com.cn_0x7fec2a357b20
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x559:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 17665 ms  0x6f5c cx:0x7fec31ef9988\x0A 17666 ms     | 0x6f5c EC_ValidatePublicKey()\x0A 17666 ms     | 0x6f5c ret:0x0
+0x662:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 17666 ms  0x6f5c cx:0x7fec31ef9988\x0A 17666 ms     | 0x6f5c EC_ValidatePublicKey()\x0A 17668 ms     | 0x6f5c ret:0x0
+0x267a:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 18141 ms  0x6f5c cx:0x7fec32aae2c8\x0A 18141 ms     | 0x6f5c EC_ValidatePublicKey()\x0A 18141 ms     | 0x6f5c ret:0x0
+0x2783:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 18141 ms  0x6f5c cx:0x7fec32aae2c8\x0A 18142 ms     | 0x6f5c EC_ValidatePublicKey()\x0A 18143 ms     | 0x6f5c ret:0x0
+0x29dc:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 18186 ms  0x6f5c cx:0x7fec31ef9e68\x0A 18186 ms     | 0x6f5c EC_ValidatePublicKey()\x0A 18188 ms     | 0x6f5c ret:0x0
+0x24a:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 17610 ms  0x6f5c seckey:0x7fec2ab99820\x0A 17610 ms     | 0x6f5c EC_ValidatePublicKey()\x0A 17613 ms     | 0x6f5c ret:0x0
+0x80b:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 17674 ms  0x6f5c seckey:0x7fec29989820\x0A 17674 ms     | 0x6f5c EC_ValidatePublicKey()\x0A 17674 ms     | 0x6f5c ret:0x0
+0xff2:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 17925 ms  0x6f5c seckey:0x7fec2f216020\x0A 17925 ms     | 0x6f5c EC_ValidatePublicKey()\x0A 17925 ms     | 0x6f5c ret:0x0
+0x236b:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 18135 ms  0x6f5c seckey:0x7fec3450c820\x0A 18135 ms     | 0x6f5c EC_ValidatePublicKey()\x0A 18137 ms     | 0x6f5c ret:0x0
+0x2ae6:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 18188 ms  0x6f5c seckey:0x7fec0f864020\x0A 18188 ms     | 0x6f5c EC_ValidatePublicKey()\x0A 18189 ms     | 0x6f5c ret:0x0

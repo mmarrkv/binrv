@@ -1,0 +1,12 @@
+masterkeyderive_accept exp1/traces/trace_sohu.com_0x7f624af81a30
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x105:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 27009 ms  0x6c80 cx:0x7f62400595c8\x0A 27013 ms     | 0x6c80 EC_ValidatePublicKey()\x0A 27013 ms     | 0x6c80 ret:0x0
+0x34a:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 27080 ms  0x6c80 seckey:0x7f624abd9820\x0A 27080 ms     | 0x6c80 EC_ValidatePublicKey()\x0A 27080 ms     | 0x6c80 ret:0x0
+scrubprivkey_accept exp1/traces/trace_sohu.com_0x7f624af81a30
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x105:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A 27009 ms  0x6c80 cx:0x7f62400595c8\x0A 27013 ms     | 0x6c80 EC_ValidatePublicKey()\x0A 27013 ms     | 0x6c80 ret:0x0\x0A 27013 ms  0x6c80 ret:0x7f624abd9820::7f624abd9820  20 de cf 68                                       ..h\x0A 27013 ms  0x6c80 SECKEY_CreateECPrivateKey()\x0A 27013 ms  0x6c80 cx:0x7f62400595c8\x0A 27015 ms     | 0x6c80 EC_ValidatePublicKey()\x0A           /* TID 0x6c88 */\x0A 27080 ms  0x6c80 PK11_Derive()\x0A 27080 ms  0x6c80 basekey:0x7f626f8fde00\x0A 27080 ms     | 0x6c80 PK11_DeriveWithTemplate()\x0A 27080 ms  0x6c80 ret:0x7f624a9ba600\x0A 27080 ms  0x6c80 PK11_PubDeriveWithKDF()\x0A 27080 ms  0x6c80 seckey:0x7f624abd9820\x0A
+0x20e:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A 27013 ms  0x6c80 cx:0x7f62400595c8\x0A 27015 ms     | 0x6c80 EC_ValidatePublicKey()\x0A           /* TID 0x6c88 */\x0A 27080 ms  0x6c80 PK11_Derive()\x0A 27080 ms  0x6c80 basekey:0x7f626f8fde00\x0A 27080 ms     | 0x6c80 PK11_DeriveWithTemplate()\x0A 27080 ms  0x6c80 ret:0x7f624a9ba600\x0A 27080 ms  0x6c80 PK11_PubDeriveWithKDF()\x0A 27080 ms  0x6c80 seckey:0x7f624abd9820\x0A
+0x141d:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A 27089 ms     | 0x6c80 privk:0x7f624abdc020::7f624abdc020  80 e3 29 6d                                      ..)m\x0A 27089 ms     | 0x6c80 privk:0x7f624abdc020::7f624abdc020  e5 e5 e5 e5
+0x1531:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A 27089 ms     | 0x6c80 privk:0x7f624abd9820::7f624abd9820  20 de cf 68                                       ..h\x0A 27089 ms     | 0x6c80 privk:0x7f624abd9820::7f624abd9820  e5 e5 e5 e5

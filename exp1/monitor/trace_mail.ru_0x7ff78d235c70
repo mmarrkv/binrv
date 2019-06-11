@@ -1,0 +1,15 @@
+masterkeyderive_accept exp1/traces/trace_mail.ru_0x7ff78d235c70
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x1b5:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  7980 ms  0x7984 cx:0x7ff7761880a8\x0A  7981 ms     | 0x7984 EC_ValidatePublicKey()\x0A  7981 ms     | 0x7984 ret:0x0
+0x2be:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  7981 ms  0x7984 cx:0x7ff7761880a8\x0A  7981 ms     | 0x7984 EC_ValidatePublicKey()\x0A  7983 ms     | 0x7984 ret:0x0
+0x3e4:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  8025 ms  0x7984 seckey:0x7ff791d96020\x0A  8025 ms     | 0x7984 EC_ValidatePublicKey()\x0A  8026 ms     | 0x7984 ret:0x0
+0x9e4:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  8051 ms  0x7984 seckey:0x7ff7919b6020\x0A  8051 ms     | 0x7984 EC_ValidatePublicKey()\x0A  8051 ms     | 0x7984 ret:0x0
+scrubprivkey_accept exp1/traces/trace_mail.ru_0x7ff78d235c70
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x1b5:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A  7980 ms  0x7984 cx:0x7ff7761880a8\x0A  7981 ms     | 0x7984 EC_ValidatePublicKey()\x0A  7981 ms     | 0x7984 ret:0x0\x0A  7981 ms  0x7984 ret:0x7ff7919b6020::7ff7919b6020  c0 de b0 8c                                      ....\x0A  7981 ms  0x7984 SECKEY_CreateECPrivateKey()\x0A  7981 ms  0x7984 cx:0x7ff7761880a8\x0A  7981 ms     | 0x7984 EC_ValidatePublicKey()\x0A  7983 ms     | 0x7984 ret:0x0\x0A  7983 ms  0x7984 ret:0x7ff791a2d820::7ff791a2d820  50 41 be 8c                                      PA..\x0A           /* TID 0x798c */\x0A  8025 ms  0x7984 PK11_PubDeriveWithKDF()\x0A  8025 ms  0x7984 seckey:0x7ff791d96020\x0A
+0x2be:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A  7981 ms  0x7984 cx:0x7ff7761880a8\x0A  7981 ms     | 0x7984 EC_ValidatePublicKey()\x0A  7983 ms     | 0x7984 ret:0x0\x0A  7983 ms  0x7984 ret:0x7ff791a2d820::7ff791a2d820  50 41 be 8c                                      PA..\x0A           /* TID 0x798c */\x0A  8025 ms  0x7984 PK11_PubDeriveWithKDF()\x0A  8025 ms  0x7984 seckey:0x7ff791d96020\x0A
+0x5ee:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  8028 ms  0x7984 privk:0x7ff791d96020::7ff791d96020  80 78 02 8d                                      .x..\x0A  8028 ms  0x7984 privk:0x7ff791d96020::7ff791d96020  e5 e5 e5 e5
+0x1957:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  8069 ms     | 0x7984 privk:0x7ff791a2d820::7ff791a2d820  50 41 be 8c                                      PA..\x0A  8069 ms     | 0x7984 privk:0x7ff791a2d820::7ff791a2d820  e5 e5 e5 e5
+0x1a6b:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  8069 ms     | 0x7984 privk:0x7ff7919b6020::7ff7919b6020  c0 de b0 8c                                      ....\x0A  8069 ms     | 0x7984 privk:0x7ff7919b6020::7ff7919b6020  e5 e5 e5 e5

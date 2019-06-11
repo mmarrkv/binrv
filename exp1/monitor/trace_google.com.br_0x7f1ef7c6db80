@@ -1,0 +1,13 @@
+masterkeyderive_accept exp1/traces/trace_google.com.br_0x7f1ef7c6db80
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x105:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  6292 ms  0x1440 cx:0x7f1f08c04468\x0A  6292 ms     | 0x1440 EC_ValidatePublicKey()\x0A  6292 ms     | 0x1440 ret:0x0
+0x20e:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  6292 ms  0x1440 cx:0x7f1f08c04468\x0A  6293 ms     | 0x1440 EC_ValidatePublicKey()\x0A  6294 ms     | 0x1440 ret:0x0
+0x3b7:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  6349 ms  0x1440 seckey:0x7f1ef7d47020\x0A  6349 ms     | 0x1440 EC_ValidatePublicKey()\x0A  6349 ms     | 0x1440 ret:0x0
+scrubprivkey_accept exp1/traces/trace_google.com.br_0x7f1ef7c6db80
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x105:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A  6292 ms  0x1440 cx:0x7f1f08c04468\x0A  6292 ms     | 0x1440 EC_ValidatePublicKey()\x0A  6292 ms     | 0x1440 ret:0x0\x0A  6292 ms  0x1440 ret:0x7f1ef7d47020::7f1ef7d47020  a0 56 ca f7                                      .V..\x0A  6292 ms  0x1440 SECKEY_CreateECPrivateKey()\x0A  6292 ms  0x1440 cx:0x7f1f08c04468\x0A  6293 ms     | 0x1440 EC_ValidatePublicKey()\x0A  6294 ms     | 0x1440 ret:0x0\x0A  6294 ms  0x1440 ret:0x7f1ef7d49020::7f1ef7d49020  30 53 cb f7                                      0S..\x0A  6349 ms  0x1440 PK11_Derive()\x0A  6349 ms  0x1440 basekey:0x7f1f0a0f6500\x0A  6349 ms     | 0x1440 PK11_DeriveWithTemplate()\x0A  6349 ms  0x1440 ret:0x7f1ef7c84a80\x0A  6349 ms  0x1440 PK11_PubDeriveWithKDF()\x0A  6349 ms  0x1440 seckey:0x7f1ef7d47020\x0A
+0x20e:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A  6292 ms  0x1440 cx:0x7f1f08c04468\x0A  6293 ms     | 0x1440 EC_ValidatePublicKey()\x0A  6294 ms     | 0x1440 ret:0x0\x0A  6294 ms  0x1440 ret:0x7f1ef7d49020::7f1ef7d49020  30 53 cb f7                                      0S..\x0A  6349 ms  0x1440 PK11_Derive()\x0A  6349 ms  0x1440 basekey:0x7f1f0a0f6500\x0A  6349 ms     | 0x1440 PK11_DeriveWithTemplate()\x0A  6349 ms  0x1440 ret:0x7f1ef7c84a80\x0A  6349 ms  0x1440 PK11_PubDeriveWithKDF()\x0A  6349 ms  0x1440 seckey:0x7f1ef7d47020\x0A
+0x13da:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  6507 ms     | 0x1440 privk:0x7f1ef7d49020::7f1ef7d49020  30 53 cb f7                                      0S..\x0A  6508 ms     | 0x1440 privk:0x7f1ef7d49020::7f1ef7d49020  e5 e5 e5 e5
+0x14ee:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  6508 ms     | 0x1440 privk:0x7f1ef7d47020::7f1ef7d47020  a0 56 ca f7                                      .V..\x0A  6508 ms     | 0x1440 privk:0x7f1ef7d47020::7f1ef7d47020  e5 e5 e5 e5

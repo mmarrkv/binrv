@@ -1,0 +1,13 @@
+masterkeyderive_accept exp1/traces/trace_weibo.com_0x7fc934607f70
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x105:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 14477 ms  0x6ea2 cx:0x7fc92c7e80e8\x0A 14477 ms     | 0x6ea2 EC_ValidatePublicKey()\x0A 14477 ms     | 0x6ea2 ret:0x0
+0x20e:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 14477 ms  0x6ea2 cx:0x7fc92c7e80e8\x0A 14478 ms     | 0x6ea2 EC_ValidatePublicKey()\x0A 14480 ms     | 0x6ea2 ret:0x0
+0x3b7:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 14535 ms  0x6ea2 seckey:0x7fc93058c020\x0A 14536 ms     | 0x6ea2 EC_ValidatePublicKey()\x0A 14536 ms     | 0x6ea2 ret:0x0
+scrubprivkey_accept exp1/traces/trace_weibo.com_0x7fc934607f70
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x105:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A 14477 ms  0x6ea2 cx:0x7fc92c7e80e8\x0A 14477 ms     | 0x6ea2 EC_ValidatePublicKey()\x0A 14477 ms     | 0x6ea2 ret:0x0\x0A 14477 ms  0x6ea2 ret:0x7fc93058c020::7fc93058c020  00 fb 3e 2f                                      ..>/\x0A 14477 ms  0x6ea2 SECKEY_CreateECPrivateKey()\x0A 14477 ms  0x6ea2 cx:0x7fc92c7e80e8\x0A 14478 ms     | 0x6ea2 EC_ValidatePublicKey()\x0A 14480 ms     | 0x6ea2 ret:0x0\x0A 14480 ms  0x6ea2 ret:0x7fc93058e820::7fc93058e820  70 c9 3d 2f                                      p.=/\x0A 14535 ms  0x6ea2 PK11_Derive()\x0A 14535 ms  0x6ea2 basekey:0x7fc92877bc00\x0A 14535 ms     | 0x6ea2 PK11_DeriveWithTemplate()\x0A 14535 ms  0x6ea2 ret:0x7fc934668080\x0A 14535 ms  0x6ea2 PK11_PubDeriveWithKDF()\x0A 14535 ms  0x6ea2 seckey:0x7fc93058c020\x0A
+0x20e:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A 14477 ms  0x6ea2 cx:0x7fc92c7e80e8\x0A 14478 ms     | 0x6ea2 EC_ValidatePublicKey()\x0A 14480 ms     | 0x6ea2 ret:0x0\x0A 14480 ms  0x6ea2 ret:0x7fc93058e820::7fc93058e820  70 c9 3d 2f                                      p.=/\x0A 14535 ms  0x6ea2 PK11_Derive()\x0A 14535 ms  0x6ea2 basekey:0x7fc92877bc00\x0A 14535 ms     | 0x6ea2 PK11_DeriveWithTemplate()\x0A 14535 ms  0x6ea2 ret:0x7fc934668080\x0A 14535 ms  0x6ea2 PK11_PubDeriveWithKDF()\x0A 14535 ms  0x6ea2 seckey:0x7fc93058c020\x0A
+0x132a:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A 14538 ms     | 0x6ea2 privk:0x7fc93058e820::7fc93058e820  70 c9 3d 2f                                      p.=/\x0A 14538 ms     | 0x6ea2 privk:0x7fc93058e820::7fc93058e820  e5 e5 e5 e5
+0x143e:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A 14538 ms     | 0x6ea2 privk:0x7fc93058c020::7fc93058c020  00 fb 3e 2f                                      ..>/\x0A 14538 ms     | 0x6ea2 privk:0x7fc93058c020::7fc93058c020  e5 e5 e5 e5

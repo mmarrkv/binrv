@@ -43,7 +43,8 @@ for currentrec in records:
     matchObj1 = re.match( r'.*SSL_ImportFD.*', currentrec[0], re.I)
     if matchObj1:
         matchObj2 = re.match( r'.*ret:(\S+?)\s', currentrec[1], re.I)
-        fds.append(matchObj2.group(1))
+        if matchObj2:
+            fds.append(matchObj2.group(1))
 
 print(fds) #debug
 

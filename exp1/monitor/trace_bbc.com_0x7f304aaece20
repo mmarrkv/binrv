@@ -1,0 +1,8 @@
+masterkeyderive_accept exp1/traces/trace_bbc.com_0x7f304aaece20
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x52f:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  7961 ms  0x2569 cx:0x7f304a650308\x0A  7962 ms     | 0x2569 EC_ValidatePublicKey()\x0A  7963 ms     | 0x2569 ret:0x0
+0x991:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  7978 ms  0x2569 cx:0x7f304a64fc88\x0A  7981 ms     | 0x2569 EC_ValidatePublicKey()\x0A  7982 ms     | 0x2569 ret:0x0
+0x220:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  7949 ms  0x2569 seckey:0x7f305ba44020\x0A  7949 ms     | 0x2569 EC_ValidatePublicKey()\x0A  7953 ms     | 0x2569 ret:0x0
+0x639:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  7963 ms  0x2569 seckey:0x7f305ba44820\x0A  7963 ms     | 0x2569 EC_ValidatePublicKey()\x0A  7965 ms     | 0x2569 ret:0x0
+0xa9b:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  7982 ms  0x2569 seckey:0x7f305ba45820\x0A  7982 ms     | 0x2569 EC_ValidatePublicKey()\x0A  7984 ms     | 0x2569 ret:0x0

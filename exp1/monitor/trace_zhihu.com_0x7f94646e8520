@@ -1,0 +1,10 @@
+masterkeyderive_accept exp1/traces/trace_zhihu.com_0x7f94646e8520
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0xf72:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  5951 ms  0x2847 cx:0x7f94661dc768\x0A  5952 ms     | 0x2847 EC_ValidatePublicKey()\x0A  5953 ms     | 0x2847 ret:0x0
+0x13f0:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  8749 ms  0x2847 cx:0x7f94661dd608\x0A  8751 ms     | 0x2847 EC_ValidatePublicKey()\x0A  8751 ms     | 0x2847 ret:0x0
+0x1b6:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  4865 ms  0x2847 seckey:0x7f9464609820\x0A  4865 ms     | 0x2847 EC_ValidatePublicKey()\x0A  4871 ms     | 0x2847 ret:0x0
+0x789:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5928 ms  0x2847 seckey:0x7f946410a820\x0A  5928 ms     | 0x2847 EC_ValidatePublicKey()\x0A  5932 ms     | 0x2847 ret:0x0
+0xbb3:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5945 ms  0x2847 seckey:0x7f9464108820\x0A  5945 ms     | 0x2847 EC_ValidatePublicKey()\x0A  5947 ms     | 0x2847 ret:0x0
+0x107c:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5953 ms  0x2847 seckey:0x7f946410c020\x0A  5953 ms     | 0x2847 EC_ValidatePublicKey()\x0A  5955 ms     | 0x2847 ret:0x0
+0x14fa:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  8751 ms  0x2847 seckey:0x7f946411c820\x0A  8751 ms     | 0x2847 EC_ValidatePublicKey()\x0A  8751 ms     | 0x2847 ret:0x0

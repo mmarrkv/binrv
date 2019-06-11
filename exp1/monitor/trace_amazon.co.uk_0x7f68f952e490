@@ -1,0 +1,12 @@
+masterkeyderive_accept exp1/traces/trace_amazon.co.uk_0x7f68f952e490
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0xdf4:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  6509 ms  0x22b1 cx:0x7f68f921afc8\x0A  6510 ms     | 0x22b1 EC_ValidatePublicKey()\x0A  6510 ms     | 0x22b1 ret:0x0
+0xefd:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  6510 ms  0x22b1 cx:0x7f68f921afc8\x0A  6510 ms     | 0x22b1 EC_ValidatePublicKey()\x0A  6512 ms     | 0x22b1 ret:0x0
+0x1492:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  6549 ms  0x22b1 cx:0x7f68f921ae28\x0A  6550 ms     | 0x22b1 EC_ValidatePublicKey()\x0A  6551 ms     | 0x22b1 ret:0x0
+0x18ab:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  6571 ms  0x22b1 cx:0x7f68f921afc8\x0A  6572 ms     | 0x22b1 EC_ValidatePublicKey()\x0A  6573 ms     | 0x22b1 ret:0x0
+0xae5:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  6502 ms  0x22b1 seckey:0x7f68f8782020\x0A  6502 ms     | 0x22b1 EC_ValidatePublicKey()\x0A  6503 ms     | 0x22b1 ret:0x0
+0x1023:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  6540 ms  0x22b1 seckey:0x7f68f88e9020\x0A  6540 ms     | 0x22b1 EC_ValidatePublicKey()\x0A  6541 ms     | 0x22b1 ret:0x0
+0x159c:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  6552 ms  0x22b1 seckey:0x7f68f88e9020\x0A  6552 ms     | 0x22b1 EC_ValidatePublicKey()\x0A  6553 ms     | 0x22b1 ret:0x0
+0x19b5:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  6573 ms  0x22b1 seckey:0x7f68f8771020\x0A  6573 ms     | 0x22b1 EC_ValidatePublicKey()\x0A  6575 ms     | 0x22b1 ret:0x0
+0x20b5:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  6864 ms  0x22b1 seckey:0x7f68f88d7020\x0A  6864 ms     | 0x22b1 EC_ValidatePublicKey()\x0A  6865 ms     | 0x22b1 ret:0x0

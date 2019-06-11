@@ -1,0 +1,37 @@
+{
+  "host": "www.google.it",
+  "port": 443,
+  "protocol": "http",
+  "isPublic": false,
+  "status": "READY",
+  "startTime": 1560245432030,
+  "testTime": 1560245622188,
+  "engineVersion": "1.35.1",
+  "criteriaVersion": "2009p",
+  "endpoints": [
+    {
+      "ipAddress": "2607:f8b0:4005:802:0:0:0:2003",
+      "serverName": "sfo07s26-in-x03.1e100.net",
+      "statusMessage": "Ready",
+      "grade": "A+",
+      "gradeTrustIgnored": "A+",
+      "hasWarnings": false,
+      "isExceptional": true,
+      "progress": 100,
+      "duration": 95075,
+      "delegation": 2
+    },
+    {
+      "ipAddress": "172.217.0.35",
+      "serverName": "lga15s43-in-f3.1e100.net",
+      "statusMessage": "Ready",
+      "grade": "A+",
+      "gradeTrustIgnored": "A+",
+      "hasWarnings": false,
+      "isExceptional": true,
+      "progress": 100,
+      "duration": 94983,
+      "delegation": 2
+    }
+  ]
+}

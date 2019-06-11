@@ -1,0 +1,10 @@
+masterkeyderive_accept exp1/traces/trace_xvideos.com_0x7f0be097c2e0
+0x11:$newsession: SSL_ImportFD
+0xbc:$server_connect: PR_Connect
+0x301:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  6060 ms  0x9be cx:0x7f0be06e03e8\x0A  6060 ms     | 0x9be EC_ValidatePublicKey()\x0A  6060 ms     | 0x9be ret:0x0
+0x405:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  6060 ms  0x9be cx:0x7f0be06e03e8\x0A  6061 ms     | 0x9be EC_ValidatePublicKey()\x0A  6062 ms     | 0x9be ret:0x0
+0x509:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  6201 ms  0x9be cx:0x7f0be06e03e8\x0A  6201 ms     | 0x9be EC_ValidatePublicKey()\x0A  6203 ms     | 0x9be ret:0x0
+0xc54:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  6231 ms  0x9be cx:0x7f0be06e0728\x0A  6231 ms     | 0x9be EC_ValidatePublicKey()\x0A  6233 ms     | 0x9be ret:0x0
+0x60e:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  6203 ms  0x9be seckey:0x7f0be09d5820\x0A  6203 ms     | 0x9be EC_ValidatePublicKey()\x0A  6204 ms     | 0x9be ret:0x0
+0x955:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  6219 ms  0x9be seckey:0x7f0be09d9820\x0A  6219 ms     | 0x9be EC_ValidatePublicKey()\x0A  6221 ms     | 0x9be ret:0x0
+0xd59:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  6233 ms  0x9be seckey:0x7f0be09d9820\x0A  6233 ms     | 0x9be EC_ValidatePublicKey()\x0A  6234 ms     | 0x9be ret:0x0

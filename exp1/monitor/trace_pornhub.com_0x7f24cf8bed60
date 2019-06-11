@@ -1,0 +1,18 @@
+masterkeyderive_accept exp1/traces/trace_pornhub.com_0x7f24cf8bed60
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x105:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  5625 ms  0x76ac cx:0x7f24e0bef648\x0A  5626 ms     | 0x76ac EC_ValidatePublicKey()\x0A  5626 ms     | 0x76ac ret:0x0
+0x20e:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  5626 ms  0x76ac cx:0x7f24e0bef648\x0A  5628 ms     | 0x76ac EC_ValidatePublicKey()\x0A  5631 ms     | 0x76ac ret:0x0
+0x3b7:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5684 ms  0x76ac seckey:0x7f24cfb62820\x0A  5684 ms     | 0x76ac EC_ValidatePublicKey()\x0A  5685 ms     | 0x76ac ret:0x0
+0xbbc:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5693 ms  0x76ac seckey:0x7f24cfa99820\x0A  5693 ms     | 0x76ac EC_ValidatePublicKey()\x0A  5694 ms     | 0x76ac ret:0x0
+0x13c1:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5707 ms  0x76ac seckey:0x7f24cfb5d020\x0A  5707 ms     | 0x76ac EC_ValidatePublicKey()\x0A  5717 ms     | 0x76ac ret:0x0
+0x26b6:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5728 ms  0x76ac seckey:0x7f24cfb68020\x0A  5728 ms     | 0x76ac EC_ValidatePublicKey()\x0A  5730 ms     | 0x76ac ret:0x0
+0x2e1c:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5735 ms  0x76ac seckey:0x7f24cfb6d820\x0A  5735 ms     | 0x76ac EC_ValidatePublicKey()\x0A  5736 ms     | 0x76ac ret:0x0
+0x3582:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5749 ms  0x76ac seckey:0x7f24cf6c2820\x0A  5749 ms     | 0x76ac EC_ValidatePublicKey()\x0A  5751 ms     | 0x76ac ret:0x0
+scrubprivkey_accept exp1/traces/trace_pornhub.com_0x7f24cf8bed60
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x105:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A  5625 ms  0x76ac cx:0x7f24e0bef648\x0A  5626 ms     | 0x76ac EC_ValidatePublicKey()\x0A  5626 ms     | 0x76ac ret:0x0\x0A  5626 ms  0x76ac ret:0x7f24cf73b020::7f24cf73b020  70 79 a6 cf                                      py..\x0A  5626 ms  0x76ac SECKEY_CreateECPrivateKey()\x0A  5626 ms  0x76ac cx:0x7f24e0bef648\x0A  5628 ms     | 0x76ac EC_ValidatePublicKey()\x0A  5631 ms     | 0x76ac ret:0x0\x0A  5631 ms  0x76ac ret:0x7f24cfa99820::7f24cfa99820  80 7d a6 cf                                      .}..\x0A  5684 ms  0x76ac PK11_Derive()\x0A  5684 ms  0x76ac basekey:0x7f24e26f4380\x0A  5684 ms     | 0x76ac PK11_DeriveWithTemplate()\x0A  5684 ms  0x76ac ret:0x7f24cf7ffe80\x0A  5684 ms  0x76ac PK11_PubDeriveWithKDF()\x0A  5684 ms  0x76ac seckey:0x7f24cfb62820\x0A
+0x20e:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A  5626 ms  0x76ac cx:0x7f24e0bef648\x0A  5628 ms     | 0x76ac EC_ValidatePublicKey()\x0A  5631 ms     | 0x76ac ret:0x0\x0A  5631 ms  0x76ac ret:0x7f24cfa99820::7f24cfa99820  80 7d a6 cf                                      .}..\x0A  5684 ms  0x76ac PK11_Derive()\x0A  5684 ms  0x76ac basekey:0x7f24e26f4380\x0A  5684 ms     | 0x76ac PK11_DeriveWithTemplate()\x0A  5684 ms  0x76ac ret:0x7f24cf7ffe80\x0A  5684 ms  0x76ac PK11_PubDeriveWithKDF()\x0A  5684 ms  0x76ac seckey:0x7f24cfb62820\x0A
+0x2361:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  5725 ms     | 0x76ac privk:0x7f24cfa99820::7f24cfa99820  80 7d a6 cf                                      .}..\x0A  5725 ms     | 0x76ac privk:0x7f24cfa99820::7f24cfa99820  e5 e5 e5 e5
+0x2475:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  5725 ms     | 0x76ac privk:0x7f24cf73b020::7f24cf73b020  70 79 a6 cf                                      py..\x0A  5725 ms     | 0x76ac privk:0x7f24cf73b020::7f24cf73b020  e5 e5 e5 e5
