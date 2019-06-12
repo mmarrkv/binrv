@@ -1,0 +1,9 @@
+masterkeyderive_accept exp1/traces/trace_paypal.com_0x7fa9bf2c1790
+0x11:$newsession: SSL_ImportFD
+0xbc:$server_connect: PR_Connect
+0x11a5:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  8734 ms  0xdde cx:0x7fa9bf2ee908\x0A  8734 ms     | 0xdde EC_ValidatePublicKey()\x0A  8736 ms     | 0xdde ret:0x0
+0xfe:$remoteecvalid: K11_PubDeriveWithKDF()\x0A   749 ms  0xdde seckey:0x7fa9bf25a820\x0A   749 ms     | 0xdde EC_ValidatePublicKey()\x0A   753 ms     | 0xdde ret:0x0
+0x651:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  1269 ms  0xdde seckey:0x7fa9bf25a020\x0A  1269 ms     | 0xdde EC_ValidatePublicKey()\x0A  1271 ms     | 0xdde ret:0x0
+0x951:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5809 ms  0xdde seckey:0x7fa9ae214020\x0A  5809 ms     | 0xdde EC_ValidatePublicKey()\x0A  5815 ms     | 0xdde ret:0x0
+0xea6:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  7410 ms  0xdde seckey:0x7fa9c12e8820\x0A  7410 ms     | 0xdde EC_ValidatePublicKey()\x0A  7415 ms     | 0xdde ret:0x0
+0x12aa:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  8736 ms  0xdde seckey:0x7fa9bf8b5020\x0A  8736 ms     | 0xdde EC_ValidatePublicKey()\x0A  8737 ms     | 0xdde ret:0x0

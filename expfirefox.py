@@ -40,7 +40,7 @@ if __name__ == "__main__":
         reader = csv.reader(f)
         urls = list(reader)
         #print(urls[0][1])
-
+    '''
     print('Start tracing sessions...')
     for i in range(0,100):
         driver = Firefox(executable_path='geckodriver', options=options)
@@ -67,12 +67,12 @@ if __name__ == "__main__":
     print('Expanding to subtraces...')
     for f in glob.glob('exp1/traces/trace_*'):
         os.system('python3 yara_rules/xtract.py '+'~/binrv/'+f+' > /dev/null')    
-
+    '''
     print('Executing yara rules on all files...')
     #for f in glob.glob('exp1/traces/*_0x*'): # override since subtrace extraction alg does not work all the time
     for f in glob.glob('exp1/traces/trace_*'): 
         os.system('yara -s yara_rules/binrvff.src '+f+' > exp1/monitor/'+f.split("/")[2])    
-
+    '''
 
     print('Obtaining ground truth...')
     #ip=socket.gethostbyname('google.com')
@@ -83,4 +83,4 @@ if __name__ == "__main__":
         else:
             os.system('curl -o exp1/truth/'+urls[i][1] +' https://api.ssllabs.com/api/v3/analyze?host='+urls[i][1])    
         time.sleep(10) # Avoiding ""message": "Too many new assessments too fast. Please slow down.""
-
+    '''

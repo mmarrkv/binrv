@@ -1,0 +1,14 @@
+masterkeyderive_accept exp1/traces/trace_amazon.co.jp_0x7f2f2742b700
+0x11:$newsession: SSL_ImportFD
+0xbc:$server_connect: PR_Connect
+0x507:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  6742 ms  0x6a9 cx:0x7f2f384f9608\x0A  6743 ms     | 0x6a9 EC_ValidatePublicKey()\x0A  6744 ms     | 0x6a9 ret:0x0
+0x9b8:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  6753 ms  0x6a9 cx:0x7f2f384f8908\x0A  6754 ms     | 0x6a9 EC_ValidatePublicKey()\x0A  6756 ms     | 0x6a9 ret:0x0
+0x60c:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  6744 ms  0x6a9 seckey:0x7f2f27669020\x0A  6744 ms     | 0x6a9 EC_ValidatePublicKey()\x0A  6746 ms     | 0x6a9 ret:0x0
+0xabd:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  6756 ms  0x6a9 seckey:0x7f2f2766c020\x0A  6756 ms     | 0x6a9 EC_ValidatePublicKey()\x0A  6757 ms     | 0x6a9 ret:0x0
+scrubprivkey_accept exp1/traces/trace_amazon.co.jp_0x7f2f2742b700
+0x11:$newsession: SSL_ImportFD
+0xbc:$server_connect: PR_Connect
+0x507:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A  6742 ms  0x6a9 cx:0x7f2f384f9608\x0A  6743 ms     | 0x6a9 EC_ValidatePublicKey()\x0A  6744 ms     | 0x6a9 ret:0x0\x0A  6744 ms  0x6a9 ret:0x7f2f27669020::7f2f27669020  00 36 45 27                                      .6E'\x0A  6744 ms  0x6a9 PK11_PubDeriveWithKDF()\x0A  6744 ms  0x6a9 seckey:0x7f2f27669020\x0A
+0x9b8:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A  6753 ms  0x6a9 cx:0x7f2f384f8908\x0A  6754 ms     | 0x6a9 EC_ValidatePublicKey()\x0A  6756 ms     | 0x6a9 ret:0x0\x0A  6756 ms  0x6a9 ret:0x7f2f2766c020::7f2f2766c020  40 37 45 27                                      @7E'\x0A  6756 ms  0x6a9 PK11_PubDeriveWithKDF()\x0A  6756 ms  0x6a9 seckey:0x7f2f2766c020\x0A
+0x809:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  6747 ms  0x6a9 privk:0x7f2f27669020::7f2f27669020  00 36 45 27                                      .6E'\x0A  6748 ms  0x6a9 privk:0x7f2f27669020::7f2f27669020  e5 e5 e5 e5
+0xcba:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  6759 ms  0x6a9 privk:0x7f2f2766c020::7f2f2766c020  40 37 45 27                                      @7E'\x0A  6759 ms  0x6a9 privk:0x7f2f2766c020::7f2f2766c020  e5 e5 e5 e5

@@ -1,0 +1,15 @@
+masterkeyderive_accept exp1/traces/trace_youtube.com_0x7f84c6670af0
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x105:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  8222 ms  0x646c cx:0x7f84d79bda68\x0A  8223 ms     | 0x646c EC_ValidatePublicKey()\x0A  8223 ms     | 0x646c ret:0x0
+0x20e:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  8223 ms  0x646c cx:0x7f84d79bda68\x0A  8224 ms     | 0x646c EC_ValidatePublicKey()\x0A  8225 ms     | 0x646c ret:0x0
+0x3b7:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  8279 ms  0x646c seckey:0x7f84c6610820\x0A  8279 ms     | 0x646c EC_ValidatePublicKey()\x0A  8279 ms     | 0x646c ret:0x0
+0xb28:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  8302 ms  0x646c seckey:0x7f84c6660820\x0A  8302 ms     | 0x646c EC_ValidatePublicKey()\x0A  8302 ms     | 0x646c ret:0x0
+0x11de:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  8426 ms  0x646c seckey:0x7f84d7936020\x0A  8426 ms     | 0x646c EC_ValidatePublicKey()\x0A  8426 ms     | 0x646c ret:0x0
+scrubprivkey_accept exp1/traces/trace_youtube.com_0x7f84c6670af0
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x105:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A  8222 ms  0x646c cx:0x7f84d79bda68\x0A  8223 ms     | 0x646c EC_ValidatePublicKey()\x0A  8223 ms     | 0x646c ret:0x0\x0A  8223 ms  0x646c ret:0x7f84c6610820::7f84c6610820  00 06 6c c6                                      ..l.\x0A  8223 ms  0x646c SECKEY_CreateECPrivateKey()\x0A  8223 ms  0x646c cx:0x7f84d79bda68\x0A  8224 ms     | 0x646c EC_ValidatePublicKey()\x0A  8225 ms     | 0x646c ret:0x0\x0A  8225 ms  0x646c ret:0x7f84c6652020::7f84c6652020  c0 59 8c d7                                      .Y..\x0A  8279 ms  0x646c PK11_Derive()\x0A  8279 ms  0x646c basekey:0x7f84c6a9c300\x0A  8279 ms     | 0x646c PK11_DeriveWithTemplate()\x0A  8279 ms  0x646c ret:0x7f84d81f2a80\x0A  8279 ms  0x646c PK11_PubDeriveWithKDF()\x0A  8279 ms  0x646c seckey:0x7f84c6610820\x0A
+0x20e:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A  8223 ms  0x646c cx:0x7f84d79bda68\x0A  8224 ms     | 0x646c EC_ValidatePublicKey()\x0A  8225 ms     | 0x646c ret:0x0\x0A  8225 ms  0x646c ret:0x7f84c6652020::7f84c6652020  c0 59 8c d7                                      .Y..\x0A  8279 ms  0x646c PK11_Derive()\x0A  8279 ms  0x646c basekey:0x7f84c6a9c300\x0A  8279 ms     | 0x646c PK11_DeriveWithTemplate()\x0A  8279 ms  0x646c ret:0x7f84d81f2a80\x0A  8279 ms  0x646c PK11_PubDeriveWithKDF()\x0A  8279 ms  0x646c seckey:0x7f84c6610820\x0A
+0x2201:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  8487 ms     | 0x646c privk:0x7f84c6652020::7f84c6652020  c0 59 8c d7                                      .Y..\x0A  8487 ms     | 0x646c privk:0x7f84c6652020::7f84c6652020  e5 e5 e5 e5
+0x2315:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  8487 ms     | 0x646c privk:0x7f84c6610820::7f84c6610820  00 06 6c c6                                      ..l.\x0A  8487 ms     | 0x646c privk:0x7f84c6610820::7f84c6610820  e5 e5 e5 e5

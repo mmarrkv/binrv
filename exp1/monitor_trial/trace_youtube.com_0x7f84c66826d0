@@ -1,0 +1,24 @@
+masterkeyderive_accept exp1/traces/trace_youtube.com_0x7f84c66826d0
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x105:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  6425 ms  0x646c cx:0x7f84d79bf2c8\x0A  6426 ms     | 0x646c EC_ValidatePublicKey()\x0A  6426 ms     | 0x646c ret:0x0
+0x20e:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  6426 ms  0x646c cx:0x7f84d79bf2c8\x0A  6426 ms     | 0x646c EC_ValidatePublicKey()\x0A  6428 ms     | 0x646c ret:0x0
+0x3b7:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  6486 ms  0x646c seckey:0x7f84c6618020\x0A  6486 ms     | 0x646c EC_ValidatePublicKey()\x0A  6486 ms     | 0x646c ret:0x0
+0xaf0:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  6511 ms  0x646c seckey:0x7f84c6655820\x0A  6511 ms     | 0x646c EC_ValidatePublicKey()\x0A  6511 ms     | 0x646c ret:0x0
+0x118a:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  6516 ms  0x646c seckey:0x7f84c665a820\x0A  6516 ms     | 0x646c EC_ValidatePublicKey()\x0A  6516 ms     | 0x646c ret:0x0
+0x1824:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  6518 ms  0x646c seckey:0x7f84c665f020\x0A  6518 ms     | 0x646c EC_ValidatePublicKey()\x0A  6518 ms     | 0x646c ret:0x0
+0x1f50:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  6565 ms  0x646c seckey:0x7f84c6663820\x0A  6565 ms     | 0x646c EC_ValidatePublicKey()\x0A  6565 ms     | 0x646c ret:0x0
+0x25ea:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  6571 ms  0x646c seckey:0x7f84c6668020\x0A  6571 ms     | 0x646c EC_ValidatePublicKey()\x0A  6571 ms     | 0x646c ret:0x0
+0x2c84:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  6576 ms  0x646c seckey:0x7f84c666c820\x0A  6576 ms     | 0x646c EC_ValidatePublicKey()\x0A  6576 ms     | 0x646c ret:0x0
+0x331e:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  6585 ms  0x646c seckey:0x7f84c6a1e020\x0A  6585 ms     | 0x646c EC_ValidatePublicKey()\x0A  6585 ms     | 0x646c ret:0x0
+0x39b8:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  6601 ms  0x646c seckey:0x7f84d772c020\x0A  6601 ms     | 0x646c EC_ValidatePublicKey()\x0A  6601 ms     | 0x646c ret:0x0
+0x4052:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  6605 ms  0x646c seckey:0x7f84d7927820\x0A  6605 ms     | 0x646c EC_ValidatePublicKey()\x0A  6605 ms     | 0x646c ret:0x0
+0x49d2:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  6635 ms  0x646c seckey:0x7f84dd735820\x0A  6635 ms     | 0x646c EC_ValidatePublicKey()\x0A  6635 ms     | 0x646c ret:0x0
+0x5ffa:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  6732 ms  0x646c seckey:0x7f84c6665020\x0A  6732 ms     | 0x646c EC_ValidatePublicKey()\x0A  6732 ms     | 0x646c ret:0x0
+scrubprivkey_accept exp1/traces/trace_youtube.com_0x7f84c66826d0
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x105:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A  6425 ms  0x646c cx:0x7f84d79bf2c8\x0A  6426 ms     | 0x646c EC_ValidatePublicKey()\x0A  6426 ms     | 0x646c ret:0x0\x0A  6426 ms  0x646c ret:0x7f84c6618020::7f84c6618020  90 07 6c c6                                      ..l.\x0A  6426 ms  0x646c SECKEY_CreateECPrivateKey()\x0A  6426 ms  0x646c cx:0x7f84d79bf2c8\x0A  6426 ms     | 0x646c EC_ValidatePublicKey()\x0A  6428 ms     | 0x646c ret:0x0\x0A  6428 ms  0x646c ret:0x7f84c6653020::7f84c6653020  70 09 6c c6                                      p.l.\x0A  6486 ms  0x646c PK11_Derive()\x0A  6486 ms  0x646c basekey:0x7f84d93fb780\x0A  6486 ms     | 0x646c PK11_DeriveWithTemplate()\x0A  6486 ms  0x646c ret:0x7f84d8e60780\x0A  6486 ms  0x646c PK11_PubDeriveWithKDF()\x0A  6486 ms  0x646c seckey:0x7f84c6618020\x0A
+0x20e:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A  6426 ms  0x646c cx:0x7f84d79bf2c8\x0A  6426 ms     | 0x646c EC_ValidatePublicKey()\x0A  6428 ms     | 0x646c ret:0x0\x0A  6428 ms  0x646c ret:0x7f84c6653020::7f84c6653020  70 09 6c c6                                      p.l.\x0A  6486 ms  0x646c PK11_Derive()\x0A  6486 ms  0x646c basekey:0x7f84d93fb780\x0A  6486 ms     | 0x646c PK11_DeriveWithTemplate()\x0A  6486 ms  0x646c ret:0x7f84d8e60780\x0A  6486 ms  0x646c PK11_PubDeriveWithKDF()\x0A  6486 ms  0x646c seckey:0x7f84c6618020\x0A
+0x5aef:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  6696 ms     | 0x646c privk:0x7f84c6653020::7f84c6653020  70 09 6c c6                                      p.l.\x0A  6696 ms     | 0x646c privk:0x7f84c6653020::7f84c6653020  e5 e5 e5 e5
+0x5c03:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  6696 ms     | 0x646c privk:0x7f84c6618020::7f84c6618020  90 07 6c c6                                      ..l.\x0A  6696 ms     | 0x646c privk:0x7f84c6618020::7f84c6618020  e5 e5 e5 e5

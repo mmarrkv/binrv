@@ -1,0 +1,17 @@
+masterkeyderive_accept exp1/traces/trace_pixnet.net_0x7f65ca2a89d0
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x45ec:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 16218 ms  0x2621 cx:0x7f65cadce7e8\x0A 16218 ms     | 0x2621 EC_ValidatePublicKey()\x0A 16218 ms     | 0x2621 ret:0x0
+0x46f5:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 16218 ms  0x2621 cx:0x7f65cadce7e8\x0A 16219 ms     | 0x2621 EC_ValidatePublicKey()\x0A 16221 ms     | 0x2621 ret:0x0
+0x47fe:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 16900 ms  0x2621 cx:0x7f65cadce7e8\x0A 16901 ms     | 0x2621 EC_ValidatePublicKey()\x0A 16902 ms     | 0x2621 ret:0x0
+0x106:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 14928 ms  0x2621 seckey:0x7f65aa54b820\x0A 14928 ms     | 0x2621 EC_ValidatePublicKey()\x0A 14929 ms     | 0x2621 ret:0x0
+0x5fc:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 15001 ms  0x2621 seckey:0x7f65c78ba820\x0A 15001 ms     | 0x2621 EC_ValidatePublicKey()\x0A 15001 ms     | 0x2621 ret:0x0
+0xc96:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 15063 ms  0x2621 seckey:0x7f65aa30f020\x0A 15063 ms     | 0x2621 EC_ValidatePublicKey()\x0A 15064 ms     | 0x2621 ret:0x0
+0xfa6:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 15077 ms  0x2621 seckey:0x7f65aa30f820\x0A 15077 ms     | 0x2621 EC_ValidatePublicKey()\x0A 15079 ms     | 0x2621 ret:0x0
+0x12b6:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 15084 ms  0x2621 seckey:0x7f65aa310820\x0A 15084 ms     | 0x2621 EC_ValidatePublicKey()\x0A 15086 ms     | 0x2621 ret:0x0
+0x15c6:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 15101 ms  0x2621 seckey:0x7f65aa319820\x0A 15101 ms     | 0x2621 EC_ValidatePublicKey()\x0A 15111 ms     | 0x2621 ret:0x0
+0x28a6:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 15411 ms  0x2621 seckey:0x7f65c31c5820\x0A 15411 ms     | 0x2621 EC_ValidatePublicKey()\x0A 15411 ms     | 0x2621 ret:0x0
+0x36bf:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 16052 ms  0x2621 seckey:0x7f65aa3b7820\x0A 16052 ms     | 0x2621 EC_ValidatePublicKey()\x0A 16052 ms     | 0x2621 ret:0x0
+0x3deb:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 16066 ms  0x2621 seckey:0x7f65aa3bb020\x0A 16066 ms     | 0x2621 EC_ValidatePublicKey()\x0A 16068 ms     | 0x2621 ret:0x0
+0x40fb:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 16111 ms  0x2621 seckey:0x7f65aa54b020\x0A 16111 ms     | 0x2621 EC_ValidatePublicKey()\x0A 16112 ms     | 0x2621 ret:0x0
+0x4908:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 16902 ms  0x2621 seckey:0x7f65aa76e020\x0A 16902 ms     | 0x2621 EC_ValidatePublicKey()\x0A 16905 ms     | 0x2621 ret:0x0

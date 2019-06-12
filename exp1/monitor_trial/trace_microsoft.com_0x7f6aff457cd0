@@ -1,0 +1,14 @@
+masterkeyderive_accept exp1/traces/trace_microsoft.com_0x7f6aff457cd0
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0xc87:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  5888 ms  0x7af9 cx:0x7f6b107da308\x0A  5889 ms     | 0x7af9 EC_ValidatePublicKey()\x0A  5890 ms     | 0x7af9 ret:0x0
+0x1128:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  5916 ms  0x7af9 cx:0x7f6b107da168\x0A  5917 ms     | 0x7af9 EC_ValidatePublicKey()\x0A  5918 ms     | 0x7af9 ret:0x0
+0x18f8:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  5948 ms  0x7af9 cx:0x7f6b107d9e28\x0A  5949 ms     | 0x7af9 EC_ValidatePublicKey()\x0A  5950 ms     | 0x7af9 ret:0x0
+0x23e6:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  5989 ms  0x7af9 cx:0x7f6b107d9948\x0A  5990 ms     | 0x7af9 EC_ValidatePublicKey()\x0A  5993 ms     | 0x7af9 ret:0x0
+0x2ff:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5819 ms  0x7af9 seckey:0x7f6afef1a020\x0A  5819 ms     | 0x7af9 EC_ValidatePublicKey()\x0A  5821 ms     | 0x7af9 ret:0x0
+0x808:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5863 ms  0x7af9 seckey:0x7f6afef1e020\x0A  5863 ms     | 0x7af9 EC_ValidatePublicKey()\x0A  5864 ms     | 0x7af9 ret:0x0
+0xd91:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5890 ms  0x7af9 seckey:0x7f6aff016020\x0A  5890 ms     | 0x7af9 EC_ValidatePublicKey()\x0A  5892 ms     | 0x7af9 ret:0x0
+0x1232:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5918 ms  0x7af9 seckey:0x7f6afef21820\x0A  5918 ms     | 0x7af9 EC_ValidatePublicKey()\x0A  5920 ms     | 0x7af9 ret:0x0
+0x1a02:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5950 ms  0x7af9 seckey:0x7f6afef1f020\x0A  5950 ms     | 0x7af9 EC_ValidatePublicKey()\x0A  5952 ms     | 0x7af9 ret:0x0
+0x1f25:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5969 ms  0x7af9 seckey:0x7f6afef1f020\x0A  5969 ms     | 0x7af9 EC_ValidatePublicKey()\x0A  5970 ms     | 0x7af9 ret:0x0
+0x24f0:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5993 ms  0x7af9 seckey:0x7f6afe44a820\x0A  5993 ms     | 0x7af9 EC_ValidatePublicKey()\x0A  5998 ms     | 0x7af9 ret:0x0

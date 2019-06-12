@@ -1,0 +1,10 @@
+masterkeyderive_accept exp1/traces/trace_stackoverflow.com_0x7fca8cf5ffa0
+0x11:$newsession: SSL_ImportFD
+0xbc:$server_connect: PR_Connect
+0x4aa:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  6994 ms  0x804 cx:0x7fcaa8190da8\x0A  6996 ms     | 0x804 EC_ValidatePublicKey()\x0A  6996 ms     | 0x804 ret:0x0
+0x5ae:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  6996 ms  0x804 cx:0x7fcaa8190da8\x0A  6997 ms     | 0x804 EC_ValidatePublicKey()\x0A  7001 ms     | 0x804 ret:0x0
+0x1ab:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  6972 ms  0x804 seckey:0x7fca8d0d2820\x0A  6972 ms     | 0x804 EC_ValidatePublicKey()\x0A  6972 ms     | 0x804 ret:0x0
+0x74e:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  7057 ms  0x804 seckey:0x7fca8d0d8020\x0A  7057 ms     | 0x804 EC_ValidatePublicKey()\x0A  7057 ms     | 0x804 ret:0x0
+0xe75:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  7072 ms  0x804 seckey:0x7fca8d0cb820\x0A  7072 ms     | 0x804 EC_ValidatePublicKey()\x0A  7072 ms     | 0x804 ret:0x0
+0x14e6:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  7078 ms  0x804 seckey:0x7fca8d0d9820\x0A  7078 ms     | 0x804 EC_ValidatePublicKey()\x0A  7078 ms     | 0x804 ret:0x0
+0x1b57:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  7182 ms  0x804 seckey:0x7fca8d4c9020\x0A  7182 ms     | 0x804 EC_ValidatePublicKey()\x0A  7182 ms     | 0x804 ret:0x0

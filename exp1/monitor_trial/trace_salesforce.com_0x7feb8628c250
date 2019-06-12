@@ -1,0 +1,23 @@
+masterkeyderive_accept exp1/traces/trace_salesforce.com_0x7feb8628c250
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x1003:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  9784 ms  0x240c cx:0x7feb933d0168\x0A  9785 ms     | 0x240c EC_ValidatePublicKey()\x0A  9785 ms     | 0x240c ret:0x0
+0x110c:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  9785 ms  0x240c cx:0x7feb933d0168\x0A  9786 ms     | 0x240c EC_ValidatePublicKey()\x0A  9788 ms     | 0x240c ret:0x0
+0x1aa4:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  9863 ms  0x240c cx:0x7feb933d0168\x0A  9863 ms     | 0x240c EC_ValidatePublicKey()\x0A  9865 ms     | 0x240c ret:0x0
+0x49ed:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 11762 ms  0x240c cx:0x7feb74e07428\x0A 11762 ms     | 0x240c EC_ValidatePublicKey()\x0A 11764 ms     | 0x240c ret:0x0
+0x6017:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 12146 ms  0x240c cx:0x7feb74e07428\x0A 12146 ms     | 0x240c EC_ValidatePublicKey()\x0A 12146 ms     | 0x240c ret:0x0
+0x6120:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 12147 ms  0x240c cx:0x7feb74e07428\x0A 12147 ms     | 0x240c EC_ValidatePublicKey()\x0A 12150 ms     | 0x240c ret:0x0
+0x432:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  9033 ms  0x240c seckey:0x7feb8cb82020\x0A  9034 ms     | 0x240c EC_ValidatePublicKey()\x0A  9035 ms     | 0x240c ret:0x0
+0x7f2:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  9330 ms  0x240c seckey:0x7feb8c76f820\x0A  9330 ms     | 0x240c EC_ValidatePublicKey()\x0A  9336 ms     | 0x240c ret:0x0
+0xcf4:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  9782 ms  0x240c seckey:0x7feb8cbca020\x0A  9782 ms     | 0x240c EC_ValidatePublicKey()\x0A  9782 ms     | 0x240c ret:0x0
+0x12b5:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  9816 ms  0x240c seckey:0x7feb8cb93820\x0A  9816 ms     | 0x240c EC_ValidatePublicKey()\x0A  9816 ms     | 0x240c ret:0x0
+0x1bae:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  9865 ms  0x240c seckey:0x7feb8f4cf820\x0A  9865 ms     | 0x240c EC_ValidatePublicKey()\x0A  9866 ms     | 0x240c ret:0x0
+0x295e:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 10903 ms  0x240c seckey:0x7feb90f1d020\x0A 10903 ms     | 0x240c EC_ValidatePublicKey()\x0A 10903 ms     | 0x240c ret:0x0
+0x2e51:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 10913 ms  0x240c seckey:0x7feb90599820\x0A 10913 ms     | 0x240c EC_ValidatePublicKey()\x0A 10913 ms     | 0x240c ret:0x0
+0x358a:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 10929 ms  0x240c seckey:0x7feb90e56820\x0A 10929 ms     | 0x240c EC_ValidatePublicKey()\x0A 10929 ms     | 0x240c ret:0x0
+0x413c:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 11338 ms  0x240c seckey:0x7feb90f12020\x0A 11338 ms     | 0x240c EC_ValidatePublicKey()\x0A 11340 ms     | 0x240c ret:0x0
+0x46de:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 11458 ms  0x240c seckey:0x7feb90f5e820\x0A 11458 ms     | 0x240c EC_ValidatePublicKey()\x0A 11460 ms     | 0x240c ret:0x0
+0x4b96:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 11815 ms  0x240c seckey:0x7feb74e19020\x0A 11815 ms     | 0x240c EC_ValidatePublicKey()\x0A 11815 ms     | 0x240c ret:0x0
+0x52cf:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 11823 ms  0x240c seckey:0x7feb74e30020\x0A 11823 ms     | 0x240c EC_ValidatePublicKey()\x0A 11823 ms     | 0x240c ret:0x0
+0x62c9:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 12205 ms  0x240c seckey:0x7feb74e2e820\x0A 12205 ms     | 0x240c EC_ValidatePublicKey()\x0A 12205 ms     | 0x240c ret:0x0
+0x6a02:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 12208 ms  0x240c seckey:0x7feb751af020\x0A 12208 ms     | 0x240c EC_ValidatePublicKey()\x0A 12209 ms     | 0x240c ret:0x0

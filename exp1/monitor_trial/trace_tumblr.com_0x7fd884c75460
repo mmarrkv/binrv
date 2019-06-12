@@ -1,0 +1,14 @@
+masterkeyderive_accept exp1/traces/trace_tumblr.com_0x7fd884c75460
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x4f5:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  5220 ms  0x2201 cx:0x7fd895a0a428\x0A  5221 ms     | 0x2201 EC_ValidatePublicKey()\x0A  5221 ms     | 0x2201 ret:0x0
+0x5fe:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  5221 ms  0x2201 cx:0x7fd895a0a428\x0A  5222 ms     | 0x2201 EC_ValidatePublicKey()\x0A  5224 ms     | 0x2201 ret:0x0
+0x7c3:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5240 ms  0x2201 seckey:0x7fd88490a020\x0A  5240 ms     | 0x2201 EC_ValidatePublicKey()\x0A  5241 ms     | 0x2201 ret:0x0
+0x102d:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5251 ms  0x2201 seckey:0x7fd884913020\x0A  5252 ms     | 0x2201 EC_ValidatePublicKey()\x0A  5253 ms     | 0x2201 ret:0x0
+scrubprivkey_accept exp1/traces/trace_tumblr.com_0x7fd884c75460
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x4f5:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A  5220 ms  0x2201 cx:0x7fd895a0a428\x0A  5221 ms     | 0x2201 EC_ValidatePublicKey()\x0A  5221 ms     | 0x2201 ret:0x0\x0A  5221 ms  0x2201 ret:0x7fd88490c820::7fd88490c820  f0 f6 af 84                                      ....\x0A  5221 ms  0x2201 SECKEY_CreateECPrivateKey()\x0A  5221 ms  0x2201 cx:0x7fd895a0a428\x0A  5222 ms     | 0x2201 EC_ValidatePublicKey()\x0A  5224 ms     | 0x2201 ret:0x0\x0A  5224 ms  0x2201 ret:0x7fd884913020::7fd884913020  c0 f9 af 84                                      ....\x0A           /* TID 0x2209 */\x0A  5240 ms  0x2201 PK11_Derive()\x0A  5240 ms  0x2201 basekey:0x7fd8849de200\x0A  5240 ms     | 0x2201 PK11_DeriveWithTemplate()\x0A  5240 ms  0x2201 ret:0x7fd8a0a81b00\x0A  5240 ms  0x2201 PK11_PubDeriveWithKDF()\x0A  5240 ms  0x2201 seckey:0x7fd88490a020\x0A
+0x5fe:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A  5221 ms  0x2201 cx:0x7fd895a0a428\x0A  5222 ms     | 0x2201 EC_ValidatePublicKey()\x0A  5224 ms     | 0x2201 ret:0x0\x0A  5224 ms  0x2201 ret:0x7fd884913020::7fd884913020  c0 f9 af 84                                      ....\x0A           /* TID 0x2209 */\x0A  5240 ms  0x2201 PK11_Derive()\x0A  5240 ms  0x2201 basekey:0x7fd8849de200\x0A  5240 ms     | 0x2201 PK11_DeriveWithTemplate()\x0A  5240 ms  0x2201 ret:0x7fd8a0a81b00\x0A  5240 ms  0x2201 PK11_PubDeriveWithKDF()\x0A  5240 ms  0x2201 seckey:0x7fd88490a020\x0A
+0x2088:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  5267 ms     | 0x2201 privk:0x7fd884913020::7fd884913020  c0 f9 af 84                                      ....\x0A  5267 ms     | 0x2201 privk:0x7fd884913020::7fd884913020  e5 e5 e5 e5
+0x219c:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  5267 ms     | 0x2201 privk:0x7fd88490c820::7fd88490c820  f0 f6 af 84                                      ....\x0A  5267 ms     | 0x2201 privk:0x7fd88490c820::7fd88490c820  e5 e5 e5 e5

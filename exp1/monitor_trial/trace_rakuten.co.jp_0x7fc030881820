@@ -1,0 +1,14 @@
+masterkeyderive_accept exp1/traces/trace_rakuten.co.jp_0x7fc030881820
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x415:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 14463 ms  0x2a47 cx:0x7fc03224d468\x0A 14464 ms     | 0x2a47 EC_ValidatePublicKey()\x0A 14464 ms     | 0x2a47 ret:0x0
+0x51e:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 14465 ms  0x2a47 cx:0x7fc03224d468\x0A 14466 ms     | 0x2a47 EC_ValidatePublicKey()\x0A 14472 ms     | 0x2a47 ret:0x0
+0x1ca2:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 14894 ms  0x2a47 cx:0x7fc03224d948\x0A 14895 ms     | 0x2a47 EC_ValidatePublicKey()\x0A 14895 ms     | 0x2a47 ret:0x0
+0x1dab:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 14895 ms  0x2a47 cx:0x7fc03224d948\x0A 14896 ms     | 0x2a47 EC_ValidatePublicKey()\x0A 14898 ms     | 0x2a47 ret:0x0
+0x28c6:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 15954 ms  0x2a47 cx:0x7fc03224e7e8\x0A 15955 ms     | 0x2a47 EC_ValidatePublicKey()\x0A 15955 ms     | 0x2a47 ret:0x0
+0x29cf:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 15956 ms  0x2a47 cx:0x7fc03224e7e8\x0A 15959 ms     | 0x2a47 EC_ValidatePublicKey()\x0A 15962 ms     | 0x2a47 ret:0x0
+0x106:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 14435 ms  0x2a47 seckey:0x7fc02d919820\x0A 14435 ms     | 0x2a47 EC_ValidatePublicKey()\x0A 14441 ms     | 0x2a47 ret:0x0
+0x6c7:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 14537 ms  0x2a47 seckey:0x7fc02d91a020\x0A 14537 ms     | 0x2a47 EC_ValidatePublicKey()\x0A 14537 ms     | 0x2a47 ret:0x0
+0x1f54:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 14954 ms  0x2a47 seckey:0x7fc02d914820\x0A 14955 ms     | 0x2a47 EC_ValidatePublicKey()\x0A 14955 ms     | 0x2a47 ret:0x0
+0x2b78:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 16004 ms  0x2a47 seckey:0x7fc01b340020\x0A 16004 ms     | 0x2a47 EC_ValidatePublicKey()\x0A 16004 ms     | 0x2a47 ret:0x0
+0x3343:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 16027 ms  0x2a47 seckey:0x7fc01b344820\x0A 16028 ms     | 0x2a47 EC_ValidatePublicKey()\x0A 16028 ms     | 0x2a47 ret:0x0

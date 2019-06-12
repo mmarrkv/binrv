@@ -1,0 +1,16 @@
+masterkeyderive_accept exp1/traces/trace_tribunnews.com_0x7f52c9b7fb50
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x1732:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  9970 ms  0x7487 cx:0x7f52c92575c8\x0A  9970 ms     | 0x7487 EC_ValidatePublicKey()\x0A  9970 ms     | 0x7487 ret:0x0
+0x183b:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  9970 ms  0x7487 cx:0x7f52c92575c8\x0A  9971 ms     | 0x7487 EC_ValidatePublicKey()\x0A  9972 ms     | 0x7487 ret:0x0
+0x3ff6:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 10211 ms  0x7487 cx:0x7f52c9256f48\x0A 10211 ms     | 0x7487 EC_ValidatePublicKey()\x0A 10211 ms     | 0x7487 ret:0x0
+0x40ff:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 10211 ms  0x7487 cx:0x7f52c9256f48\x0A 10212 ms     | 0x7487 EC_ValidatePublicKey()\x0A 10214 ms     | 0x7487 ret:0x0
+0x1a5:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  9902 ms  0x7487 seckey:0x7f52e035b820\x0A  9902 ms     | 0x7487 EC_ValidatePublicKey()\x0A  9902 ms     | 0x7487 ret:0x0
+0x8fa:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  9920 ms  0x7487 seckey:0x7f52e0a25820\x0A  9920 ms     | 0x7487 EC_ValidatePublicKey()\x0A  9920 ms     | 0x7487 ret:0x0
+0x1033:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  9928 ms  0x7487 seckey:0x7f52e0a2e020\x0A  9928 ms     | 0x7487 EC_ValidatePublicKey()\x0A  9928 ms     | 0x7487 ret:0x0
+0x1945:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 10013 ms  0x7487 seckey:0x7f52e0e82020\x0A 10013 ms     | 0x7487 EC_ValidatePublicKey()\x0A 10015 ms     | 0x7487 ret:0x0
+0x1dc0:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 10023 ms  0x7487 seckey:0x7f52c9b4a020\x0A 10023 ms     | 0x7487 EC_ValidatePublicKey()\x0A 10023 ms     | 0x7487 ret:0x0
+0x2515:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 10039 ms  0x7487 seckey:0x7f52c9b54820\x0A 10039 ms     | 0x7487 EC_ValidatePublicKey()\x0A 10039 ms     | 0x7487 ret:0x0
+0x306b:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 10109 ms  0x7487 seckey:0x7f52e0e8f020\x0A 10109 ms     | 0x7487 EC_ValidatePublicKey()\x0A 10109 ms     | 0x7487 ret:0x0
+0x39d4:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 10155 ms  0x7487 seckey:0x7f52e0a26020\x0A 10155 ms     | 0x7487 EC_ValidatePublicKey()\x0A 10159 ms     | 0x7487 ret:0x0
+0x5366:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 10269 ms  0x7487 seckey:0x7f52e07ba820\x0A 10269 ms     | 0x7487 EC_ValidatePublicKey()\x0A 10269 ms     | 0x7487 ret:0x0

@@ -1,0 +1,16 @@
+masterkeyderive_accept exp1/traces/trace_whatsapp.com_0x7f58bf406bb0
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x105:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  5394 ms  0x7d1a cx:0x7f58d05fc768\x0A  5394 ms     | 0x7d1a EC_ValidatePublicKey()\x0A  5394 ms     | 0x7d1a ret:0x0
+0x20e:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  5394 ms  0x7d1a cx:0x7f58d05fc768\x0A  5395 ms     | 0x7d1a EC_ValidatePublicKey()\x0A  5396 ms     | 0x7d1a ret:0x0
+0x3d3:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5411 ms  0x7d1a seckey:0x7f58bf426020\x0A  5412 ms     | 0x7d1a EC_ValidatePublicKey()\x0A  5412 ms     | 0x7d1a ret:0x0
+0xa6d:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5422 ms  0x7d1a seckey:0x7f58bf69a020\x0A  5422 ms     | 0x7d1a EC_ValidatePublicKey()\x0A  5422 ms     | 0x7d1a ret:0x0
+0x1150:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5440 ms  0x7d1a seckey:0x7f58d02bd020\x0A  5440 ms     | 0x7d1a EC_ValidatePublicKey()\x0A  5440 ms     | 0x7d1a ret:0x0
+0x1889:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5455 ms  0x7d1a seckey:0x7f58d02c2020\x0A  5455 ms     | 0x7d1a EC_ValidatePublicKey()\x0A  5455 ms     | 0x7d1a ret:0x0
+scrubprivkey_accept exp1/traces/trace_whatsapp.com_0x7f58bf406bb0
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x105:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A  5394 ms  0x7d1a cx:0x7f58d05fc768\x0A  5394 ms     | 0x7d1a EC_ValidatePublicKey()\x0A  5394 ms     | 0x7d1a ret:0x0\x0A  5394 ms  0x7d1a ret:0x7f58d02c2020::7f58d02c2020  a0 f1 2d d0                                      ..-.\x0A  5394 ms  0x7d1a SECKEY_CreateECPrivateKey()\x0A  5394 ms  0x7d1a cx:0x7f58d05fc768\x0A  5395 ms     | 0x7d1a EC_ValidatePublicKey()\x0A  5396 ms     | 0x7d1a ret:0x0\x0A  5396 ms  0x7d1a ret:0x7f58d02c4020::7f58d02c4020  80 f3 2d d0                                      ..-.\x0A           /* TID 0x7d22 */\x0A  5411 ms  0x7d1a PK11_Derive()\x0A  5411 ms  0x7d1a basekey:0x7f58bf219f00\x0A  5411 ms     | 0x7d1a PK11_DeriveWithTemplate()\x0A  5411 ms  0x7d1a ret:0x7f58bf219c80\x0A  5411 ms  0x7d1a PK11_PubDeriveWithKDF()\x0A  5411 ms  0x7d1a seckey:0x7f58bf426020\x0A
+0x20e:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A  5394 ms  0x7d1a cx:0x7f58d05fc768\x0A  5395 ms     | 0x7d1a EC_ValidatePublicKey()\x0A  5396 ms     | 0x7d1a ret:0x0\x0A  5396 ms  0x7d1a ret:0x7f58d02c4020::7f58d02c4020  80 f3 2d d0                                      ..-.\x0A           /* TID 0x7d22 */\x0A  5411 ms  0x7d1a PK11_Derive()\x0A  5411 ms  0x7d1a basekey:0x7f58bf219f00\x0A  5411 ms     | 0x7d1a PK11_DeriveWithTemplate()\x0A  5411 ms  0x7d1a ret:0x7f58bf219c80\x0A  5411 ms  0x7d1a PK11_PubDeriveWithKDF()\x0A  5411 ms  0x7d1a seckey:0x7f58bf426020\x0A
+0x2845:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  5462 ms     | 0x7d1a privk:0x7f58d02c4020::7f58d02c4020  80 f3 2d d0                                      ..-.\x0A  5462 ms     | 0x7d1a privk:0x7f58d02c4020::7f58d02c4020  e5 e5 e5 e5
+0x2959:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  5462 ms     | 0x7d1a privk:0x7f58d02c2020::7f58d02c2020  a0 f1 2d d0                                      ..-.\x0A  5462 ms     | 0x7d1a privk:0x7f58d02c2020::7f58d02c2020  e5 e5 e5 e5

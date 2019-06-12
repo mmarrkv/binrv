@@ -1,0 +1,14 @@
+masterkeyderive_accept exp1/traces/trace_booking.com_0x7fcc6f927460
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x105:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  6255 ms  0x1d14 cx:0x7fcc808e4cc8\x0A  6256 ms     | 0x1d14 EC_ValidatePublicKey()\x0A  6256 ms     | 0x1d14 ret:0x0
+0x20e:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  6256 ms  0x1d14 cx:0x7fcc808e4cc8\x0A  6257 ms     | 0x1d14 EC_ValidatePublicKey()\x0A  6258 ms     | 0x1d14 ret:0x0
+0x3b7:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  6289 ms  0x1d14 seckey:0x7fcc6f7a8020\x0A  6289 ms     | 0x1d14 EC_ValidatePublicKey()\x0A  6289 ms     | 0x1d14 ret:0x0
+0xaf0:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  6316 ms  0x1d14 seckey:0x7fcc6fab6020\x0A  6316 ms     | 0x1d14 EC_ValidatePublicKey()\x0A  6316 ms     | 0x1d14 ret:0x0
+scrubprivkey_accept exp1/traces/trace_booking.com_0x7fcc6f927460
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x105:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A  6255 ms  0x1d14 cx:0x7fcc808e4cc8\x0A  6256 ms     | 0x1d14 EC_ValidatePublicKey()\x0A  6256 ms     | 0x1d14 ret:0x0\x0A  6256 ms  0x1d14 ret:0x7fcc6fab6020::7fcc6fab6020  60 8f 96 6f                                      `..o\x0A  6256 ms  0x1d14 SECKEY_CreateECPrivateKey()\x0A  6256 ms  0x1d14 cx:0x7fcc808e4cc8\x0A  6257 ms     | 0x1d14 EC_ValidatePublicKey()\x0A  6258 ms     | 0x1d14 ret:0x0\x0A  6258 ms  0x1d14 ret:0x7fcc6fab8020::7fcc6fab8020  e0 3c 97 6f                                      .<.o\x0A  6289 ms  0x1d14 PK11_Derive()\x0A  6289 ms  0x1d14 basekey:0x7fcc6f616380\x0A  6289 ms     | 0x1d14 PK11_DeriveWithTemplate()\x0A  6289 ms  0x1d14 ret:0x7fcc6f616300\x0A  6289 ms  0x1d14 PK11_PubDeriveWithKDF()\x0A  6289 ms  0x1d14 seckey:0x7fcc6f7a8020\x0A
+0x20e:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A  6256 ms  0x1d14 cx:0x7fcc808e4cc8\x0A  6257 ms     | 0x1d14 EC_ValidatePublicKey()\x0A  6258 ms     | 0x1d14 ret:0x0\x0A  6258 ms  0x1d14 ret:0x7fcc6fab8020::7fcc6fab8020  e0 3c 97 6f                                      .<.o\x0A  6289 ms  0x1d14 PK11_Derive()\x0A  6289 ms  0x1d14 basekey:0x7fcc6f616380\x0A  6289 ms     | 0x1d14 PK11_DeriveWithTemplate()\x0A  6289 ms  0x1d14 ret:0x7fcc6f616300\x0A  6289 ms  0x1d14 PK11_PubDeriveWithKDF()\x0A  6289 ms  0x1d14 seckey:0x7fcc6f7a8020\x0A
+0x1c44:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  6351 ms     | 0x1d14 privk:0x7fcc6fab8020::7fcc6fab8020  e0 3c 97 6f                                      .<.o\x0A  6351 ms     | 0x1d14 privk:0x7fcc6fab8020::7fcc6fab8020  e5 e5 e5 e5
+0x1d58:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  6351 ms     | 0x1d14 privk:0x7fcc6fab6020::7fcc6fab6020  60 8f 96 6f                                      `..o\x0A  6351 ms     | 0x1d14 privk:0x7fcc6fab6020::7fcc6fab6020  e5 e5 e5 e5
