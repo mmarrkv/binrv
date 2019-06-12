@@ -1,0 +1,241 @@
+Stats for exp1
+
+Rule matches for all extracted subtraces
+----------------------------------------
+certerr_accept:0
+certerr_bad:0
+masterkeyderive_accept:1394
+masterkeyderive_bad:0
+scrubprivkey_accept:1059
+scrubprivkey_bad:6
+
+Grouping per unique URL
+-------------------------
+
+certerr_accept:
+Total:0
+/100
+
+
+certerr_bad:
+Total:0
+/100
+
+
+masterkeyderive_accept:
+     13 163.com
+     12 360.cn
+     19 adobe.com
+     23 aliexpress.com
+      1 amazonaws.com
+     14 amazon.co.jp
+      5 amazon.com
+     10 amazon.co.uk
+     12 amazon.de
+      9 amazon.in
+     20 aparat.com
+      3 apple.com
+      4 babytree.com
+      1 baidu.com
+     20 bbc.com
+      8 bilibili.com
+      1 bing.com
+     16 blogspot.com
+     15 bongacams.com
+      5 booking.com
+     19 cnblogs.com
+     10 csdn.net
+      1 deloplen.com
+      2 detail.tmall.com
+      2 douban.com
+     48 dropbox.com
+      1 ebay.com
+     45 ettoday.net
+     12 facebook.com
+     20 fandom.com
+     30 force.com
+      8 github.com
+      4 gmw.cn
+      2 google.cn
+      6 google.co.in
+      6 google.co.jp
+      7 google.com
+      6 google.com.br
+      6 google.com.hk
+      6 google.de
+      5 google.es
+      5 google.fr
+      5 google.it
+      7 google.ru
+      1 hao123.com
+     21 imdb.com
+     22 imgur.com
+      3 instagram.com
+     10 jd.com
+      1 live.com
+     18 livejasmin.com
+      6 login.tmall.com
+     19 mail.ru
+     12 microsoft.com
+      1 microsoftonline.com
+     26 msn.com
+      1 naver.com
+      3 netflix.com
+     14 office.com
+     26 okezone.com
+      1 onlinesbi.com
+      4 paypal.com
+     17 pinterest.com
+     44 pixnet.net
+     32 pornhub.com
+      1 qq.com
+      1 quora.com
+     15 rakuten.co.jp
+     22 reddit.com
+     17 roblox.com
+     40 salesforce.com
+     24 sina.com.cn
+      1 sogou.com
+     73 sohu.com
+      1 soso.com
+     56 spotify.com
+     11 stackoverflow.com
+     14 taobao.com
+      2 t.co
+     12 tmall.com
+    125 tribunnews.com
+     17 tumblr.com
+      3 twitch.tv
+      8 twitter.com
+      2 vk.com
+     73 weibo.com
+     11 whatsapp.com
+      2 wikipedia.org
+     17 wordpress.com
+     20 xhamster.com
+      1 xinhuanet.com
+     13 xvideos.com
+      6 yahoo.co.jp
+      3 yahoo.com
+     15 yandex.ru
+     24 youtube.com
+      8 zhihu.com
+Total:97
+/100
+
+
+masterkeyderive_bad:
+Total:0
+/100
+
+
+scrubprivkey_accept:
+     12 163.com
+      5 360.cn
+     14 adobe.com
+      5 aliexpress.com
+      1 amazonaws.com
+      9 amazon.co.jp
+      6 amazon.com
+      3 amazon.co.uk
+     12 amazon.de
+     11 amazon.in
+     17 aparat.com
+      2 apple.com
+      4 babytree.com
+      1 baidu.com
+     14 bbc.com
+     11 bilibili.com
+      1 bing.com
+     16 blogspot.com
+     11 bongacams.com
+      8 booking.com
+     23 cnblogs.com
+      6 csdn.net
+      1 deloplen.com
+      4 douban.com
+     32 dropbox.com
+      2 ebay.com
+     32 ettoday.net
+     11 facebook.com
+     14 fandom.com
+     18 force.com
+      8 github.com
+      4 gmw.cn
+      2 google.cn
+      7 google.co.in
+      8 google.co.jp
+      9 google.com
+      7 google.com.br
+      7 google.com.hk
+      7 google.de
+      5 google.es
+      6 google.fr
+      7 google.it
+      9 google.ru
+      1 hao123.com
+     19 imdb.com
+     10 imgur.com
+      5 instagram.com
+     10 jd.com
+      1 linkedin.com
+      1 live.com
+     16 livejasmin.com
+      6 login.tmall.com
+     17 mail.ru
+      1 microsoft.com
+     21 msn.com
+      1 naver.com
+      3 netflix.com
+      4 office.com
+     27 okezone.com
+      1 onlinesbi.com
+      1 pages.tmall.com
+      1 paypal.com
+     17 pinterest.com
+     44 pixnet.net
+     19 pornhub.com
+      1 qq.com
+      2 quora.com
+     14 rakuten.co.jp
+     13 reddit.com
+     13 roblox.com
+     13 salesforce.com
+     22 sina.com.cn
+      1 sogou.com
+     44 sohu.com
+      1 soso.com
+     30 spotify.com
+      9 stackoverflow.com
+     15 taobao.com
+      2 t.co
+     12 tmall.com
+     75 tribunnews.com
+     17 tumblr.com
+      5 twitch.tv
+      7 twitter.com
+      4 vk.com
+     35 weibo.com
+     11 whatsapp.com
+      2 wikipedia.org
+     15 wordpress.com
+     17 xhamster.com
+      1 xinhuanet.com
+     12 xvideos.com
+      7 yahoo.co.jp
+      3 yahoo.com
+     13 yandex.ru
+     23 youtube.com
+      2 zhihu.com
+Total:97
+/100
+
+
+scrubprivkey_bad:
+      2 amazon.com
+      1 facebook.com
+      1 livejasmin.com
+      1 tribunnews.com
+      1 youtube.com
+Total:5
+/100
