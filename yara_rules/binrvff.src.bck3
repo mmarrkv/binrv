@@ -12,8 +12,8 @@ rule certerr_accept
     strings:
         $newsession = /SSL_ImportFD/          
         $server_connect =  /PR_Connect/
-        $failed_cert_auth = /SSL_AuthCertificateComplete[^\x0A]+?\x0A[^\x0A]+?\x0A[^\x0A]+?err:0x[^0][0-9a-fA-F]+?\x0A/
-        $abort = /PR_Close[^\x0A]+?\x0A[^\x0A]+?\x0A[^\|\x0A]+?\|[^\x0A]+?DestroyPrivateKey/
+        $failed_cert_auth = /SSL_AuthCertificateComplete[\s\S]+?err:0x[^0][0-9a-fA-F]+?\x0A/
+        $abort = /PR_Close[^\|]+\|[^\|\x0A]+DestroyPrivateKey/
 
     condition:
         $newsession and $server_connect and $failed_cert_auth and $abort  and @newsession[1] < @server_connect[1] and @server_connect[1] < @failed_cert_auth[1] and @failed_cert_auth[1] < @abort[1] 
@@ -26,8 +26,8 @@ rule certerr_bad
     strings:
         $newsession = /SSL_ImportFD/          
         $server_connect =  /PR_Connect/
-        $failed_cert_auth = /SSL_AuthCertificateComplete[^\x0A]+?\x0A[^\x0A]+?\x0A[^\x0A]+?err:0x[^0][0-9a-fA-F]+?\x0A/
-        $abort = /PR_Close[^\x0A]+?\x0A[^\x0A]+?\x0A[^\|\x0A]+?\|[^\x0A]+?DestroyPrivateKey/
+        $failed_cert_auth = /SSL_AuthCertificateComplete[\s\S]+?err:0x[^0][0-9a-fA-F]+?\x0A/
+        $abort = /PR_Close[^\|]+\|[^\|\x0A]+DestroyPrivateKey/
 
     condition:
         $newsession and $server_connect and $failed_cert_auth and not $abort and @newsession[1] < @server_connect[1] and @server_connect[1] < @failed_cert_auth[1]
@@ -43,10 +43,10 @@ rule masterkeyderive_accept
         $server_connect =  /PR_Connect/
         $localecvalid = /SECKEY_CreateECPrivateKey[^\x0A]+?\x0A[^\x0A]+?\x0A[^\x0A]+?EC_ValidatePublicKey[^\|]+?[\|][^\x0A]+?ret:0x0/
         $remoteecvalid = /K11_PubDeriveWithKDF[^\x0A]+?\x0A[^\x0A]+?\x0A[^\x0A]+?EC_ValidatePublicKey[^\|]+?[\|][^\x0A]+?ret:0x0/
-        $abort = /PR_Close[^\x0A]+?\x0A[^\x0A]+?\x0A[^\|\x0A]+?\|[^\x0A]+?DestroyPrivateKey/
+        $abort = /PR_Close[^\|]+\|[^\|\x0A]+DestroyPrivateKey/
 
     condition:
-        $newsession and $server_connect and $localecvalid and $remoteecvalid and not $abort and @newsession[1] < @server_connect[1] and @server_connect[1] < @localecvalid[1] and @server_connect[1] < @remoteecvalid[1] 
+        $newsession and $server_connect and $localecvalid and $remoteecvalid and @newsession[1] < @server_connect[1] and @server_connect[1] < @localecvalid[1] and @server_connect[1] < @remoteecvalid[1] and @abort[1] < @localecvalid[1] and @abort[1] < @localecvalid[1]
 }
 
 
@@ -58,7 +58,7 @@ rule masterkeyderive_bad
         $server_connect =  /PR_Connect/
         $localecinvalid = /SECKEY_CreateECPrivateKey[^\x0A]+?\x0A[^\x0A]+?\x0A[^\x0A]+?EC_ValidatePublicKey[^\|]+?[\|][^\x0A]+?ret:0x[^0][0-9a-fA-F]+?\x0A/
         $remoteecinvalid = /K11_PubDeriveWithKDF[^\x0A]+?\x0A[^\x0A]+?\x0A[^\x0A]+?EC_ValidatePublicKey[^\|]+?[\|][^\x0A]+?ret:0x[^0][0-9a-fA-F]+?\x0A/
-        $abort = /PR_Close[^\x0A]+?\x0A[^\x0A]+?\x0A[^\|\x0A]+?\|[^\x0A]+?DestroyPrivateKey/
+        $abort = /PR_Close[^\|]+\|[^\|\x0A]+DestroyPrivateKey/
 
     condition:
         $newsession and $server_connect and ($localecinvalid or $remoteecinvalid) and not $abort and @newsession[1] < @server_connect[1] and (@server_connect[1] < @localecinvalid[1] or @server_connect[1] < @remoteecinvalid[1]) 
@@ -71,7 +71,7 @@ rule scrubprivkey_accept
         $newsession = /SSL_ImportFD/          
         $server_connect =  /PR_Connect/
         $master_session_key_derive = /SECKEY_CreateECPrivateKey[\s\S]+?PK11_PubDeriveWithKDF[^\x0A]+?\x0A[^\x0A]+?seckey:0x[0-9a-fA-F]+?\s/
-        $scrub_priv_key = /SECKEY_DestroyPrivateKey[^\x0A]+?\x0A[^\x0A]+?\x0A[^\x0A]+?privk:[^\x0A]+?e5 e5 e5 e5/
+        $scrub_priv_key = /SECKEY_DestroyPrivateKey[\s\S]+?privk:[^\x0A]+?e5 e5 e5 e5/
 
     condition:
         $newsession and $server_connect and $master_session_key_derive and $scrub_priv_key and @newsession[1] < @server_connect[1] and @server_connect[1] < @master_session_key_derive[1]  and  @master_session_key_derive[1] <  @scrub_priv_key[1] 
@@ -85,7 +85,7 @@ rule scrubprivkey_bad
         $newsession = /SSL_ImportFD/          
         $server_connect =  /PR_Connect/
         $master_session_key_derive = /SECKEY_CreateECPrivateKey[\s\S]+?PK11_PubDeriveWithKDF[^\x0A]+?\x0A[^\x0A]+?seckey:0x[0-9a-fA-F]+?\s/
-        $scrub_priv_key = /SECKEY_DestroyPrivateKey[^\x0A]+?\x0A[^\x0A]+?\x0A[^\x0A]+?privk:[^\x0A]+?e5 e5 e5 e5/
+        $scrub_priv_key = /SECKEY_DestroyPrivateKey[\s\S]+?privk:[^\x0A]+?e5 e5 e5 e5/
 
     condition:
         $newsession and $server_connect and $master_session_key_derive and (not $scrub_priv_key) and @newsession[1] < @server_connect[1] and @server_connect[1] < @master_session_key_derive[1]
