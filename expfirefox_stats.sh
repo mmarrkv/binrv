@@ -50,3 +50,6 @@ echo -n "Total:"
 cat exp1/monitor/* | grep -v ^0x | grep ^scrubprivkey_bad | awk -F " |_" {'print $4'} | uniq -c | grep -c .
 echo -e "/100"
 
+echo -e "\nAlert per subtrace (sport the all-0 URL)"
+echo -e "--------------------"
+ls -l exp1/monitor | awk '{print $5 "\t" $9}' | grep _0x
