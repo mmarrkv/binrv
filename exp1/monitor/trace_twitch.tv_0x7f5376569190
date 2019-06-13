@@ -1,0 +1,12 @@
+scrubprivkey_accept exp1/traces/trace_twitch.tv_0x7f5376569190
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x597:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  7836 ms  0x754c cx:0x7f53affa72c8\x0A  7837 ms     | 0x754c EC_ValidatePublicKey()\x0A  7837 ms     | 0x754c ret:0x0
+0x6a0:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  7837 ms  0x754c cx:0x7f53affa72c8\x0A  7838 ms     | 0x754c EC_ValidatePublicKey()\x0A  7840 ms     | 0x754c ret:0x0
+0x859:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  8048 ms  0x754c cx:0x7f53affa72c8\x0A  8049 ms     | 0x754c EC_ValidatePublicKey()\x0A  8050 ms     | 0x754c ret:0x0
+0x963:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  8050 ms  0x754c seckey:0x7f5387b69020\x0A  8050 ms     | 0x754c EC_ValidatePublicKey()\x0A  8051 ms     | 0x754c ret:0x0
+0x38d:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  7831 ms  0x754c privk:0x7f53765bf820::7f53765bf820  a0 9b 59 76                                      ..Yv\x0A  7831 ms  0x754c privk:0x7f53765bf820::7f53765bf820  e5 e5 e5 e5
+0x492:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  7831 ms  0x754c privk:0x7f53765bd820::7f53765bd820  10 9a 59 76                                      ..Yv\x0A  7831 ms  0x754c privk:0x7f53765bd820::7f53765bd820  e5 e5 e5 e5
+0xb6d:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  8053 ms  0x754c privk:0x7f5387b69020::7f5387b69020  40 37 b8 87                                      @7..\x0A  8053 ms  0x754c privk:0x7f5387b69020::7f5387b69020  e5 e5 e5 e5
+0xcb8:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  8064 ms     | 0x754c privk:0x7f53765bf820::7f53765bf820  a0 9b 59 76                                      ..Yv\x0A  8064 ms     | 0x754c privk:0x7f53765bf820::7f53765bf820  e5 e5 e5 e5
+0xdcc:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  8064 ms     | 0x754c privk:0x7f53765bd820::7f53765bd820  c0 99 59 76                                      ..Yv\x0A  8064 ms     | 0x754c privk:0x7f53765bd820::7f53765bd820  e5 e5 e5 e5

@@ -1,0 +1,11 @@
+scrubprivkey_accept exp1/traces/trace_pixnet.net_0x7f65c34ee4f0
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x20a:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  9986 ms  0x2621 cx:0x7f65caf7b128\x0A  9987 ms     | 0x2621 EC_ValidatePublicKey()\x0A  9987 ms     | 0x2621 ret:0x0
+0x313:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  9987 ms  0x2621 cx:0x7f65caf7b128\x0A  9989 ms     | 0x2621 EC_ValidatePublicKey()\x0A  9997 ms     | 0x2621 ret:0x0
+0x41c:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 10650 ms  0x2621 cx:0x7f65caf7b128\x0A 10651 ms     | 0x2621 EC_ValidatePublicKey()\x0A 10652 ms     | 0x2621 ret:0x0
+0x526:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 10653 ms  0x2621 seckey:0x7f65c6ede020\x0A 10653 ms     | 0x2621 EC_ValidatePublicKey()\x0A 10655 ms     | 0x2621 ret:0x0
+0x105:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  9929 ms  0x2621 privk:0x7f65c11af820::7f65c11af820  40 b2 df bc                                      @...\x0A  9930 ms  0x2621 privk:0x7f65c11af820::7f65c11af820  e5 e5 e5 e5
+0x730:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A 10656 ms  0x2621 privk:0x7f65c6ede020::7f65c6ede020  e0 ac ca c5                                      ....\x0A 10656 ms  0x2621 privk:0x7f65c6ede020::7f65c6ede020  e5 e5 e5 e5
+0x999:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A 10983 ms     | 0x2621 privk:0x7f65c6ee5020::7f65c6ee5020  a0 ab da bc                                      ....\x0A 10983 ms     | 0x2621 privk:0x7f65c6ee5020::7f65c6ee5020  e5 e5 e5 e5
+0xaad:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A 10983 ms     | 0x2621 privk:0x7f65c11af820::7f65c11af820  40 b2 df bc                                      @...\x0A 10983 ms     | 0x2621 privk:0x7f65c11af820::7f65c11af820  e5 e5 e5 e5

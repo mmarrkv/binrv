@@ -6,4 +6,5 @@ masterkeyderive_accept exp1/traces/trace_amazon.com_0x7f5fb5be56d0
 scrubprivkey_bad exp1/traces/trace_amazon.com_0x7f5fb5be56d0
 0x12:$newsession: SSL_ImportFD
 0xc2:$server_connect: PR_Connect
-0x3d1:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A  6538 ms  0x68ea cx:0x7f5fb5b0f248\x0A  6538 ms     | 0x68ea EC_ValidatePublicKey()\x0A  6540 ms     | 0x68ea ret:0x0\x0A  6540 ms  0x68ea ret:0x7f5fc7a35020::7f5fc7a35020  50 3b a2 c7                                      P;..\x0A  6540 ms  0x68ea PK11_PubDeriveWithKDF()\x0A  6540 ms  0x68ea seckey:0x7f5fc7a35020\x0A
+0x3d1:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  6538 ms  0x68ea cx:0x7f5fb5b0f248\x0A  6538 ms     | 0x68ea EC_ValidatePublicKey()\x0A  6540 ms     | 0x68ea ret:0x0
+0x4db:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  6540 ms  0x68ea seckey:0x7f5fc7a35020\x0A  6540 ms     | 0x68ea EC_ValidatePublicKey()\x0A  6541 ms     | 0x68ea ret:0x0

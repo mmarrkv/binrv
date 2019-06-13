@@ -10,3 +10,19 @@ masterkeyderive_accept exp1/traces/trace_reddit.com_0x7f8ee7be5ac0
 0xae7:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 10852 ms  0x7024 seckey:0x7f8ee7ba7820\x0A 10852 ms     | 0x7024 EC_ValidatePublicKey()\x0A 10852 ms     | 0x7024 ret:0x0
 0x1f3b:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 10908 ms  0x7024 seckey:0x7f8ee7c91820\x0A 10909 ms     | 0x7024 EC_ValidatePublicKey()\x0A 10909 ms     | 0x7024 ret:0x0
 0x2d8d:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 11220 ms  0x7024 seckey:0x7f8eea5b9820\x0A 11220 ms     | 0x7024 EC_ValidatePublicKey()\x0A 11221 ms     | 0x7024 ret:0x0
+scrubprivkey_accept exp1/traces/trace_reddit.com_0x7f8ee7be5ac0
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x623:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 10819 ms  0x7024 cx:0x7f8ee77350a8\x0A 10820 ms     | 0x7024 EC_ValidatePublicKey()\x0A 10820 ms     | 0x7024 ret:0x0
+0x72c:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 10820 ms  0x7024 cx:0x7f8ee77350a8\x0A 10820 ms     | 0x7024 EC_ValidatePublicKey()\x0A 10822 ms     | 0x7024 ret:0x0
+0x835:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 10838 ms  0x7024 cx:0x7f8ee77353e8\x0A 10838 ms     | 0x7024 EC_ValidatePublicKey()\x0A 10838 ms     | 0x7024 ret:0x0
+0x93e:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 10838 ms  0x7024 cx:0x7f8ee77353e8\x0A 10839 ms     | 0x7024 EC_ValidatePublicKey()\x0A 10840 ms     | 0x7024 ret:0x0
+0x2c83:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 11216 ms  0x7024 cx:0x7f8ee7735728\x0A 11218 ms     | 0x7024 EC_ValidatePublicKey()\x0A 11220 ms     | 0x7024 ret:0x0
+0x1b6:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 10816 ms  0x7024 seckey:0x7f8ee7ba7020\x0A 10817 ms     | 0x7024 EC_ValidatePublicKey()\x0A 10817 ms     | 0x7024 ret:0x0
+0xae7:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 10852 ms  0x7024 seckey:0x7f8ee7ba7820\x0A 10852 ms     | 0x7024 EC_ValidatePublicKey()\x0A 10852 ms     | 0x7024 ret:0x0
+0x1f3b:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 10908 ms  0x7024 seckey:0x7f8ee7c91820\x0A 10909 ms     | 0x7024 EC_ValidatePublicKey()\x0A 10909 ms     | 0x7024 ret:0x0
+0x2d8d:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 11220 ms  0x7024 seckey:0x7f8eea5b9820\x0A 11220 ms     | 0x7024 EC_ValidatePublicKey()\x0A 11221 ms     | 0x7024 ret:0x0
+0x3c0:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A 10817 ms  0x7024 privk:0x7f8ee7ba7020::7f8ee7ba7020  00 71 8d e1                                      .q..\x0A 10817 ms  0x7024 privk:0x7f8ee7ba7020::7f8ee7ba7020  e5 e5 e5 e5
+0x1be6:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A 10905 ms     | 0x7024 privk:0x7f8ee7c8d020::7f8ee7c8d020  30 fd 8f e1                                      0...\x0A 10905 ms     | 0x7024 privk:0x7f8ee7c8d020::7f8ee7c8d020  e5 e5 e5 e5
+0x1cfa:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A 10905 ms     | 0x7024 privk:0x7f8ee7ba7820::7f8ee7ba7820  00 71 8d e1                                      .q..\x0A 10906 ms     | 0x7024 privk:0x7f8ee7ba7820::7f8ee7ba7820  e5 e5 e5 e5
+0x2f97:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A 11223 ms  0x7024 privk:0x7f8eea5b9820::7f8eea5b9820  b0 95 23 e2                                      ..#.\x0A 11223 ms  0x7024 privk:0x7f8eea5b9820::7f8eea5b9820  e5 e5 e5 e5

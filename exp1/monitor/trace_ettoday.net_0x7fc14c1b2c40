@@ -1,0 +1,11 @@
+scrubprivkey_accept exp1/traces/trace_ettoday.net_0x7fc14c1b2c40
+0x12:$newsession: SSL_ImportFD
+0xc2:$server_connect: PR_Connect
+0x996:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 28585 ms  0x2cb2 cx:0x7fc12e0ec288\x0A 28585 ms     | 0x2cb2 EC_ValidatePublicKey()\x0A 28587 ms     | 0x2cb2 ret:0x0
+0xc02:$localecvalid: SECKEY_CreateECPrivateKey()\x0A 28758 ms  0x2cb2 cx:0x7fc12e0ec288\x0A 28758 ms     | 0x2cb2 EC_ValidatePublicKey()\x0A 28760 ms     | 0x2cb2 ret:0x0
+0x319:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 28516 ms  0x2cb2 seckey:0x7fc12e2e8820\x0A 28516 ms     | 0x2cb2 EC_ValidatePublicKey()\x0A 28518 ms     | 0x2cb2 ret:0x0
+0xd0c:$remoteecvalid: K11_PubDeriveWithKDF()\x0A 28760 ms  0x2cb2 seckey:0x7fc120f1d020\x0A 28760 ms     | 0x2cb2 EC_ValidatePublicKey()\x0A 28761 ms     | 0x2cb2 ret:0x0
+0x523:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A 28519 ms  0x2cb2 privk:0x7fc12e2e8820::7fc12e2e8820  40 62 2b 49                                      @b+I\x0A 28519 ms  0x2cb2 privk:0x7fc12e2e8820::7fc12e2e8820  e5 e5 e5 e5
+0xf16:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A 28763 ms  0x2cb2 privk:0x7fc120f1d020::7fc120f1d020  10 ff 24 48                                      ..$H\x0A 28763 ms  0x2cb2 privk:0x7fc120f1d020::7fc120f1d020  e5 e5 e5 e5
+0x1061:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A 28842 ms     | 0x2cb2 privk:0x7fc16756f020::7fc16756f020  b0 df 58 49                                      ..XI\x0A 28842 ms     | 0x2cb2 privk:0x7fc16756f020::7fc16756f020  e5 e5 e5 e5
+0x1175:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A 28842 ms     | 0x2cb2 privk:0x7fc14a195820::7fc14a195820  10 da 58 49                                      ..XI\x0A 28842 ms     | 0x2cb2 privk:0x7fc14a195820::7fc14a195820  e5 e5 e5 e5

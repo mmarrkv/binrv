@@ -1,7 +1,8 @@
 scrubprivkey_accept exp1/traces/trace_google.com_0x7f9fe1487d60
 0x12:$newsession: SSL_ImportFD
 0xc2:$server_connect: PR_Connect
-0x105:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A  5703 ms  0x63b3 cx:0x7f9fdc4ee4a8\x0A  5704 ms     | 0x63b3 EC_ValidatePublicKey()\x0A  5704 ms     | 0x63b3 ret:0x0\x0A  5704 ms  0x63b3 ret:0x7f9fc9ed1820::7f9fc9ed1820  00 26 ef c9                                      .&..\x0A  5704 ms  0x63b3 SECKEY_CreateECPrivateKey()\x0A  5704 ms  0x63b3 cx:0x7f9fdc4ee4a8\x0A  5704 ms     | 0x63b3 EC_ValidatePublicKey()\x0A  5706 ms     | 0x63b3 ret:0x0\x0A  5706 ms  0x63b3 ret:0x7f9fc9ed3820::7f9fc9ed3820  e0 27 ef c9                                      .'..\x0A  5759 ms  0x63b3 PK11_PubDeriveWithKDF()\x0A  5759 ms  0x63b3 seckey:0x7f9fc9ed1820\x0A
-0x20e:$master_session_key_derive: SECKEY_CreateECPrivateKey()\x0A  5704 ms  0x63b3 cx:0x7f9fdc4ee4a8\x0A  5704 ms     | 0x63b3 EC_ValidatePublicKey()\x0A  5706 ms     | 0x63b3 ret:0x0\x0A  5706 ms  0x63b3 ret:0x7f9fc9ed3820::7f9fc9ed3820  e0 27 ef c9                                      .'..\x0A  5759 ms  0x63b3 PK11_PubDeriveWithKDF()\x0A  5759 ms  0x63b3 seckey:0x7f9fc9ed1820\x0A
+0x105:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  5703 ms  0x63b3 cx:0x7f9fdc4ee4a8\x0A  5704 ms     | 0x63b3 EC_ValidatePublicKey()\x0A  5704 ms     | 0x63b3 ret:0x0
+0x20e:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  5704 ms  0x63b3 cx:0x7f9fdc4ee4a8\x0A  5704 ms     | 0x63b3 EC_ValidatePublicKey()\x0A  5706 ms     | 0x63b3 ret:0x0
+0x318:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  5759 ms  0x63b3 seckey:0x7f9fc9ed1820\x0A  5759 ms     | 0x63b3 EC_ValidatePublicKey()\x0A  5759 ms     | 0x63b3 ret:0x0
 0xa2c:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  5812 ms     | 0x63b3 privk:0x7f9fc9ed3820::7f9fc9ed3820  e0 27 ef c9                                      .'..\x0A  5812 ms     | 0x63b3 privk:0x7f9fc9ed3820::7f9fc9ed3820  e5 e5 e5 e5
 0xb40:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  5813 ms     | 0x63b3 privk:0x7f9fc9ed1820::7f9fc9ed1820  00 26 ef c9                                      .&..\x0A  5813 ms     | 0x63b3 privk:0x7f9fc9ed1820::7f9fc9ed1820  e5 e5 e5 e5

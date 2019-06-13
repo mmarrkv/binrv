@@ -2,28 +2,28 @@ Stats for exp2
 
 Rule matches for all extracted subtraces
 ----------------------------------------
-certerr_accept:22
+certerr_accept:11
 certerr_bad:0
 masterkeyderive_accept:0
 masterkeyderive_bad:0
-scrubprivkey_accept:22
+scrubprivkey_accept:11
 scrubprivkey_bad:0
 
 Grouping per unique URL
 -------------------------
 
 certerr_accept:
-      2 dsdtestprovider.badssl.com
-      2 dspreact-cli.badssl.com
-      2 expired.badssl.com
-      2 invalid-expected-sct.badssl.com
-      2 revoked.badssl.com
-      2 sedellroot.badssl.com
-      2 self-signed.badssl.com
-      2 superfish.badssl.com
-      2 untrusted-root.badssl.com
-      2 webpack-dev-server.badssl.com
-      2 wrong.host.badssl.com
+      1 dsdtestprovider.badssl.com
+      1 dspreact-cli.badssl.com
+      1 expired.badssl.com
+      1 invalid-expected-sct.badssl.com
+      1 revoked.badssl.com
+      1 sedellroot.badssl.com
+      1 self-signed.badssl.com
+      1 superfish.badssl.com
+      1 untrusted-root.badssl.com
+      1 webpack-dev-server.badssl.com
+      1 wrong.host.badssl.com
 Total:11
 /12
 
@@ -44,17 +44,17 @@ Total:0
 
 
 scrubprivkey_accept:
-      2 dsdtestprovider.badssl.com
-      2 dspreact-cli.badssl.com
-      2 expired.badssl.com
-      2 invalid-expected-sct.badssl.com
-      2 revoked.badssl.com
-      2 sedellroot.badssl.com
-      2 self-signed.badssl.com
-      2 superfish.badssl.com
-      2 untrusted-root.badssl.com
-      2 webpack-dev-server.badssl.com
-      2 wrong.host.badssl.com
+      1 dsdtestprovider.badssl.com
+      1 dspreact-cli.badssl.com
+      1 expired.badssl.com
+      1 invalid-expected-sct.badssl.com
+      1 revoked.badssl.com
+      1 sedellroot.badssl.com
+      1 self-signed.badssl.com
+      1 superfish.badssl.com
+      1 untrusted-root.badssl.com
+      1 webpack-dev-server.badssl.com
+      1 wrong.host.badssl.com
 Total:11
 /12
 
@@ -63,17 +63,17 @@ scrubprivkey_bad:
 Total:0
 /12
 
-Alert per subtrace (sport the all-0 URL)
+Alert per subtrace (spot the all-0 URL)
 --------------------
 0	trace_dsdtestprovider.badssl.com_0x7efdbe1bc5b0
-3237	trace_dsdtestprovider.badssl.com_0x7efdbe1bce20
-3231	trace_dspreact-cli.badssl.com_0x7efdb7dacca0
-3221	trace_expired.badssl.com_0x7efdb875d640
-3247	trace_invalid-expected-sct.badssl.com_0x7efdbff07970
-3221	trace_revoked.badssl.com_0x7efdc5299940
-3227	trace_sedellroot.badssl.com_0x7efdbf66b7f0
-3790	trace_self-signed.badssl.com_0x7efdc5ec8df0
-3225	trace_superfish.badssl.com_0x7efdbb5c3790
-3235	trace_untrusted-root.badssl.com_0x7efdc9278fa0
-3243	trace_webpack-dev-server.badssl.com_0x7efdbf5235b0
-3227	trace_wrong.host.badssl.com_0x7efdc42e3400
+1926	trace_dsdtestprovider.badssl.com_0x7efdbe1bce20
+1920	trace_dspreact-cli.badssl.com_0x7efdb7dacca0
+1910	trace_expired.badssl.com_0x7efdb875d640
+1936	trace_invalid-expected-sct.badssl.com_0x7efdbff07970
+1910	trace_revoked.badssl.com_0x7efdc5299940
+1916	trace_sedellroot.badssl.com_0x7efdbf66b7f0
+1918	trace_self-signed.badssl.com_0x7efdc5ec8df0
+1914	trace_superfish.badssl.com_0x7efdbb5c3790
+1924	trace_untrusted-root.badssl.com_0x7efdc9278fa0
+1932	trace_webpack-dev-server.badssl.com_0x7efdbf5235b0
+1916	trace_wrong.host.badssl.com_0x7efdc42e3400

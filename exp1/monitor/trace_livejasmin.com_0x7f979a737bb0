@@ -24,3 +24,40 @@ masterkeyderive_accept exp1/traces/trace_livejasmin.com_0x7f979a737bb0
 0x3f33:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  9009 ms  0x2e6 seckey:0x7f979a439020\x0A  9009 ms     | 0x2e6 EC_ValidatePublicKey()\x0A  9009 ms     | 0x2e6 ret:0x0
 0x4ceb:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  9310 ms  0x2e6 seckey:0x7f979a729820\x0A  9311 ms     | 0x2e6 EC_ValidatePublicKey()\x0A  9326 ms     | 0x2e6 ret:0x0
 0x53e3:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  9494 ms  0x2e6 seckey:0x7f97895c7820\x0A  9494 ms     | 0x2e6 EC_ValidatePublicKey()\x0A  9494 ms     | 0x2e6 ret:0x0
+scrubprivkey_accept exp1/traces/trace_livejasmin.com_0x7f979a737bb0
+0x11:$newsession: SSL_ImportFD
+0xbc:$server_connect: PR_Connect
+0x659:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  7297 ms  0x2e6 cx:0x7f97a0d25728\x0A  7298 ms     | 0x2e6 EC_ValidatePublicKey()\x0A  7298 ms     | 0x2e6 ret:0x0
+0x75d:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  7298 ms  0x2e6 cx:0x7f97a0d25728\x0A  7299 ms     | 0x2e6 EC_ValidatePublicKey()\x0A  7300 ms     | 0x2e6 ret:0x0
+0x16b0:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  7626 ms  0x2e6 cx:0x7f97a0d27948\x0A  7627 ms     | 0x2e6 EC_ValidatePublicKey()\x0A  7628 ms     | 0x2e6 ret:0x0
+0x1c3f:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  7684 ms  0x2e6 cx:0x7f97a0d27948\x0A  7685 ms     | 0x2e6 EC_ValidatePublicKey()\x0A  7686 ms     | 0x2e6 ret:0x0
+0x229b:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  8021 ms  0x2e6 cx:0x7f97a0d27948\x0A  8021 ms     | 0x2e6 EC_ValidatePublicKey()\x0A  8021 ms     | 0x2e6 ret:0x0
+0x239f:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  8021 ms  0x2e6 cx:0x7f97a0d27948\x0A  8022 ms     | 0x2e6 EC_ValidatePublicKey()\x0A  8024 ms     | 0x2e6 ret:0x0
+0x2b32:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  8347 ms  0x2e6 cx:0x7f97a0d28648\x0A  8348 ms     | 0x2e6 EC_ValidatePublicKey()\x0A  8348 ms     | 0x2e6 ret:0x0
+0x2c36:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  8348 ms  0x2e6 cx:0x7f97a0d28648\x0A  8349 ms     | 0x2e6 EC_ValidatePublicKey()\x0A  8350 ms     | 0x2e6 ret:0x0
+0x3c48:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  8944 ms  0x2e6 cx:0x7f97a0d28e68\x0A  8946 ms     | 0x2e6 EC_ValidatePublicKey()\x0A  8946 ms     | 0x2e6 ret:0x0
+0x3d4c:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  8947 ms  0x2e6 cx:0x7f97a0d28e68\x0A  8950 ms     | 0x2e6 EC_ValidatePublicKey()\x0A  8954 ms     | 0x2e6 ret:0x0
+0x4740:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  9236 ms  0x2e6 cx:0x7f97a524a7a8\x0A  9238 ms     | 0x2e6 EC_ValidatePublicKey()\x0A  9238 ms     | 0x2e6 ret:0x0
+0x4844:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  9238 ms  0x2e6 cx:0x7f97a524a7a8\x0A  9240 ms     | 0x2e6 EC_ValidatePublicKey()\x0A  9244 ms     | 0x2e6 ret:0x0
+0x4be6:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  9305 ms  0x2e6 cx:0x7f97a524a7a8\x0A  9306 ms     | 0x2e6 EC_ValidatePublicKey()\x0A  9310 ms     | 0x2e6 ret:0x0
+0x52de:$localecvalid: SECKEY_CreateECPrivateKey()\x0A  9492 ms  0x2e6 cx:0x7f979a70c3e8\x0A  9493 ms     | 0x2e6 EC_ValidatePublicKey()\x0A  9493 ms     | 0x2e6 ret:0x0
+0x199:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  7149 ms  0x2e6 seckey:0x7f97893dd020\x0A  7149 ms     | 0x2e6 EC_ValidatePublicKey()\x0A  7151 ms     | 0x2e6 ret:0x0
+0xb0d:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  7365 ms  0x2e6 seckey:0x7f97893dd820\x0A  7365 ms     | 0x2e6 EC_ValidatePublicKey()\x0A  7365 ms     | 0x2e6 ret:0x0
+0x1d44:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  7687 ms  0x2e6 seckey:0x7f979a424020\x0A  7687 ms     | 0x2e6 EC_ValidatePublicKey()\x0A  7688 ms     | 0x2e6 ret:0x0
+0x2743:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  8115 ms  0x2e6 seckey:0x7f979a43d020\x0A  8115 ms     | 0x2e6 EC_ValidatePublicKey()\x0A  8116 ms     | 0x2e6 ret:0x0
+0x2dd6:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  8398 ms  0x2e6 seckey:0x7f97895de020\x0A  8398 ms     | 0x2e6 EC_ValidatePublicKey()\x0A  8398 ms     | 0x2e6 ret:0x0
+0x3855:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  8768 ms  0x2e6 seckey:0x7f979a71b820\x0A  8768 ms     | 0x2e6 EC_ValidatePublicKey()\x0A  8769 ms     | 0x2e6 ret:0x0
+0x3f33:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  9009 ms  0x2e6 seckey:0x7f979a439020\x0A  9009 ms     | 0x2e6 EC_ValidatePublicKey()\x0A  9009 ms     | 0x2e6 ret:0x0
+0x4ceb:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  9310 ms  0x2e6 seckey:0x7f979a729820\x0A  9311 ms     | 0x2e6 EC_ValidatePublicKey()\x0A  9326 ms     | 0x2e6 ret:0x0
+0x53e3:$remoteecvalid: K11_PubDeriveWithKDF()\x0A  9494 ms  0x2e6 seckey:0x7f97895c7820\x0A  9494 ms     | 0x2e6 EC_ValidatePublicKey()\x0A  9494 ms     | 0x2e6 ret:0x0
+0x396:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  7152 ms  0x2e6 privk:0x7f97893dd020::7f97893dd020  90 e2 51 89                                      ..Q.\x0A  7152 ms  0x2e6 privk:0x7f97893dd020::7f97893dd020  e5 e5 e5 e5
+0x1f41:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  7690 ms  0x2e6 privk:0x7f979a424020::7f979a424020  70 99 4a 9a                                      p.J.\x0A  7690 ms  0x2e6 privk:0x7f979a424020::7f979a424020  e5 e5 e5 e5
+0x20f0:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  7745 ms  0x2e6 privk:0x7f97895de020::7f97895de020  c0 94 4a 9a                                      ..J.\x0A  7745 ms  0x2e6 privk:0x7f97895de020::7f97895de020  e5 e5 e5 e5
+0x253e:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  8080 ms  0x2e6 privk:0x7f97895e0020::7f97895e0020  c0 94 4a 9a                                      ..J.\x0A  8080 ms  0x2e6 privk:0x7f97895e0020::7f97895e0020  e5 e5 e5 e5
+0x2640:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  8080 ms  0x2e6 privk:0x7f97895dd820::7f97895dd820  30 98 4a 9a                                      0.J.\x0A  8080 ms  0x2e6 privk:0x7f97895dd820::7f97895dd820  e5 e5 e5 e5
+0x2940:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  8119 ms  0x2e6 privk:0x7f979a43d020::7f979a43d020  00 ab 4a 9a                                      ..J.\x0A  8119 ms  0x2e6 privk:0x7f979a43d020::7f979a43d020  e5 e5 e5 e5
+0x3a52:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  8771 ms  0x2e6 privk:0x7f979a71b820::7f979a71b820  d0 a8 50 9a                                      ..P.\x0A  8771 ms  0x2e6 privk:0x7f979a71b820::7f979a71b820  e5 e5 e5 e5
+0x4ee8:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  9328 ms  0x2e6 privk:0x7f979a729820::7f979a729820  e0 52 7e 9a                                      .R~.\x0A  9328 ms  0x2e6 privk:0x7f979a729820::7f979a729820  e5 e5 e5 e5
+0x50bf:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  9384 ms  0x2e6 privk:0x7f979a71e820::7f979a71e820  40 22 51 9a                                      @"Q.\x0A  9384 ms  0x2e6 privk:0x7f979a71e820::7f979a71e820  e5 e5 e5 e5
+0x51c1:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  9384 ms  0x2e6 privk:0x7f979a43d020::7f979a43d020  80 ad 4a 9a                                      ..J.\x0A  9384 ms  0x2e6 privk:0x7f979a43d020::7f979a43d020  e5 e5 e5 e5
+0x55e0:$scrub_priv_key: SECKEY_DestroyPrivateKey()\x0A  9495 ms  0x2e6 privk:0x7f97895c7820::7f97895c7820  10 d5 d3 9b                                      ....\x0A  9495 ms  0x2e6 privk:0x7f97895c7820::7f97895c7820  e5 e5 e5 e5
