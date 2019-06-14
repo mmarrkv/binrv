@@ -30,4 +30,4 @@ grep -vPzl '(?s)(CreateEC.+?PubDeriveWithKDF)' exp1/traces/*_0x* | grep -c .
 
 #Connections not amenable for heuristic: "
 echo -n "Connections not amenable for heuristic: "
-grep -vPzl '(?s)(SSL_AuthCertificateComplete.+?\n[^\n]+?\n[^\n]+?\n[^\n]+?\| | PR_Close.+?\n[^\n]+?\n[^\n]\|)' exp1/traces/*_0x* | grep -c .
+grep -vPzl '(?s)(SSL_AuthCertificateComplete[^\n]+?\n[^\n]+?\n[^\n]+?\n[^\n]+?\| | PR_Close[^\n]+?\n[^\n]+?\n[^\n]+?\|)' exp1/traces/*_0x* | grep -c .
