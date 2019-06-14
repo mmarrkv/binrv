@@ -1,0 +1,4 @@
+Total connections: 3366
+Connections with no alerts: 1955
+Connections with no full pubkey derivation: 1951
+Connections not amenable for heuristic: 466
