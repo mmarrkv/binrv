@@ -1,19 +1,7 @@
 #!/bin/bash
 
-#Anaysis on exp1 subtraces which only resume connection over all connections 
+#Further anaysis on exp1 subtraces 
 
-#grep -vPzl '(?s)(SSL_AuthCertificateComplete.+?\n[^\n]+?\n[^\n]+?\n[^\n]+?\| | PR_Close.+?\n[^\n]+?\n[^\n]\|)' exp1/traces/*_0x*
-#grep -vPzl '(?s)(SSL_AuthCertificateComplete.+?\n[^\n]+?\n[^\n]+?\n[^\n]+?\| | PR_Close.+?\n[^\n]+?\n[^\n]\|)' exp1/traces/*_0x* | grep -c .
-#grep -Pzl '(?s)(SSL_AuthCertificateComplete.+?\n[^\n]+?\n[^\n]+?\n[^\n]+?\| | PR_Close.+?\n[^\n]+?\n[^\n]\|)' exp1/traces/*_0x*
-#grep -Pzl '(?s)(SSL_AuthCertificateComplete.+?\n[^\n]+?\n[^\n]+?\n[^\n]+?\| | PR_Close.+?\n[^\n]+?\n[^\n]\|)' exp1/traces/*_0x* | grep -c .
-
-#full handshake
-#echo -n "Connections with full handshake: "
-#grep -Pzl '(?s)SSL_AuthCertificateComplete[^\n]+?\n[^\n]+?\n[^\n]+?\n[^\n]+?\|' exp1/traces/*_0x* | grep -c .
-
-#resumption
-#echo -n "Connections with resumed session: "
-#grep -vPzl '(?s)SSL_AuthCertificateComplete[^\n]+?\n[^\n]+?\n[^\n]+?\n[^\n]+?\|' exp1/traces/*_0x* | grep -c .
 
 #total
 echo -n "Total connections: "
