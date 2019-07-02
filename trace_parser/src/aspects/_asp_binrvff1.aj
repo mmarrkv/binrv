@@ -2,6 +2,7 @@ package aspects;
 
 
 import elements.MethodCall;
+import java.util.Map;
 
 import larva.*;
 public aspect _asp_binrvff1 {
@@ -28,7 +29,7 @@ _cls_inst._call(thisJoinPoint.getSignature().toString(), 2/*prconnect*/);
 _cls_inst._call_all_filtered(thisJoinPoint.getSignature().toString(), 2/*prconnect*/);
 }
 }
-before ( String s,MethodCall mc,String> params,String n) : (call(* MethodCall.call(..)) && target(mc) && args(n,s,*,params) && !cflow(adviceexecution()) && !cflow(within(larva.*))  && !(within(larva.*)) && if (n .equals ("SSL_AuthCertificateComplete")&& !params .get ("err").equals ("0x0"))) {
+before ( String s,MethodCall mc,Map params,String n) : (call(* MethodCall.call(..)) && target(mc) && args(n,s,params) && !cflow(adviceexecution()) && !cflow(within(larva.*))  && !(within(larva.*)) && if (n .equals ("SSL_AuthCertificateComplete")&& ! ((String )params .get ("err")).equals ("0x0"))) {
 
 synchronized(_asp_binrvff0.lock){
 String session;

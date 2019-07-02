@@ -6,8 +6,8 @@ node [shape = octagon]; wrongcert;
 node [shape = point]; _s_s;
 _s_s -> start;
 import -> connect [ label = "(1) prconnect"];
-sslauthcertcompl -> ok [ label = "(1) prclose\\mc . hasParent ( parent ) "];
-sslauthcertcompl -> wrongcert [ label = "(2) pk11encrypt\\mc . hasParent ( parent ) "];
+sslauthcertcompl -> ok [ label = "(1) prclose\\mc . hasParent ( mcParent ) "];
+sslauthcertcompl -> wrongcert [ label = "(2) pk11encrypt\\mc . hasParent ( mcParent ) "];
 start -> import [ label = "(1) sslimport"];
-connect -> sslauthcertcompl [ label = "(1) sslauthcertcompl\\\\parent = mc ; "];
+connect -> sslauthcertcompl [ label = "(1) sslauthcertcompl\\\\mcParent = mc ; "];
 }

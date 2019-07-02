@@ -2,7 +2,7 @@
 
 %%The larva code below encode the following 2 regular expressions:
 
-%%Assumes subtraces already in place as per taint inferene policy based on taint_vars set
+%%Assumes subtraces already in place as per taint inference policy based on taint_vars set
 
 %%[SSL_ImportFD()ret:][]*[PR_Connect()fd:][]*[SSL_AuthCertificateComplete()ret:!0x0][]*[PK11_Encrypt()] → REJECT
 
@@ -13,6 +13,7 @@
 Imports{
   
   import elements.MethodCall;
+  import java.util.Map;
 }
 
 
@@ -22,7 +23,7 @@ Global{
   Foreach (String session) {
 
     Variables {
-      MethodCall parent;
+      MethodCall mcParent;
     }
 
     Events {
@@ -35,8 +36,8 @@ Global{
       where {session=s;} 
       
              
-      sslauthcertcompl(mc) = {MethodCall mc.call(String n,String s,Map<String,String> params)} 
-      filter {n.equals("SSL_AuthCertificateComplete") && !params.get("err").equals("0x0")}
+      sslauthcertcompl(mc) = {MethodCall mc.call(String n,String s, Map params )} 
+      filter {n.equals("SSL_AuthCertificateComplete") && !((String)params.get("err")).equals("0x0")}
       where {session=s;} 
       
       pk11encrypt(mc) = {MethodCall mc.call(String n,String s,*)} 
@@ -63,9 +64,9 @@ Global{
      Transitions {
        start -> import [sslimport]
        import -> connect [prconnect]
-       connect -> sslauthcertcompl [sslauthcertcompl\\parent=mc;]
-       sslauthcertcompl -> ok [prclose\mc.hasParent(parent)] %%what happens if otherwise?
-       sslauthcertcompl -> wrongcert [pk11encrypt\mc.hasParent(parent)]
+       connect -> sslauthcertcompl [sslauthcertcompl\\mcParent=mc;]
+       sslauthcertcompl -> ok [prclose\mc.hasParent(mcParent)] %%what happens if otherwise?
+       sslauthcertcompl -> wrongcert [pk11encrypt\mc.hasParent(mcParent)]
      }
    }
   } 

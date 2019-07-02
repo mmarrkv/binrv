@@ -3,6 +3,7 @@ package larva;
 
 
 import elements.MethodCall;
+import java.util.Map;
 
 import java.util.LinkedHashMap;
 import java.io.PrintWriter;
@@ -14,11 +15,11 @@ public static LinkedHashMap<_cls_binrvff1,_cls_binrvff1> _cls_binrvff1_instances
 _cls_binrvff0 parent;
 public static String s;
 public static MethodCall mc;
-public static String> params;
+public static Map params;
 public static String n;
 public String session;
 int no_automata = 1;
- public MethodCall parent ;
+ public MethodCall mcParent ;
 
 public static void initialize(){}
 //inheritance could not be used because of the automatic call to super()
@@ -106,13 +107,13 @@ else if (_state_id_wrongcert==2){
 }
 else if (_state_id_wrongcert==4){
 		if (1==0){}
-		else if ((_occurredEvent(_event,8/*prclose*/)) && (mc .hasParent (parent ))){
+		else if ((_occurredEvent(_event,8/*prclose*/)) && (mc .hasParent (mcParent ))){
 		
 		_state_id_wrongcert = 0;//moving to state ok
 		_goto_wrongcert(_info);
            _killThis(); //discard this automaton since an accepting state has been reached
 		}
-		else if ((_occurredEvent(_event,6/*pk11encrypt*/)) && (mc .hasParent (parent ))){
+		else if ((_occurredEvent(_event,6/*pk11encrypt*/)) && (mc .hasParent (mcParent ))){
 		
 		_state_id_wrongcert = 1;//moving to state wrongcert
 		_goto_wrongcert(_info);
@@ -129,7 +130,7 @@ else if (_state_id_wrongcert==5){
 else if (_state_id_wrongcert==3){
 		if (1==0){}
 		else if ((_occurredEvent(_event,4/*sslauthcertcompl*/))){
-		parent =mc ;
+		mcParent =mc ;
 
 		_state_id_wrongcert = 4;//moving to state sslauthcertcompl
 		_goto_wrongcert(_info);

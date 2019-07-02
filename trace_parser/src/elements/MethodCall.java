@@ -45,4 +45,24 @@ public class MethodCall {
 	{
 		return "(" + session + ") " + name + "\r\n" + params;
 	}
+	
+	//checks if parameter mc is parent or grand-grand...-parent of "this"
+	//i.e. returns true if parameter mc is an ancestor of this
+	public boolean hasParent(MethodCall mc)
+	{
+		if (mc.equals(this.parent))
+			return true;
+		else if (this.parent != null)//go one step up
+			return this.parent.hasParent(mc);
+		else return false;
+	}
+	
+	public void call()
+	{
+		this.call(this.name,this.session,this.params);
+	}
+	
+	public void call(String name, String session, Map params)
+	{}
+	
 }
