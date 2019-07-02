@@ -1,7 +1,12 @@
 /*
 
-Assumes subtraces already in place as per taint inferene policy based on taint_vars set (prototype: execute xtract.py on main traces)
+Assumes subtraces already in place as per taint inference policy based on taint_vars set (prototype: execute xtract.py on main traces)
 
+CC added note:
+\x0A refers to newline
+\|   matches subcalls in the trace
++    one or more matches
+?    optional match
 */
 
 

@@ -1,0 +1,72 @@
+%%
+
+%%The larva code below encode the following 2 regular expressions:
+
+%%Assumes subtraces already in place as per taint inferene policy based on taint_vars set
+
+%%[SSL_ImportFD()ret:][]*[PR_Connect()fd:][]*[SSL_AuthCertificateComplete()ret:!0x0][]*[PK11_Encrypt()] → REJECT
+
+%%[SSL_ImportFD()ret:][]*[PR_Connect()fd:][]*[SSL_AuthCertificateComplete()ret:!0x0]![PK11_Encrypt()]*[PR_Close()fd:] → ACCEPT
+
+%%
+
+Imports{
+  
+  import elements.MethodCall;
+}
+
+
+Global{
+  
+
+  Foreach (String session) {
+
+    Variables {
+      MethodCall parent;
+    }
+
+    Events {
+      sslimport() = {MethodCall mc.call(String n,String s,*)} 
+      filter {n.equals("SSL_ImportFD")}
+      where {session=s;} 
+
+      prconnect() = {MethodCall mc.call(String n,String s,*)} 
+      filter {n.equals("PR_Connect")}
+      where {session=s;} 
+      
+             
+      sslauthcertcompl(mc) = {MethodCall mc.call(String n,String s,Map<String,String> params)} 
+      filter {n.equals("SSL_AuthCertificateComplete") && !params.get("err").equals("0x0")}
+      where {session=s;} 
+      
+      pk11encrypt(mc) = {MethodCall mc.call(String n,String s,*)} 
+      filter {n.equals("PK11_Encrypt")}
+      where {session=s;} 
+      
+
+      prclose(mc) = {MethodCall mc.call(String n,String s,*)} 
+      filter {n.equals("PR_Close")}
+      where {session=s;} 
+      
+
+  }
+
+   Property wrongcert {
+
+     States {
+       Accepting {ok}
+       Bad {wrongcert}   
+       Normal {import connect sslauthcertcompl}
+       Starting {start}
+     }
+
+     Transitions {
+       start -> import [sslimport]
+       import -> connect [prconnect]
+       connect -> sslauthcertcompl [sslauthcertcompl\\parent=mc;]
+       sslauthcertcompl -> ok [prclose\mc.hasParent(parent)] %%what happens if otherwise?
+       sslauthcertcompl -> wrongcert [pk11encrypt\mc.hasParent(parent)]
+     }
+   }
+  } 
+}
