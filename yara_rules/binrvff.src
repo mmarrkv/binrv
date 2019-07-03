@@ -6,7 +6,7 @@ CC added note:
 \x0A refers to newline
 \|   matches subcalls in the trace
 +    one or more matches
-?    optional match
+?    lazy match (non greedy)
 */
 
 
@@ -17,7 +17,9 @@ rule certerr_accept
     strings:
         $newsession = /SSL_ImportFD/          
         $server_connect =  /PR_Connect/
+        /*                                              not newline or non-greedy new line etc... this matches the lines leading to err */
         $failed_cert_auth = /SSL_AuthCertificateComplete[^\x0A]+?\x0A[^\x0A]+?\x0A[^\x0A]+?err:0x[^0][0-9a-fA-F]+?\x0A/
+        /*                ensures Destroy private key is a subcall of pr_close*/
         $abort = /PR_Close[^\x0A]+?\x0A[^\x0A]+?\x0A[^\|\x0A]+?\|[^\x0A]+?DestroyPrivateKey/
 
     condition:
