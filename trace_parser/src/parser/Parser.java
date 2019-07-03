@@ -23,15 +23,9 @@ public class Parser {
 	    return count;
 	}
 
-	
-	
-	public static void main(String args[]) throws Exception
+	public static void parse(String sFile) throws Exception
 	{
-		if (args.length<0)
-			throw new Exception("File path expected in args");
-		
-		
-		File file = new File(args[0]); 
+		File file = new File(sFile); 
 		  
 		BufferedReader br = new BufferedReader(new FileReader(file)); 
 
@@ -45,13 +39,7 @@ public class Parser {
 		{
 			if (st.endsWith("()"))
 			{
-				if (mc != null)
-				{
-					System.out.println(mc);
-					trace.add(mc);
-					previous = mc;
-				}
-				
+								
 				int iTimestamp = st.indexOf("ms");
 				int depth = countMatches(st,"|");
 
@@ -60,7 +48,7 @@ public class Parser {
 				if (depth==0) 
 					iSessionStart = iTimestamp +4;
 				else
-					iSessionStart = st.lastIndexOf("|")+1;
+					iSessionStart = st.lastIndexOf("|")+2;
 				
 				int iSessionEnd = st.indexOf(" ",iSessionStart);
 				
@@ -69,7 +57,7 @@ public class Parser {
 				
 				String name = st.substring(iSessionEnd, st.indexOf("()")).trim();
 				
-				
+				//set method call parent
 				if (previous == null) 
 					parent = null;
 				else if (depth > previous.getDepth())
@@ -79,7 +67,13 @@ public class Parser {
 				else//if equal
 					parent = previous.getParent();
 				
+				//update previous
+				if (mc != null)
+					previous = mc;
+				
 				mc = new MethodCall(name,Long.parseLong(sTimestamp),sSession,depth,parent);
+				//add to trace
+				trace.add(mc);
 			}			
 			else if (mc!=null && st.indexOf(":")!= -1)//parse params
 			{
@@ -93,11 +87,33 @@ public class Parser {
 			}
 			//else ignore
 			
-			//System.out.println(st); 
 		} 
-
+		
 		  
 		br.close();
+	}
+	
+	public static void simulate()
+	{
+		for (MethodCall mc : trace)
+		{
+			mc.call();
+			
+			System.out.println(mc+"\r\n");
+			
+		}
+	}
+	
+	
+	public static void main(String args[]) throws Exception
+	{
+		if (args.length<0)
+			throw new Exception("File path expected in args");
+		
+		parse(args[0]);
+		
+		simulate();
+		
 	}
 	
 	

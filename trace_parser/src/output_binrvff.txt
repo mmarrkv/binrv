@@ -1,0 +1,5 @@
+[wrongcert]AUTOMATON::> wrongcert() STATE::>start
+[wrongcert]MOVED ON METHODCALL: void elements.MethodCall.call(String, String, Map) TO STATE::> import
+[wrongcert]AUTOMATON::> wrongcert() STATE::>import
+[wrongcert]MOVED ON METHODCALL: void elements.MethodCall.call(String, String, Map) TO STATE::> connect
+[wrongcert]AUTOMATON::> wrongcert() STATE::>connect

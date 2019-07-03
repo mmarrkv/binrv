@@ -62,7 +62,7 @@ public class MethodCall {
 		this.call(this.name,this.session,this.params);
 	}
 	
-	public void call(String name, String session, Map params)
+	private void call(String name, String session, Map params)
 	{}
 	
 }

@@ -19,37 +19,26 @@ Imports{
 
 Global{
   
-
-  Foreach (String session) {
-
     Variables {
       MethodCall mcParent;
     }
 
     Events {
-      sslimport() = {MethodCall mc.call(String n,String s,*)} 
+      sslimport() = {MethodCall mc.call(String n,*,*)} 
       filter {n.equals("SSL_ImportFD")}
-      where {session=s;} 
-
-      prconnect() = {MethodCall mc.call(String n,String s,*)} 
-      filter {n.equals("PR_Connect")}
-      where {session=s;} 
       
+      prconnect() = {MethodCall mc.call(String n,*,*)} 
+      filter {n.equals("PR_Connect")}
              
       sslauthcertcompl(mc) = {MethodCall mc.call(String n,String s, Map params )} 
       filter {n.equals("SSL_AuthCertificateComplete") && !((String)params.get("err")).equals("0x0")}
-      where {session=s;} 
       
       pk11encrypt(mc) = {MethodCall mc.call(String n,String s,*)} 
       filter {n.equals("PK11_Encrypt")}
-      where {session=s;} 
-      
 
       prclose(mc) = {MethodCall mc.call(String n,String s,*)} 
-      filter {n.equals("PR_Close")}
-      where {session=s;} 
+      filter {n.equals("PR_Close")} 
       
-
   }
 
    Property wrongcert {
@@ -68,6 +57,6 @@ Global{
        sslauthcertcompl -> ok [prclose\mc.hasParent(mcParent)] %%what happens if otherwise?
        sslauthcertcompl -> wrongcert [pk11encrypt\mc.hasParent(mcParent)]
      }
-   }
+   
   } 
 }
