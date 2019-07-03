@@ -6,12 +6,13 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import elements.Element;
+import elements.EndOfTrace;
 import elements.MethodCall;
 
 public class Parser {
 
-	private static List<MethodCall> trace = new ArrayList<MethodCall>();
+	private static List<Element> trace = new ArrayList<Element>();
 	
 	private static int countMatches(String str, String sub) {
 	    int count = 0;
@@ -89,15 +90,16 @@ public class Parser {
 			
 		} 
 		
+		trace.add(new EndOfTrace());
 		  
 		br.close();
 	}
 	
 	public static void simulate()
 	{
-		for (MethodCall mc : trace)
+		for (Element mc : trace)
 		{
-			mc.call();
+			mc.doCall();//NB: to avoid "execution" in lrv file, each element has a different call method
 			
 			System.out.println(mc+"\r\n");
 			

@@ -3,7 +3,7 @@ package elements;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MethodCall {
+public class MethodCall extends Element {
 
 	private String name;
 	private Map<String,String> params = new HashMap<String,String>();
@@ -57,7 +57,7 @@ public class MethodCall {
 		else return false;
 	}
 	
-	public void call()
+	public void doCall()
 	{
 		this.call(this.name,this.session,this.params);
 	}

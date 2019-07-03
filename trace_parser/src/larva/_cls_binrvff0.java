@@ -3,6 +3,7 @@ package larva;
 
 
 import elements.MethodCall;
+import elements.EndOfTrace;
 import java.util.Map;
 
 import java.util.LinkedHashMap;
@@ -26,8 +27,8 @@ _cls_binrvff0_instances.put(root, root);
 }
 
 _cls_binrvff0 parent; //to remain null - this class does not have a parent!
-public static String s;
 public static MethodCall mc;
+public static EndOfTrace eot;
 public static Map params;
 public static String n;
 int no_automata = 1;
@@ -89,7 +90,7 @@ else if (no_automata < 0)
 }catch(Exception ex){ex.printStackTrace();}
 }
 
-int _state_id_wrongcert = 5;
+int _state_id_wrongcert = 6;
 
 public void _performLogic_wrongcert(String _info, int... _event) {
 
@@ -107,19 +108,19 @@ else if (_state_id_wrongcert==2){
 }
 else if (_state_id_wrongcert==4){
 		if (1==0){}
-		else if ((_occurredEvent(_event,8/*prclose*/)) && (mc .hasParent (mcParent ))){
-		
-		_state_id_wrongcert = 0;//moving to state ok
+		else if ((_occurredEvent(_event,10/*prclose*/))){
+		mcParent =mc ;
+
+		_state_id_wrongcert = 5;//moving to state close
 		_goto_wrongcert(_info);
-           _killThis(); //discard this automaton since an accepting state has been reached
 		}
-		else if ((_occurredEvent(_event,6/*pk11encrypt*/)) && (mc .hasParent (mcParent ))){
+		else if ((_occurredEvent(_event,12/*eot*/))){
 		
 		_state_id_wrongcert = 1;//moving to state wrongcert
 		_goto_wrongcert(_info);
 		}
 }
-else if (_state_id_wrongcert==5){
+else if (_state_id_wrongcert==6){
 		if (1==0){}
 		else if ((_occurredEvent(_event,0/*sslimport*/))){
 		
@@ -127,11 +128,24 @@ else if (_state_id_wrongcert==5){
 		_goto_wrongcert(_info);
 		}
 }
+else if (_state_id_wrongcert==5){
+		if (1==0){}
+		else if ((_occurredEvent(_event,6/*destroypk*/)) && (mc .hasParent (mcParent ))){
+		
+		_state_id_wrongcert = 0;//moving to state ok
+		_goto_wrongcert(_info);
+           _killThis(); //discard this automaton since an accepting state has been reached
+		}
+		else if ((_occurredEvent(_event,12/*eot*/))){
+		
+		_state_id_wrongcert = 1;//moving to state wrongcert
+		_goto_wrongcert(_info);
+		}
+}
 else if (_state_id_wrongcert==3){
 		if (1==0){}
 		else if ((_occurredEvent(_event,4/*sslauthcertcompl*/))){
-		mcParent =mc ;
-
+		
 		_state_id_wrongcert = 4;//moving to state sslauthcertcompl
 		_goto_wrongcert(_info);
 		}
@@ -148,9 +162,10 @@ public String _string_wrongcert(int _state_id, int _mode){
 switch(_state_id){
 case 2: if (_mode == 0) return "import"; else return "import";
 case 4: if (_mode == 0) return "sslauthcertcompl"; else return "sslauthcertcompl";
-case 5: if (_mode == 0) return "start"; else return "start";
+case 6: if (_mode == 0) return "start"; else return "start";
 case 1: if (_mode == 0) return "wrongcert"; else return "!!!SYSTEM REACHED BAD STATE!!! wrongcert "+new _BadStateExceptionbinrvff().toString()+" ";
 case 0: if (_mode == 0) return "ok"; else return "(((SYSTEM REACHED AN ACCEPTED STATE)))  ok";
+case 5: if (_mode == 0) return "close"; else return "close";
 case 3: if (_mode == 0) return "connect"; else return "connect";
 default: return "!!!SYSTEM REACHED AN UNKNOWN STATE!!!";
 }

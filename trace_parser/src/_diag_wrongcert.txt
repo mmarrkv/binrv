@@ -1,13 +1,15 @@
 digraph _logic_wrongcert {
 rankdir=LR;
 node [shape = doublecircle]; ok;
-node [shape = circle]; import connect sslauthcertcompl start;
+node [shape = circle]; import connect sslauthcertcompl close start;
 node [shape = octagon]; wrongcert;
 node [shape = point]; _s_s;
 _s_s -> start;
 import -> connect [ label = "(1) prconnect"];
-sslauthcertcompl -> ok [ label = "(1) prclose\\mc . hasParent ( mcParent ) "];
-sslauthcertcompl -> wrongcert [ label = "(2) pk11encrypt\\mc . hasParent ( mcParent ) "];
+sslauthcertcompl -> close [ label = "(1) prclose\\\\mcParent = mc ; "];
+sslauthcertcompl -> wrongcert [ label = "(2) eot"];
 start -> import [ label = "(1) sslimport"];
-connect -> sslauthcertcompl [ label = "(1) sslauthcertcompl\\\\mcParent = mc ; "];
+close -> ok [ label = "(1) destroypk\\mc . hasParent ( mcParent ) "];
+close -> wrongcert [ label = "(2) eot"];
+connect -> sslauthcertcompl [ label = "(1) sslauthcertcompl"];
 }

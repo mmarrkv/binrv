@@ -13,6 +13,7 @@
 Imports{
   
   import elements.MethodCall;
+  import elements.EndOfTrace;
   import java.util.Map;
 }
 
@@ -30,32 +31,44 @@ Global{
       prconnect() = {MethodCall mc.call(String n,*,*)} 
       filter {n.equals("PR_Connect")}
              
-      sslauthcertcompl(mc) = {MethodCall mc.call(String n,String s, Map params )} 
+      sslauthcertcompl() = {MethodCall mc.call(String n,*, Map params )} 
       filter {n.equals("SSL_AuthCertificateComplete") && !((String)params.get("err")).equals("0x0")}
       
-      pk11encrypt(mc) = {MethodCall mc.call(String n,String s,*)} 
+      destroypk(mc) = {MethodCall mc.call(String n,*,*)} 
+      filter {n.equals("SECKEY_DestroyPrivateKey")}
+      
+      
+      pk11encrypt(mc) = {MethodCall mc.call(String n,*,*)} 
       filter {n.equals("PK11_Encrypt")}
 
-      prclose(mc) = {MethodCall mc.call(String n,String s,*)} 
+      prclose(mc) = {MethodCall mc.call(String n,*,*)} 
       filter {n.equals("PR_Close")} 
+      
+      eot() = {EndOfTrace eot.call()}
       
   }
 
    Property wrongcert {
 
      States {
-       Accepting {ok}
-       Bad {wrongcert}   
-       Normal {import connect sslauthcertcompl}
-       Starting {start}
+       Accepting { ok }
+       Bad       { wrongcert }   
+       Normal    { import 
+                   connect 
+                   sslauthcertcompl
+                   close }
+       Starting  { start }
      }
 
      Transitions {
-       start -> import [sslimport]
-       import -> connect [prconnect]
-       connect -> sslauthcertcompl [sslauthcertcompl\\mcParent=mc;]
-       sslauthcertcompl -> ok [prclose\mc.hasParent(mcParent)] %%what happens if otherwise?
-       sslauthcertcompl -> wrongcert [pk11encrypt\mc.hasParent(mcParent)]
+       start -> import               [sslimport]
+       import -> connect             [prconnect]
+       connect -> sslauthcertcompl   [sslauthcertcompl]
+       sslauthcertcompl -> close     [prclose\\mcParent=mc;]
+       close -> ok 					 [destroypk\mc.hasParent(mcParent)]
+
+       sslauthcertcompl -> wrongcert [eot]
+       close -> wrongcert            [eot]
      }
    
   } 
