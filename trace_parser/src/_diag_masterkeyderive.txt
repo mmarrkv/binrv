@@ -1,0 +1,19 @@
+digraph _logic_masterkeyderive {
+rankdir=LR;
+node [shape = doublecircle]; ok;
+node [shape = circle]; newsession server_connect step1 step2 fail close start;
+node [shape = octagon]; masterkeyderive;
+node [shape = point]; _s_s;
+_s_s -> start;
+fail -> close [ label = "(1) prclose\\\\mcParent = mc ; "];
+fail -> masterkeyderive [ label = "(2) eot"];
+start -> newsession [ label = "(1) sslimport"];
+newsession -> server_connect [ label = "(1) prconnect"];
+step2 -> ok [ label = "(1) eot"];
+close -> ok [ label = "(1) destroypk\\mc . hasParent ( mcParent ) "];
+close -> masterkeyderive [ label = "(2) eot"];
+server_connect -> step1 [ label = "(1) step\\( ( String ) err ) . equals ( \" 0x0 \" ) "];
+server_connect -> fail [ label = "(2) step"];
+step1 -> step2 [ label = "(1) step\\( ( String ) err ) . equals ( \" 0x0 \" ) "];
+step1 -> fail [ label = "(2) step"];
+}

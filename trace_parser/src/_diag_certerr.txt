@@ -1,0 +1,15 @@
+digraph _logic_certerr {
+rankdir=LR;
+node [shape = doublecircle]; ok;
+node [shape = circle]; newsession server_connect failed_cert_auth close start;
+node [shape = octagon]; certerr;
+node [shape = point]; _s_s;
+_s_s -> start;
+start -> newsession [ label = "(1) sslimport"];
+failed_cert_auth -> close [ label = "(1) prclose\\\\mcParent = mc ; "];
+failed_cert_auth -> certerr [ label = "(2) eot"];
+newsession -> server_connect [ label = "(1) prconnect"];
+close -> ok [ label = "(1) destroypk\\mc . hasParent ( mcParent ) "];
+close -> certerr [ label = "(2) eot"];
+server_connect -> failed_cert_auth [ label = "(1) sslauthcertcompl"];
+}

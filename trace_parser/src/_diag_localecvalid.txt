@@ -1,0 +1,9 @@
+digraph _logic_localecvalid {
+rankdir=LR;
+node [shape = doublecircle]; ok;
+node [shape = circle]; step1 start;
+node [shape = point]; _s_s;
+_s_s -> start;
+start -> step1 [ label = "(1) createpk"];
+step1 -> ok [ label = "(1) validatepk\\\\step . send ( params . get ( \" err \" ) ) ; "];
+}

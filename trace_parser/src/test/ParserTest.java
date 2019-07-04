@@ -26,19 +26,19 @@ class ParserTest {
 		toCheck = new ArrayList<String>();
 		
 		traceFiles.add("badsslcomdh512_0x7ffa2f469460");
-		toCheck.add("[wrongcert]AUTOMATON::> wrongcert() STATE::>ok");
+		toCheck.add("[certerr]AUTOMATON::> certerr() STATE::>ok");
 		
 		traceFiles.add("badsslcomdhcomposite_0x7fd9ada48610");
-		toCheck.add("[wrongcert]AUTOMATON::> wrongcert() STATE::>ok");
+		toCheck.add("[certerr]AUTOMATON::> certerr() STATE::>ok");
 		
 		traceFiles.add("badsslcomselfsigned_0x7fd9b873c130");
-		toCheck.add("[wrongcert]AUTOMATON::> wrongcert() STATE::>ok");
+		toCheck.add("[certerr]AUTOMATON::> certerr() STATE::>ok");
 		
 		traceFiles.add("badsslcomsmallsubgroup_0x7fd9afac88e0");
-		toCheck.add("[wrongcert]AUTOMATON::> wrongcert() STATE::>ok");
+		toCheck.add("[certerr]AUTOMATON::> certerr() STATE::>ok");
 		
 		traceFiles.add("badsslcomwronghost_0x7fd9b1f483d0");		
-		toCheck.add("[wrongcert]AUTOMATON::> wrongcert() STATE::>ok");
+		toCheck.add("[certerr]AUTOMATON::> certerr() STATE::>ok");
 	}
 
 	

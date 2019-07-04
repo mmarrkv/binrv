@@ -1,14 +1,3 @@
-%%
-
-%%The larva code below encode the following 2 regular expressions:
-
-%%Assumes subtraces already in place as per taint inference policy based on taint_vars set
-
-%%[SSL_ImportFD()ret:][]*[PR_Connect()fd:][]*[SSL_AuthCertificateComplete()ret:!0x0][]*[PK11_Encrypt()] → REJECT
-
-%%[SSL_ImportFD()ret:][]*[PR_Connect()fd:][]*[SSL_AuthCertificateComplete()ret:!0x0]![PK11_Encrypt()]*[PR_Close()fd:] → ACCEPT
-
-%%
 
 Imports{
   
@@ -22,6 +11,8 @@ Global{
   
     Variables {
       MethodCall mcParent;
+      
+      Channel step;
     }
 
     Events {
@@ -31,45 +22,183 @@ Global{
       prconnect() = {MethodCall mc.call(String n,*,*)} 
       filter {n.equals("PR_Connect")}
              
-      sslauthcertcompl() = {MethodCall mc.call(String n,*, Map params )} 
+      sslauthcertcompl() = {MethodCall mc.call(String n,*, Map params)} 
       filter {n.equals("SSL_AuthCertificateComplete") && !((String)params.get("err")).equals("0x0")}
       
       destroypk(mc) = {MethodCall mc.call(String n,*,*)} 
       filter {n.equals("SECKEY_DestroyPrivateKey")}
       
-      
-      pk11encrypt(mc) = {MethodCall mc.call(String n,*,*)} 
-      filter {n.equals("PK11_Encrypt")}
-
       prclose(mc) = {MethodCall mc.call(String n,*,*)} 
       filter {n.equals("PR_Close")} 
       
       eot() = {EndOfTrace eot.call()}
       
+      
+      
+      createpk(mc) = {MethodCall mc.call(String n,*,*)} 
+      filter {n.equals("SECKEY_CreateECPrivateKey")}
+      
+      validatepk(mc,params) = {MethodCall mc.call(String n,*, Map params)} 
+      filter {n.equals("EC_ValidatePublicKey")}
+      
+      deriveKDF(mc) = {MethodCall mc.call(String n,*,*)} 
+      filter {n.equals("K11_PubDeriveWithKDF")}
+      
+      step(err) = {step.receive(Object err)}
+      
+      
+      
+      pk11encrypt(mc) = {MethodCall mc.call(String n,*,*)} 
+      filter {n.equals("PK11_Encrypt")}
+      
   }
+  
+  
+  
+%% Rule 1: newsession[Start] ->  server_connect[Normal] -> failed_cert_auth[Normal] -> abort[Accepting]
+%% Rule 2: newsession[Start] ->  server_connect[Normal] -> failed_cert_auth[Normal] -> not abort[Bad]
 
-   Property wrongcert {
+   Property certerr {
 
      States {
        Accepting { ok }
-       Bad       { wrongcert }   
-       Normal    { import 
-                   connect 
-                   sslauthcertcompl
+       Bad       { certerr }   
+       Normal    { newsession 
+                   server_connect 
+                   failed_cert_auth
                    close }
        Starting  { start }
      }
 
      Transitions {
-       start -> import               [sslimport]
-       import -> connect             [prconnect]
-       connect -> sslauthcertcompl   [sslauthcertcompl]
-       sslauthcertcompl -> close     [prclose\\mcParent=mc;]
+       start -> newsession           [sslimport]
+       newsession -> server_connect  [prconnect]
+       server_connect -> failed_cert_auth   [sslauthcertcompl]
+       failed_cert_auth -> close     [prclose\\mcParent=mc;]
        close -> ok 					 [destroypk\mc.hasParent(mcParent)]
 
-       sslauthcertcompl -> wrongcert [eot]
-       close -> wrongcert            [eot]
+       failed_cert_auth -> certerr [eot]
+       close -> certerr            [eot]
      }
    
-  } 
+  }
+  
+  
+  %% Rule 3: newsession[Start] ->  server_connect[Normal] -> (localecvalid -> remoteecvalid OR remoteecvalid -> localecvalid) -> not abort[Accepting]
+  %% Rule 4: newsession[Start] ->  server_connect[Normal] -> (localecinvalid OR remoteecinvalid)  -> not abort[Bad]
+  
+  Property localecvalid {
+  
+  	States {
+  	  Accepting { ok }
+  	  Normal    { step1 }
+  	  Starting  { start }
+  	}
+  
+  	Transitions {
+  	  start -> step1 [createpk] 
+  	  step1 -> ok [validatepk\\step.send(params.get("err"));]
+  	
+  	}
+  
+  }
+  
+  Property remoteecvalid {
+  
+  	States {
+  	  Accepting { ok }
+  	  Normal    { step1 }
+  	  Starting  { start }
+  	}
+  
+  	Transitions {
+  	  start -> step1 [deriveKDF] 
+  	  step1 -> ok [validatepk\\step.send(params.get("err"));]
+  	
+  	}
+  
+  }
+  
+  
+   Property masterkeyderive {
+
+     States {
+       Accepting { ok }
+       Bad       { masterkeyderive }   
+       Normal    { newsession 
+                   server_connect 
+                   step1
+                   step2
+                   fail
+                   close }
+       Starting  { start }
+     }
+
+     Transitions {
+       start -> newsession           [sslimport]
+       newsession -> server_connect  [prconnect]
+       
+       server_connect -> step1		 [step\((String)err).equals("0x0")] 
+       server_connect -> fail		 [step]
+       
+       step1 -> step2                [step\((String)err).equals("0x0")]      
+       step1 -> fail                 [step]
+       
+       step2 -> ok					 [eot]   
+       
+       
+       %% ensure abort if failed
+       
+       fail -> close     			 [prclose\\mcParent=mc;]             
+       close -> ok 					 [destroypk\mc.hasParent(mcParent)]
+       
+       fail -> masterkeyderive       [eot]
+       close -> masterkeyderive      [eot]
+     }
+   
+  }
+  
+%% to continue 
+
+
+// Rule 5: newsession[Start] ->  server_connect[Normal] -> master_session_key_derive[Normal] -> scrub_priv_key[Normal] -> END[Accepting]
+rule scrubprivkey_accept
+{
+    strings:
+        $newsession = /SSL_ImportFD/          
+        $server_connect =  /PR_Connect/
+        $localecvalid = /SECKEY_CreateECPrivateKey[^\x0A]+?\x0A[^\x0A]+?\x0A[^\x0A]+?EC_ValidatePublicKey[^\|]+?[\|][^\x0A]+?ret:0x0/
+        $remoteecvalid = /K11_PubDeriveWithKDF[^\x0A]+?\x0A[^\x0A]+?\x0A[^\x0A]+?EC_ValidatePublicKey[^\|]+?[\|][^\x0A]+?ret:0x0/
+        $scrub_priv_key = /SECKEY_DestroyPrivateKey[^\x0A]+?\x0A[^\x0A]+?\x0A[^\x0A]+?privk:[^\x0A]+?e5 e5 e5 e5/
+
+    condition:
+        $newsession and $server_connect and $localecvalid and $remoteecvalid and $scrub_priv_key and @newsession[1] < @server_connect[1] and @server_connect[1] < @localecvalid[#localecvalid] and @server_connect[1] < @remoteecvalid[#remoteecvalid] and @server_connect[1] < @scrub_priv_key[#scrub_priv_key]
+}
+
+
+// Rule 6: newsession[Start] ->  server_connect[Normal] -> master_session_key_derive[Normal] -> !scrub_priv_key -> END[Bad]
+rule scrubprivkey_bad
+{
+    strings:
+        $newsession = /SSL_ImportFD/          
+        $server_connect =  /PR_Connect/
+        $localecvalid = /SECKEY_CreateECPrivateKey[^\x0A]+?\x0A[^\x0A]+?\x0A[^\x0A]+?EC_ValidatePublicKey[^\|]+?[\|][^\x0A]+?ret:0x0/
+        $remoteecvalid = /K11_PubDeriveWithKDF[^\x0A]+?\x0A[^\x0A]+?\x0A[^\x0A]+?EC_ValidatePublicKey[^\|]+?[\|][^\x0A]+?ret:0x0/
+        $scrub_priv_key = /SECKEY_DestroyPrivateKey[^\x0A]+?\x0A[^\x0A]+?\x0A[^\x0A]+?privk:[^\x0A]+?e5 e5 e5 e5/
+
+    condition:
+        $newsession and $server_connect and $localecvalid and $remoteecvalid and (not $scrub_priv_key) and @newsession[1] < @server_connect[1] and @server_connect[1] < @localecvalid[#localecvalid] and @server_connect[1] < @remoteecvalid[#remoteecvalid] 
+}
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+   
 }
