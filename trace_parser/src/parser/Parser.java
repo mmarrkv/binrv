@@ -12,7 +12,7 @@ import elements.MethodCall;
 
 public class Parser {
 
-	private static List<Element> trace = new ArrayList<Element>();
+	private static List<Element> trace;
 	
 	private static int countMatches(String str, String sub) {
 	    int count = 0;
@@ -24,86 +24,105 @@ public class Parser {
 	    return count;
 	}
 
-	public static void parse(String sFile) throws Exception
+	public static void parse(String sFile)
 	{
-		File file = new File(sFile); 
-		  
-		BufferedReader br = new BufferedReader(new FileReader(file)); 
-
-		String st;
+		trace = new ArrayList<Element>();
 		
-		MethodCall mc = null;
-		MethodCall previous = null;
-		MethodCall parent;
-		
-		while ((st = br.readLine()) != null)
-		{
-			if (st.endsWith("()"))
-			{
-								
-				int iTimestamp = st.indexOf("ms");
-				int depth = countMatches(st,"|");
+		try {
+			File file = new File(sFile); 
 
-				int iSessionStart;
-				
-				if (depth==0) 
-					iSessionStart = iTimestamp +4;
-				else
-					iSessionStart = st.lastIndexOf("|")+2;
-				
-				int iSessionEnd = st.indexOf(" ",iSessionStart);
-				
-				String sTimestamp = st.substring(0,iTimestamp).trim();
-				String sSession = st.substring(iSessionStart,iSessionEnd).trim();
-				
-				String name = st.substring(iSessionEnd, st.indexOf("()")).trim();
-				
-				//set method call parent
-				if (previous == null) 
-					parent = null;
-				else if (depth > previous.getDepth())
-					parent = previous;
-				else if (depth < previous.getDepth())
-					parent = previous.getParent();
-				else//if equal
-					parent = previous.getParent();
-				
-				//update previous
-				if (mc != null)
-					previous = mc;
-				
-				mc = new MethodCall(name,Long.parseLong(sTimestamp),sSession,depth,parent);
-				//add to trace
-				trace.add(mc);
-			}			
-			else if (mc!=null && st.indexOf(":")!= -1)//parse params
+			BufferedReader br = new BufferedReader(new FileReader(file)); 
+
+			String st;
+
+			MethodCall mc = null;
+			MethodCall previous = null;
+			MethodCall parent;
+
+			while ((st = br.readLine()) != null)
 			{
-				int iParamValue = st.indexOf(":");
-				int iParamName = st.substring(0,iParamValue).lastIndexOf(" ");
-				
-				String key = st.substring(iParamName, iParamValue).trim();
-				String value = st.substring(iParamValue+1).trim();
-				mc.addParam(key,value);
-				
-			}
-			//else ignore
+				if (st.endsWith("()"))
+				{
+
+					int iTimestamp = st.indexOf("ms");
+					int depth = countMatches(st,"|");
+
+					int iSessionStart;
+
+					if (depth==0) 
+						iSessionStart = iTimestamp +4;
+					else
+						iSessionStart = st.lastIndexOf("|")+2;
+
+					int iSessionEnd = st.indexOf(" ",iSessionStart);
+
+					String sTimestamp = st.substring(0,iTimestamp).trim();
+					String sSession = st.substring(iSessionStart,iSessionEnd).trim();
+
+					String name = st.substring(iSessionEnd, st.indexOf("()")).trim();
+
+					//set method call parent
+					if (previous == null) 
+						parent = null;
+					else if (depth > previous.getDepth())
+						parent = previous;
+					else if (depth < previous.getDepth())
+						parent = previous.getParent();
+					else//if equal
+						parent = previous.getParent();
+
+					//update previous
+					if (mc != null)
+						previous = mc;
+
+					mc = new MethodCall(name,Long.parseLong(sTimestamp),sSession,depth,parent);
+					//add to trace
+					trace.add(mc);
+				}			
+				else if (mc!=null && st.indexOf(":")!= -1)//parse params
+				{
+					int iParamValue = st.indexOf(":");
+					int iParamName = st.substring(0,iParamValue).lastIndexOf(" ");
+
+					String key = st.substring(iParamName, iParamValue).trim();
+					String value = st.substring(iParamValue+1).trim();
+					mc.addParam(key,value);
+
+				}
+				//else ignore
+
+			} 
+
+			trace.add(new EndOfTrace());
+
+			br.close();
 			
-		} 
-		
-		trace.add(new EndOfTrace());
-		  
-		br.close();
+		} catch (Exception e) {
+			System.out.println("Oops something went very bad with your trace file!");
+			e.printStackTrace();
+		}
 	}
 	
-	public static void simulate()
+	public static void simulate(boolean verbose)
 	{
+		
 		for (Element mc : trace)
 		{
 			mc.doCall();//NB: to avoid "execution" in lrv file, each element has a different call method
 			
-			System.out.println(mc+"\r\n");
+			if (verbose) 
+				System.out.println(mc+"\r\n");
 			
 		}
+	}
+	
+	public static void processTraceFile(String file) 
+	{
+		parse(file);
+		
+		System.out.println("Going to simulate: "+ file +"\r\n");
+		
+		simulate(true);
 	}
 	
 	
@@ -112,9 +131,7 @@ public class Parser {
 		if (args.length<0)
 			throw new Exception("File path expected in args");
 		
-		parse(args[0]);
-		
-		simulate();
+		processTraceFile(args[0]);
 		
 	}
 	
