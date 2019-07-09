@@ -14,6 +14,7 @@ public class _cls_binrvff0 implements _callable{
 public static PrintWriter pw; 
 public static _cls_binrvff0 root;
 public static Channel step = new Channel();
+public static Channel abort = new Channel();
 
 public static LinkedHashMap<_cls_binrvff0,_cls_binrvff0> _cls_binrvff0_instances = new LinkedHashMap<_cls_binrvff0,_cls_binrvff0>();
 static{
@@ -28,12 +29,12 @@ _cls_binrvff0_instances.put(root, root);
 }
 
 _cls_binrvff0 parent; //to remain null - this class does not have a parent!
-public static Object err;
+public static Object ret;
 public static MethodCall mc;
 public static EndOfTrace eot;
 public static Map params;
 public static String n;
-int no_automata = 4;
+int no_automata = 6;
  public MethodCall mcParent ;
 
 public static void initialize(){}
@@ -67,7 +68,9 @@ synchronized(_cls_binrvff0_instances){
 _performLogic_certerr(_info, _event);
 _performLogic_localecvalid(_info, _event);
 _performLogic_remoteecvalid(_info, _event);
+_performLogic_abort(_info, _event);
 _performLogic_masterkeyderive(_info, _event);
+_performLogic_scrubprivkey(_info, _event);
 }
 }
 
@@ -121,7 +124,7 @@ else if (_state_id_certerr==4){
 		}
 		else if ((_occurredEvent(_event,10/*eot*/))){
 		
-		_state_id_certerr = 1;//moving to state certerr
+		_state_id_certerr = 1;//moving to state certerr_bad
 		_goto_certerr(_info);
 		}
 }
@@ -137,13 +140,13 @@ else if (_state_id_certerr==5){
 		if (1==0){}
 		else if ((_occurredEvent(_event,6/*destroypk*/)) && (mc .hasParent (mcParent ))){
 		
-		_state_id_certerr = 0;//moving to state ok
+		_state_id_certerr = 0;//moving to state certerr_ok
 		_goto_certerr(_info);
            _killThis(); //discard this automaton since an accepting state has been reached
 		}
 		else if ((_occurredEvent(_event,10/*eot*/))){
 		
-		_state_id_certerr = 1;//moving to state certerr
+		_state_id_certerr = 1;//moving to state certerr_bad
 		_goto_certerr(_info);
 		}
 }
@@ -166,11 +169,11 @@ _cls_binrvff0.pw.flush();
 public String _string_certerr(int _state_id, int _mode){
 switch(_state_id){
 case 6: if (_mode == 0) return "start"; else return "start";
+case 1: if (_mode == 0) return "certerr_bad"; else return "!!!SYSTEM REACHED BAD STATE!!! certerr_bad "+new _BadStateExceptionbinrvff().toString()+" ";
 case 4: if (_mode == 0) return "failed_cert_auth"; else return "failed_cert_auth";
-case 0: if (_mode == 0) return "ok"; else return "(((SYSTEM REACHED AN ACCEPTED STATE)))  ok";
 case 2: if (_mode == 0) return "newsession"; else return "newsession";
 case 5: if (_mode == 0) return "close"; else return "close";
-case 1: if (_mode == 0) return "certerr"; else return "!!!SYSTEM REACHED BAD STATE!!! certerr "+new _BadStateExceptionbinrvff().toString()+" ";
+case 0: if (_mode == 0) return "certerr_ok"; else return "(((SYSTEM REACHED AN ACCEPTED STATE)))  certerr_ok";
 case 3: if (_mode == 0) return "server_connect"; else return "server_connect";
 default: return "!!!SYSTEM REACHED AN UNKNOWN STATE!!!";
 }
@@ -194,7 +197,7 @@ else if (_state_id_localecvalid==9){
 else if (_state_id_localecvalid==8){
 		if (1==0){}
 		else if ((_occurredEvent(_event,14/*validatepk*/))){
-		step .send (params .get ("err"));
+		step .send (params .get ("ret"));
 
 		_state_id_localecvalid = 7;//moving to state ok
 		_goto_localecvalid(_info);
@@ -236,7 +239,7 @@ else if (_state_id_remoteecvalid==12){
 else if (_state_id_remoteecvalid==11){
 		if (1==0){}
 		else if ((_occurredEvent(_event,14/*validatepk*/))){
-		step .send (params .get ("err"));
+		step .send (params .get ("ret"));
 
 		_state_id_remoteecvalid = 10;//moving to state ok
 		_goto_remoteecvalid(_info);
@@ -259,7 +262,50 @@ case 11: if (_mode == 0) return "step1"; else return "step1";
 default: return "!!!SYSTEM REACHED AN UNKNOWN STATE!!!";
 }
 }
-int _state_id_masterkeyderive = 21;
+int _state_id_abort = 15;
+
+public void _performLogic_abort(String _info, int... _event) {
+
+_cls_binrvff0.pw.println("[abort]AUTOMATON::> abort("+") STATE::>"+ _string_abort(_state_id_abort, 0));
+_cls_binrvff0.pw.flush();
+
+if (0==1){}
+else if (_state_id_abort==15){
+		if (1==0){}
+		else if ((_occurredEvent(_event,8/*prclose*/))){
+		mcParent =mc ;
+
+		_state_id_abort = 14;//moving to state close
+		_goto_abort(_info);
+		}
+}
+else if (_state_id_abort==14){
+		if (1==0){}
+		else if ((_occurredEvent(_event,6/*destroypk*/)) && (mc .hasParent (mcParent ))){
+		abort .send ();
+
+		_state_id_abort = 13;//moving to state abort
+		_goto_abort(_info);
+           _killThis(); //discard this automaton since an accepting state has been reached
+		}
+}
+}
+
+public void _goto_abort(String _info){
+ String state_format = _string_abort(_state_id_abort, 1);
+_cls_binrvff0.pw.println("[abort]MOVED ON METHODCALL: "+ _info +" TO STATE::> " + state_format);
+_cls_binrvff0.pw.flush();
+}
+
+public String _string_abort(int _state_id, int _mode){
+switch(_state_id){
+case 13: if (_mode == 0) return "abort"; else return "(((SYSTEM REACHED AN ACCEPTED STATE)))  abort";
+case 15: if (_mode == 0) return "start"; else return "start";
+case 14: if (_mode == 0) return "close"; else return "close";
+default: return "!!!SYSTEM REACHED AN UNKNOWN STATE!!!";
+}
+}
+int _state_id_masterkeyderive = 24;
 
 public void _performLogic_masterkeyderive(String _info, int... _event) {
 
@@ -267,82 +313,102 @@ _cls_binrvff0.pw.println("[masterkeyderive]AUTOMATON::> masterkeyderive("+") STA
 _cls_binrvff0.pw.flush();
 
 if (0==1){}
-else if (_state_id_masterkeyderive==19){
+else if (_state_id_masterkeyderive==24){
 		if (1==0){}
-		else if ((_occurredEvent(_event,8/*prclose*/))){
-		mcParent =mc ;
-
-		_state_id_masterkeyderive = 20;//moving to state close
+		else if ((_occurredEvent(_event,0/*sslimport*/))){
+		
+		_state_id_masterkeyderive = 18;//moving to state newsession
+		_goto_masterkeyderive(_info);
+		}
+		else if ((_occurredEvent(_event,20/*abort*/))){
+		
+		_state_id_masterkeyderive = 23;//moving to state abort
+		_goto_masterkeyderive(_info);
+		}
+}
+else if (_state_id_masterkeyderive==22){
+		if (1==0){}
+		else if ((_occurredEvent(_event,20/*abort*/))){
+		
+		_state_id_masterkeyderive = 23;//moving to state abort
 		_goto_masterkeyderive(_info);
 		}
 		else if ((_occurredEvent(_event,10/*eot*/))){
 		
-		_state_id_masterkeyderive = 14;//moving to state masterkeyderive
-		_goto_masterkeyderive(_info);
-		}
-}
-else if (_state_id_masterkeyderive==21){
-		if (1==0){}
-		else if ((_occurredEvent(_event,0/*sslimport*/))){
-		
-		_state_id_masterkeyderive = 15;//moving to state newsession
-		_goto_masterkeyderive(_info);
-		}
-}
-else if (_state_id_masterkeyderive==15){
-		if (1==0){}
-		else if ((_occurredEvent(_event,2/*prconnect*/))){
-		
-		_state_id_masterkeyderive = 16;//moving to state server_connect
+		_state_id_masterkeyderive = 17;//moving to state masterkeyderive_bad
 		_goto_masterkeyderive(_info);
 		}
 }
 else if (_state_id_masterkeyderive==18){
 		if (1==0){}
+		else if ((_occurredEvent(_event,2/*prconnect*/))){
+		
+		_state_id_masterkeyderive = 19;//moving to state server_connect
+		_goto_masterkeyderive(_info);
+		}
+		else if ((_occurredEvent(_event,20/*abort*/))){
+		
+		_state_id_masterkeyderive = 23;//moving to state abort
+		_goto_masterkeyderive(_info);
+		}
+}
+else if (_state_id_masterkeyderive==21){
+		if (1==0){}
+		else if ((_occurredEvent(_event,20/*abort*/))){
+		
+		_state_id_masterkeyderive = 23;//moving to state abort
+		_goto_masterkeyderive(_info);
+		}
 		else if ((_occurredEvent(_event,10/*eot*/))){
 		
-		_state_id_masterkeyderive = 13;//moving to state ok
+		_state_id_masterkeyderive = 16;//moving to state masterkeyderive_ok
 		_goto_masterkeyderive(_info);
            _killThis(); //discard this automaton since an accepting state has been reached
+		}
+		else if ((_occurredEvent(_event,10/*eot*/))){
+		
+		_state_id_masterkeyderive = 17;//moving to state masterkeyderive_bad
+		_goto_masterkeyderive(_info);
+		}
+}
+else if (_state_id_masterkeyderive==19){
+		if (1==0){}
+		else if ((_occurredEvent(_event,18/*step*/)) && (((String )ret ).equals ("0x0"))){
+		
+		_state_id_masterkeyderive = 20;//moving to state step1
+		_goto_masterkeyderive(_info);
+		}
+		else if ((_occurredEvent(_event,18/*step*/))){
+		
+		_state_id_masterkeyderive = 22;//moving to state invalid
+		_goto_masterkeyderive(_info);
+		}
+		else if ((_occurredEvent(_event,20/*abort*/))){
+		
+		_state_id_masterkeyderive = 23;//moving to state abort
+		_goto_masterkeyderive(_info);
 		}
 }
 else if (_state_id_masterkeyderive==20){
 		if (1==0){}
-		else if ((_occurredEvent(_event,6/*destroypk*/)) && (mc .hasParent (mcParent ))){
+		else if ((_occurredEvent(_event,18/*step*/)) && (((String )ret ).equals ("0x0"))){
 		
-		_state_id_masterkeyderive = 13;//moving to state ok
+		_state_id_masterkeyderive = 21;//moving to state step2
 		_goto_masterkeyderive(_info);
-           _killThis(); //discard this automaton since an accepting state has been reached
+		}
+		else if ((_occurredEvent(_event,18/*step*/))){
+		
+		_state_id_masterkeyderive = 22;//moving to state invalid
+		_goto_masterkeyderive(_info);
+		}
+		else if ((_occurredEvent(_event,20/*abort*/))){
+		
+		_state_id_masterkeyderive = 23;//moving to state abort
+		_goto_masterkeyderive(_info);
 		}
 		else if ((_occurredEvent(_event,10/*eot*/))){
 		
-		_state_id_masterkeyderive = 14;//moving to state masterkeyderive
-		_goto_masterkeyderive(_info);
-		}
-}
-else if (_state_id_masterkeyderive==16){
-		if (1==0){}
-		else if ((_occurredEvent(_event,18/*step*/)) && (((String )err ).equals ("0x0"))){
-		
-		_state_id_masterkeyderive = 17;//moving to state step1
-		_goto_masterkeyderive(_info);
-		}
-		else if ((_occurredEvent(_event,18/*step*/))){
-		
-		_state_id_masterkeyderive = 19;//moving to state fail
-		_goto_masterkeyderive(_info);
-		}
-}
-else if (_state_id_masterkeyderive==17){
-		if (1==0){}
-		else if ((_occurredEvent(_event,18/*step*/)) && (((String )err ).equals ("0x0"))){
-		
-		_state_id_masterkeyderive = 18;//moving to state step2
-		_goto_masterkeyderive(_info);
-		}
-		else if ((_occurredEvent(_event,18/*step*/))){
-		
-		_state_id_masterkeyderive = 19;//moving to state fail
+		_state_id_masterkeyderive = 17;//moving to state masterkeyderive_bad
 		_goto_masterkeyderive(_info);
 		}
 }
@@ -356,15 +422,101 @@ _cls_binrvff0.pw.flush();
 
 public String _string_masterkeyderive(int _state_id, int _mode){
 switch(_state_id){
-case 19: if (_mode == 0) return "fail"; else return "fail";
-case 21: if (_mode == 0) return "start"; else return "start";
-case 13: if (_mode == 0) return "ok"; else return "(((SYSTEM REACHED AN ACCEPTED STATE)))  ok";
-case 15: if (_mode == 0) return "newsession"; else return "newsession";
-case 18: if (_mode == 0) return "step2"; else return "step2";
-case 20: if (_mode == 0) return "close"; else return "close";
-case 16: if (_mode == 0) return "server_connect"; else return "server_connect";
-case 14: if (_mode == 0) return "masterkeyderive"; else return "!!!SYSTEM REACHED BAD STATE!!! masterkeyderive "+new _BadStateExceptionbinrvff().toString()+" ";
-case 17: if (_mode == 0) return "step1"; else return "step1";
+case 23: if (_mode == 0) return "abort"; else return "abort";
+case 17: if (_mode == 0) return "masterkeyderive_bad"; else return "!!!SYSTEM REACHED BAD STATE!!! masterkeyderive_bad "+new _BadStateExceptionbinrvff().toString()+" ";
+case 22: if (_mode == 0) return "invalid"; else return "invalid";
+case 24: if (_mode == 0) return "start"; else return "start";
+case 16: if (_mode == 0) return "masterkeyderive_ok"; else return "(((SYSTEM REACHED AN ACCEPTED STATE)))  masterkeyderive_ok";
+case 18: if (_mode == 0) return "newsession"; else return "newsession";
+case 21: if (_mode == 0) return "step2"; else return "step2";
+case 19: if (_mode == 0) return "server_connect"; else return "server_connect";
+case 20: if (_mode == 0) return "step1"; else return "step1";
+default: return "!!!SYSTEM REACHED AN UNKNOWN STATE!!!";
+}
+}
+int _state_id_scrubprivkey = 33;
+
+public void _performLogic_scrubprivkey(String _info, int... _event) {
+
+_cls_binrvff0.pw.println("[scrubprivkey]AUTOMATON::> scrubprivkey("+") STATE::>"+ _string_scrubprivkey(_state_id_scrubprivkey, 0));
+_cls_binrvff0.pw.flush();
+
+if (0==1){}
+else if (_state_id_scrubprivkey==33){
+		if (1==0){}
+		else if ((_occurredEvent(_event,0/*sslimport*/))){
+		
+		_state_id_scrubprivkey = 27;//moving to state newsession
+		_goto_scrubprivkey(_info);
+		}
+}
+else if (_state_id_scrubprivkey==27){
+		if (1==0){}
+		else if ((_occurredEvent(_event,2/*prconnect*/))){
+		
+		_state_id_scrubprivkey = 28;//moving to state server_connect
+		_goto_scrubprivkey(_info);
+		}
+}
+else if (_state_id_scrubprivkey==30){
+		if (1==0){}
+		else if ((_occurredEvent(_event,22/*destroypke5*/))){
+		
+		_state_id_scrubprivkey = 25;//moving to state scrubprivkey_ok
+		_goto_scrubprivkey(_info);
+           _killThis(); //discard this automaton since an accepting state has been reached
+		}
+		else if ((_occurredEvent(_event,10/*eot*/))){
+		
+		_state_id_scrubprivkey = 26;//moving to state scrubprivkey_bad
+		_goto_scrubprivkey(_info);
+		}
+}
+else if (_state_id_scrubprivkey==28){
+		if (1==0){}
+		else if ((_occurredEvent(_event,18/*step*/)) && (((String )ret ).equals ("0x0"))){
+		
+		_state_id_scrubprivkey = 29;//moving to state step1
+		_goto_scrubprivkey(_info);
+		}
+		else if ((_occurredEvent(_event,18/*step*/))){
+		
+		_state_id_scrubprivkey = 31;//moving to state fail
+		_goto_scrubprivkey(_info);
+		}
+}
+else if (_state_id_scrubprivkey==29){
+		if (1==0){}
+		else if ((_occurredEvent(_event,18/*step*/)) && (((String )ret ).equals ("0x0"))){
+		
+		_state_id_scrubprivkey = 30;//moving to state step2
+		_goto_scrubprivkey(_info);
+		}
+		else if ((_occurredEvent(_event,18/*step*/))){
+		
+		_state_id_scrubprivkey = 31;//moving to state fail
+		_goto_scrubprivkey(_info);
+		}
+}
+}
+
+public void _goto_scrubprivkey(String _info){
+ String state_format = _string_scrubprivkey(_state_id_scrubprivkey, 1);
+_cls_binrvff0.pw.println("[scrubprivkey]MOVED ON METHODCALL: "+ _info +" TO STATE::> " + state_format);
+_cls_binrvff0.pw.flush();
+}
+
+public String _string_scrubprivkey(int _state_id, int _mode){
+switch(_state_id){
+case 31: if (_mode == 0) return "fail"; else return "fail";
+case 25: if (_mode == 0) return "scrubprivkey_ok"; else return "(((SYSTEM REACHED AN ACCEPTED STATE)))  scrubprivkey_ok";
+case 26: if (_mode == 0) return "scrubprivkey_bad"; else return "!!!SYSTEM REACHED BAD STATE!!! scrubprivkey_bad "+new _BadStateExceptionbinrvff().toString()+" ";
+case 33: if (_mode == 0) return "start"; else return "start";
+case 27: if (_mode == 0) return "newsession"; else return "newsession";
+case 30: if (_mode == 0) return "step2"; else return "step2";
+case 32: if (_mode == 0) return "close"; else return "close";
+case 28: if (_mode == 0) return "server_connect"; else return "server_connect";
+case 29: if (_mode == 0) return "step1"; else return "step1";
 default: return "!!!SYSTEM REACHED AN UNKNOWN STATE!!!";
 }
 }

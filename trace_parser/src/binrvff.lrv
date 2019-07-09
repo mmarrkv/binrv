@@ -13,6 +13,7 @@ Global{
       MethodCall mcParent;
       
       Channel step;
+      Channel abort;
     }
 
     Events {
@@ -44,17 +45,15 @@ Global{
       deriveKDF(mc) = {MethodCall mc.call(String n,*,*)} 
       filter {n.equals("K11_PubDeriveWithKDF")}
       
-      step(err) = {step.receive(Object err)}
+      step(ret) = {step.receive(Object ret)}
+      
+      abort() = {abort.receive()}
       
       
       
-      destroypke5() = {MethodCall mc.call(String n,*,*)} 
+      destroypke5() = {MethodCall mc.call(String n,*, Map params)} 
       filter {n.equals("SECKEY_DestroyPrivateKey") && ((String)params.get("privk")).contains("e5 e5 e5 e5")}   
       
-      
-      
-     %% pk11encrypt(mc) = {MethodCall mc.call(String n,*,*)} 
-     %% filter {n.equals("PK11_Encrypt")}
       
   }
   
@@ -66,8 +65,8 @@ Global{
    Property certerr {
 
      States {
-       Accepting { ok }
-       Bad       { certerr }   
+       Accepting { certerr_ok }
+       Bad       { certerr_bad }   
        Normal    { newsession 
                    server_connect 
                    failed_cert_auth
@@ -80,10 +79,10 @@ Global{
        newsession -> server_connect  [prconnect]
        server_connect -> failed_cert_auth   [sslauthcertcompl]
        failed_cert_auth -> close     [prclose\\mcParent=mc;]
-       close -> ok 					 [destroypk\mc.hasParent(mcParent)]
+       close -> certerr_ok 			 [destroypk\mc.hasParent(mcParent)]
 
-       failed_cert_auth -> certerr [eot]
-       close -> certerr            [eot]
+       failed_cert_auth -> certerr_bad [eot]
+       close -> certerr_bad            [eot]
      }
    
   }
@@ -102,7 +101,7 @@ Global{
   
   	Transitions {
   	  start -> step1 [createpk] 
-  	  step1 -> ok [validatepk\\step.send(params.get("err"));]
+  	  step1 -> ok [validatepk\\step.send(params.get("ret"));]
   	
   	}
   
@@ -118,8 +117,23 @@ Global{
   
   	Transitions {
   	  start -> step1 [deriveKDF] 
-  	  step1 -> ok [validatepk\\step.send(params.get("err"));]
+  	  step1 -> ok [validatepk\\step.send(params.get("ret"));]
   	
+  	}
+  
+  }
+  
+  Property abort {
+  
+  	States {
+  	  Accepting { abort }
+  	  Normal    { close }
+  	  Starting  { start }
+  	}
+  
+  	Transitions {
+  	  start -> close [prclose\\mcParent=mc;] 
+  	  close -> abort [destroypk\mc.hasParent(mcParent)\abort.send();]
   	}
   
   }
@@ -128,14 +142,15 @@ Global{
    Property masterkeyderive {
 
      States {
-       Accepting { ok }
-       Bad       { masterkeyderive }   
+       Accepting { masterkeyderive_ok }
+       Bad       { masterkeyderive_bad }   
        Normal    { newsession 
                    server_connect 
                    step1
                    step2
-                   fail
-                   close }
+                   invalid
+                   abort
+				 }
        Starting  { start }
      }
 
@@ -143,22 +158,26 @@ Global{
        start -> newsession           [sslimport]
        newsession -> server_connect  [prconnect]
        
-       server_connect -> step1		 [step\((String)err).equals("0x0")] 
-       server_connect -> fail		 [step]
+       server_connect -> step1		 [step\((String)ret).equals("0x0")] 
+       server_connect -> invalid	 [step]
        
-       step1 -> step2                [step\((String)err).equals("0x0")]      
-       step1 -> fail                 [step]
+       step1 -> step2                [step\((String)ret).equals("0x0")]      
+       step1 -> invalid              [step]
        
-       step2 -> ok					 [eot]   
+       %% if aborted it doesn't accept or reject
+       start -> abort				 [abort]
+       newsession -> abort			 [abort]
+       server_connect -> abort		 [abort]
+       step1 -> abort				 [abort]
+       step2 -> abort				 [abort]
+       invalid -> abort				 [abort]				
        
        
-       %% ensure abort if failed
-       
-       fail -> close     			 [prclose\\mcParent=mc;]             
-       close -> ok 					 [destroypk\mc.hasParent(mcParent)]
-       
-       fail -> masterkeyderive       [eot]
-       close -> masterkeyderive      [eot]
+       step2 -> masterkeyderive_ok	    [eot]   
+
+       step1 -> masterkeyderive_bad		[eot]
+       step2 -> masterkeyderive_bad		[eot]
+       invalid -> masterkeyderive_bad   [eot]
      }
    
   }
@@ -171,8 +190,8 @@ Global{
 Property scrubprivkey {
 
      States {
-       Accepting { ok }
-       Bad       { scrubprivkey }   
+       Accepting { scrubprivkey_ok }
+       Bad       { scrubprivkey_bad }   
        Normal    { newsession 
                    server_connect 
                    step1
@@ -186,14 +205,14 @@ Property scrubprivkey {
        start -> newsession           [sslimport]
        newsession -> server_connect  [prconnect]
        
-       server_connect -> step1		 [step\((String)err).equals("0x0")] 
+       server_connect -> step1		 [step\((String)ret).equals("0x0")] 
        server_connect -> fail		 [step]
        
-       step1 -> step2                [step\((String)err).equals("0x0")]      
+       step1 -> step2                [step\((String)ret).equals("0x0")]      
        step1 -> fail                 [step]
        
-       step2 -> ok					 [destroypke5]   
-       step2 -> scrubprivkey		 [eot]
+       step2 -> scrubprivkey_ok		 [destroypke5]   
+       step2 -> scrubprivkey_bad	 [eot]
        
  
      }

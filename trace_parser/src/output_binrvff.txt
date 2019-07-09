@@ -4,25 +4,417 @@
 [remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
 [masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>start
 [masterkeyderive]MOVED ON METHODCALL: void elements.MethodCall.call(String, String, Map) TO STATE::> newsession
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>start
+[scrubprivkey]MOVED ON METHODCALL: void elements.MethodCall.call(String, String, Map) TO STATE::> newsession
 [certerr]AUTOMATON::> certerr() STATE::>newsession
 [certerr]MOVED ON METHODCALL: void elements.MethodCall.call(String, String, Map) TO STATE::> server_connect
 [localecvalid]AUTOMATON::> localecvalid() STATE::>start
 [remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
 [masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>newsession
 [masterkeyderive]MOVED ON METHODCALL: void elements.MethodCall.call(String, String, Map) TO STATE::> server_connect
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>newsession
+[scrubprivkey]MOVED ON METHODCALL: void elements.MethodCall.call(String, String, Map) TO STATE::> server_connect
 [certerr]AUTOMATON::> certerr() STATE::>server_connect
 [localecvalid]AUTOMATON::> localecvalid() STATE::>start
+[localecvalid]MOVED ON METHODCALL: void elements.MethodCall.call(String, String, Map) TO STATE::> step1
 [remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
 [masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>server_connect
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>server_connect
 [certerr]AUTOMATON::> certerr() STATE::>server_connect
-[localecvalid]AUTOMATON::> localecvalid() STATE::>start
-[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
-[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>step1
 [certerr]AUTOMATON::> certerr() STATE::>server_connect
-[localecvalid]AUTOMATON::> localecvalid() STATE::>start
+[localecvalid]AUTOMATON::> localecvalid() STATE::>step1
 [remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
 [masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>server_connect
+[masterkeyderive]MOVED ON METHODCALL: void larva.Channel.receive(Object) TO STATE::> fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>server_connect
+[scrubprivkey]MOVED ON METHODCALL: void larva.Channel.receive(Object) TO STATE::> fail
+[localecvalid]MOVED ON METHODCALL: void elements.MethodCall.call(String, String, Map) TO STATE::> (((SYSTEM REACHED AN ACCEPTED STATE)))  ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
 [certerr]AUTOMATON::> certerr() STATE::>server_connect
-[localecvalid]AUTOMATON::> localecvalid() STATE::>start
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
 [remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
-[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>server_connect
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>fail
+[masterkeyderive]MOVED ON METHODCALL: void elements.MethodCall.call(String, String, Map) TO STATE::> close
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>close
+[masterkeyderive]MOVED ON METHODCALL: void elements.EndOfTrace.call() TO STATE::> !!!SYSTEM REACHED BAD STATE!!! masterkeyderive_bad 
+aspects._asp_binrvff0.ajc$before$aspects__asp_binrvff0$5$6149609f(_asp_binrvff0.aj:61)
+elements.EndOfTrace.doCall(EndOfTrace.java:7)
+parser.Parser.simulate(Parser.java:111)
+parser.Parser.processTraceFile(Parser.java:125)
+test.ParserTest.testMonitor(ParserTest.java:73)
+java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.base/java.lang.reflect.Method.invoke(Method.java:566)
+org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:628)
+org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:117)
+org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:184)
+org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:180)
+org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:127)
+org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:135)
+org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
+org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
+org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:229)
+org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$6(DefaultLauncher.java:197)
+org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:211)
+org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:191)
+org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:137)
+org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:89)
+org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)
+org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:541)
+org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:763)
+org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:463)
+org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:209) 
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>masterkeyderive_bad
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>masterkeyderive_bad
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>masterkeyderive_bad
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>masterkeyderive_bad
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>masterkeyderive_bad
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>masterkeyderive_bad
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>masterkeyderive_bad
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>masterkeyderive_bad
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>masterkeyderive_bad
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>masterkeyderive_bad
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>masterkeyderive_bad
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>masterkeyderive_bad
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>masterkeyderive_bad
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>masterkeyderive_bad
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>masterkeyderive_bad
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>masterkeyderive_bad
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>masterkeyderive_bad
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>ok
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>masterkeyderive_bad
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>fail

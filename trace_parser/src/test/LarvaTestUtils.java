@@ -3,11 +3,12 @@ package test;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.List;
 
 public class LarvaTestUtils {
 
 	
-	public static boolean checkOccurrenceOutputFile(String scriptName, String toCheck)
+	public static boolean checkOccurrenceOutputFile(String scriptName, List<Match> properties)
 	{
 		
 		BufferedReader br = null; 
@@ -22,9 +23,13 @@ public class LarvaTestUtils {
 			String st;
 			while ((st = br.readLine()) != null)
 			{
-				if (st.contains(toCheck))
-					return true;
+				for (Match m: properties)
+					if (!m.match(st))
+						return false;
+				
 			}
+			
+			return true;
 			
 
 		} catch (Exception ex) {
