@@ -108,7 +108,7 @@ public class Parser {
 		
 		for (Element mc : trace)
 		{
-			mc.doCall();//NB: to avoid "execution" in lrv file, each element has a different call method
+			mc.doCall();//NB: not calling "call" directly to avoid "execution" in lrv file, each element has a different call method
 			
 			if (verbose) 
 				System.out.println(mc+"\r\n");

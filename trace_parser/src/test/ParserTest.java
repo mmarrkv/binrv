@@ -7,9 +7,11 @@ import java.util.List;
 
 import test.LarvaTestUtils;
 
+import org.junit.Before;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import larva._cls_binrvff0;
 import parser.Parser;
 
 class ParserTest {
@@ -61,6 +63,13 @@ class ParserTest {
 	}
 
 	
+	@Before
+	void resetMonitor() {
+		//reset the monitor
+		_cls_binrvff0.initialize();
+	}
+	
+	
 	@Test
 	void testMonitor() {
 				
@@ -70,7 +79,7 @@ class ParserTest {
 		
 		for (String s : traceFiles) {
 		
-			Parser.processTraceFile("/Users/christian/Uni Drive/repositories/binrv/exp1/traces/" + s);
+			Parser.processTraceFile("/Users/christiancolombo/Drive Uni/repositories/binrv/exp1/traces/" + s);
 			
 			properties = toCheck.get(cntS++);
 			

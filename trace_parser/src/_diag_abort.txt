@@ -1,0 +1,9 @@
+digraph _logic_abort {
+rankdir=LR;
+node [shape = doublecircle]; abort;
+node [shape = circle]; close start;
+node [shape = point]; _s_s;
+_s_s -> start;
+start -> close [ label = "(1) prclose\\\\mcParent = mc ; "];
+close -> abort [ label = "(1) destroypk\\mc . hasParent ( mcParent ) \\abort . send ( ) ; "];
+}
