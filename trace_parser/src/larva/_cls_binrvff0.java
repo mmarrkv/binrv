@@ -354,11 +354,6 @@ else if (_state_id_masterkeyderive==21){
 		_goto_masterkeyderive(_info);
            _killThis(); //discard this automaton since an accepting state has been reached
 		}
-		else if ((_occurredEvent(_event,10/*eot*/))){
-		
-		_state_id_masterkeyderive = 17;//moving to state masterkeyderive_bad
-		_goto_masterkeyderive(_info);
-		}
 }
 else if (_state_id_masterkeyderive==24){
 		if (1==0){}

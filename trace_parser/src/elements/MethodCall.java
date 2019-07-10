@@ -41,9 +41,17 @@ public class MethodCall extends Element {
 		return parent;
 	}
 	
+	public String space(int cnt)
+	{
+		if (cnt == 0)
+			return "";
+		else return "   " + space(cnt-1);
+	}
+	
 	public String toString()
 	{
-		return "(" + session + ") " + name + "\r\n" + params;
+		String space = space(depth);
+		return  space + "(" + session + ") " + name + "\r\n" + space + params;
 	}
 	
 	//checks if parameter mc is parent or grand-grand...-parent of "this"

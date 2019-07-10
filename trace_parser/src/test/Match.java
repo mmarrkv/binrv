@@ -33,4 +33,8 @@ public class Match {
 			return "NO  ["+ name + "]"+state;
 	}
 	
+	public boolean mustContain()
+	{
+		return mustContain;
+	}
 }

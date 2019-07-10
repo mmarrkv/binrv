@@ -63,17 +63,25 @@ public class Parser {
 
 					//set method call parent
 					if (previous == null) 
-						parent = null;
+						parent = null;//no parent
 					else if (depth > previous.getDepth())
-						parent = previous;
-					else if (depth < previous.getDepth())
-						parent = previous.getParent();
-					else//if equal
-						parent = previous.getParent();
-
+						parent = previous;//previous is the parent
+					else if (depth == previous.getDepth())
+						parent = previous.getParent();//keep same parent
+					else
+					{//find the previous of the current depth
+						
+						while (previous!= null && depth < previous.getDepth())
+							previous = previous.getParent();
+						
+						if (previous == null)
+							parent = null;
+						else 						
+							parent = previous.getParent();
+					}
+						
 					//update previous
-					if (mc != null)
-						previous = mc;
+					previous = mc;
 
 					mc = new MethodCall(name,Long.parseLong(sTimestamp),sSession,depth,parent);
 					//add to trace
@@ -81,12 +89,19 @@ public class Parser {
 				}			
 				else if (mc!=null && st.indexOf(":")!= -1)//parse params
 				{
+					
+					int depth = countMatches(st,"|");
+					
+					MethodCall mcCurrent = mc;
+					while (depth < mcCurrent.getDepth())
+						mcCurrent = mcCurrent.getParent();
+					
 					int iParamValue = st.indexOf(":");
 					int iParamName = st.substring(0,iParamValue).lastIndexOf(" ");
 
 					String key = st.substring(iParamName, iParamValue).trim();
 					String value = st.substring(iParamValue+1).trim();
-					mc.addParam(key,value);
+					mcCurrent.addParam(key,value);
 
 				}
 				//else ignore

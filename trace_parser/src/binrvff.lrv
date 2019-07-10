@@ -43,7 +43,7 @@ Global{
       filter {n.equals("EC_ValidatePublicKey")}
       
       deriveKDF(mc) = {MethodCall mc.call(String n,*,*)} 
-      filter {n.equals("K11_PubDeriveWithKDF")}
+      filter {n.equals("PK11_PubDeriveWithKDF")}
       
       step(ret) = {step.receive(Object ret)}
       
@@ -176,7 +176,6 @@ Global{
        step2 -> masterkeyderive_ok	    [eot]   
 
        step1 -> masterkeyderive_bad		[eot]
-       step2 -> masterkeyderive_bad		[eot]
        invalid -> masterkeyderive_bad   [eot]
      }
    

@@ -8,7 +8,7 @@ import java.util.List;
 public class LarvaTestUtils {
 
 	
-	public static boolean checkOccurrenceOutputFile(String scriptName, List<Match> properties)
+	public static boolean checkOccurrenceOutputFile(String scriptName, MatchCollection properties)
 	{
 		
 		BufferedReader br = null; 
@@ -23,13 +23,12 @@ public class LarvaTestUtils {
 			String st;
 			while ((st = br.readLine()) != null)
 			{
-				for (Match m: properties)
-					if (!m.match(st))
-						return false;
-				
+				if (!properties.getVerdict(st))
+					return false;
 			}
 			
-			return true;
+			return properties.getFinalVerdict();
+			
 			
 
 		} catch (Exception ex) {

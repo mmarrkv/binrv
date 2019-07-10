@@ -84,7 +84,7 @@ _cls_inst._call(thisJoinPoint.getSignature().toString(), 4/*sslauthcertcompl*/);
 _cls_inst._call_all_filtered(thisJoinPoint.getSignature().toString(), 4/*sslauthcertcompl*/);
 }
 }
-before ( MethodCall mc,String n) : (call(* MethodCall.call(..)) && target(mc) && args(n,*,*) && !cflow(adviceexecution()) && !cflow(within(larva.*))  && !(within(larva.*)) && if (n .equals ("K11_PubDeriveWithKDF"))) {
+before ( MethodCall mc,String n) : (call(* MethodCall.call(..)) && target(mc) && args(n,*,*) && !cflow(adviceexecution()) && !cflow(within(larva.*))  && !(within(larva.*)) && if (n .equals ("PK11_PubDeriveWithKDF"))) {
 
 synchronized(_asp_binrvff0.lock){
 

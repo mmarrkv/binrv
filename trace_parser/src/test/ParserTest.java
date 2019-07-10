@@ -18,39 +18,34 @@ class ParserTest {
 
 	
 	static List<String> traceFiles;
-	static List<List<Match>> toCheck;
-	static {
-		List<String> properties = new ArrayList<String>();
-		properties.add("certerr");
-		properties.add("masterkeyderive");
-		properties.add("scrubprivkey");
-	}
+	static List<MatchCollection> toCheck;
+
 	
 	@BeforeAll
 	static void setup() {
 		
-		List<Match> properties;
+		MatchCollection matchCollection;
 		
 		traceFiles = new ArrayList<String>();
-		toCheck = new ArrayList<List<Match>>();
+		toCheck = new ArrayList<MatchCollection>();
 		
-		traceFiles.add("trace_163.com_0x7faa2b6a7760");
-		properties = new ArrayList<Match>();
-		properties.add(new Match("certerr","certerr_ok", false));
-		properties.add(new Match("certerr","certerr_bad", false));
-		properties.add(new Match("masterkeyderive","masterkeyderive_ok", false));
-		properties.add(new Match("masterkeyderive","masterkeyderive_bad", false));
-		properties.add(new Match("scrubprivkey","scrubprivkey_ok", false));
-		properties.add(new Match("scrubprivkey","scrubprivkey_bad", false));
-		toCheck.add(properties);
+		traceFiles.add("trace_163.com_0x7faa2b6a7dc0");
+		matchCollection = new MatchCollection();
+		matchCollection.add(new Match("certerr","certerr_ok", false));
+		matchCollection.add(new Match("certerr","certerr_bad", false));
+		matchCollection.add(new Match("masterkeyderive","masterkeyderive_ok", false));
+		matchCollection.add(new Match("masterkeyderive","masterkeyderive_bad", false));
+		matchCollection.add(new Match("scrubprivkey","scrubprivkey_ok", false));
+		matchCollection.add(new Match("scrubprivkey","scrubprivkey_bad", false));
+		toCheck.add(matchCollection);
 		
 		traceFiles.add("trace_163.com_0x7faa2ba4f430");
-		properties = new ArrayList<Match>();
-		properties.add(new Match("certerr","certerr_ok", false));
-		properties.add(new Match("certerr","certerr_bad", false));
-		properties.add(new Match("masterkeyderive","masterkeyderive_ok", true));
-		properties.add(new Match("scrubprivkey","scrubprivkey_ok", true));
-		toCheck.add(properties);
+		matchCollection = new MatchCollection();
+		matchCollection.add(new Match("certerr","certerr_ok", false));
+		matchCollection.add(new Match("certerr","certerr_bad", false));
+		matchCollection.add(new Match("masterkeyderive","masterkeyderive_ok", true));//assumes bad is false if ok is found
+		matchCollection.add(new Match("scrubprivkey","scrubprivkey_ok", true));//assumes bad is false if ok is found
+		toCheck.add(matchCollection);
 		
 //		traceFiles.add("badsslcomselfsigned_0x7fd9b873c130");
 //		toCheck.add("[certerr]AUTOMATON::> certerr() STATE::>ok");
@@ -74,7 +69,7 @@ class ParserTest {
 	void testMonitor() {
 				
 
-		List<Match> properties;
+		MatchCollection properties;
 		int cntS = 0;
 		
 		for (String s : traceFiles) {
