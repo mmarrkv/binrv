@@ -15,7 +15,7 @@ public class LarvaTestUtils {
 	
 	public static String traceFile(String fileName)
 	{
-		return "/Users/christian/Uni Drive/repositories/binrv/exp1/traces/" + fileName;
+		return "/Users/christian/Uni Drive/repositories/binrv/" + fileName;
 	}
 	
 	

@@ -29,7 +29,7 @@ class ParserTest {
 		traceFiles = new ArrayList<String>();
 		toCheck = new ArrayList<MatchCollection>();
 		
-		traceFiles.add("trace_163.com_0x7faa2b6a7dc0");
+		traceFiles.add("exp1/traces/trace_163.com_0x7faa2b6a7dc0");//from exp1
 		matchCollection = new MatchCollection();
 		matchCollection.add(new Match("certerr","certerr_ok", false));
 		matchCollection.add(new Match("certerr","certerr_bad", false));
@@ -39,22 +39,36 @@ class ParserTest {
 		matchCollection.add(new Match("scrubprivkey","scrubprivkey_bad", false));
 		toCheck.add(matchCollection);
 		
-		traceFiles.add("trace_163.com_0x7faa2ba4f430");
+		traceFiles.add("exp1/traces/trace_163.com_0x7faa2ba4f430");//from exp1
 		matchCollection = new MatchCollection();
 		matchCollection.add(new Match("certerr","certerr_ok", false));
 		matchCollection.add(new Match("certerr","certerr_bad", false));
 		matchCollection.add(new Match("masterkeyderive","masterkeyderive_ok", true));//assumes bad is false if ok is found
+		//matchCollection.add(new Match("masterkeyderive","masterkeyderive_bad", false));
 		matchCollection.add(new Match("scrubprivkey","scrubprivkey_ok", true));//assumes bad is false if ok is found
+		//matchCollection.add(new Match("scrubprivkey","scrubprivkey_bad", false));
 		toCheck.add(matchCollection);
 		
-//		traceFiles.add("badsslcomselfsigned_0x7fd9b873c130");
-//		toCheck.add("[certerr]AUTOMATON::> certerr() STATE::>ok");
-//		
-//		traceFiles.add("badsslcomsmallsubgroup_0x7fd9afac88e0");
-//		toCheck.add("[certerr]AUTOMATON::> certerr() STATE::>ok");
-//		
-//		traceFiles.add("badsslcomwronghost_0x7fd9b1f483d0");		
-//		toCheck.add("[certerr]AUTOMATON::> certerr() STATE::>ok");
+		traceFiles.add("exp2/traces/trace_dsdtestprovider.badssl.com_0x7efdbe1bce20");//from exp2
+		matchCollection = new MatchCollection();
+		matchCollection.add(new Match("certerr","certerr_ok", true));
+		//matchCollection.add(new Match("certerr","certerr_bad", false));
+		matchCollection.add(new Match("masterkeyderive","masterkeyderive_ok", false));
+		matchCollection.add(new Match("masterkeyderive","masterkeyderive_bad", false));
+		matchCollection.add(new Match("scrubprivkey","scrubprivkey_ok", true));
+		//matchCollection.add(new Match("scrubprivkey","scrubprivkey_bad", false));
+		toCheck.add(matchCollection);
+		
+		traceFiles.add("exp1/traces/trace_amazon.com_0x7f5fb5be56d0");//from exp1
+		matchCollection = new MatchCollection();
+		matchCollection.add(new Match("certerr","certerr_ok", false));
+		matchCollection.add(new Match("certerr","certerr_bad", false));
+		matchCollection.add(new Match("masterkeyderive","masterkeyderive_ok", true));
+		//matchCollection.add(new Match("masterkeyderive","masterkeyderive_bad", false));
+		//matchCollection.add(new Match("scrubprivkey","scrubprivkey_ok", false));
+		matchCollection.add(new Match("scrubprivkey","scrubprivkey_bad", true));
+		toCheck.add(matchCollection);
+		
 	}
 
 	

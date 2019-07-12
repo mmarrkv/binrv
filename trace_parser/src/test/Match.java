@@ -17,7 +17,7 @@ public class Match {
 	
 	public boolean match (String toCheck)
 	{
-		boolean match = toCheck.startsWith("["+ name + "]") && toCheck.endsWith(state);//[certerr]AUTOMATON::> certerr() STATE::>ok
+		boolean match = toCheck.startsWith("["+ name + "]") && toCheck.trim().endsWith(state);//[certerr]AUTOMATON::> certerr() STATE::>ok
 	
 		if (mustContain)
 			return match;
