@@ -58,11 +58,6 @@ class ParserTest {
 	}
 
 	
-	@Before
-	void resetMonitor() {
-		//reset the monitor
-		_cls_binrvff0.initialize();
-	}
 	
 	
 	@Test
@@ -73,8 +68,12 @@ class ParserTest {
 		int cntS = 0;
 		
 		for (String s : traceFiles) {
+			
+			//reset the monitor
+			_cls_binrvff0.initialize();
 		
-			Parser.processTraceFile("/Users/christiancolombo/Drive Uni/repositories/binrv/exp1/traces/" + s);
+			//parse and simulate trace file
+			Parser.processTraceFile(LarvaTestUtils.traceFile(s));
 			
 			properties = toCheck.get(cntS++);
 			

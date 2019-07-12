@@ -8,6 +8,20 @@ import java.util.List;
 public class LarvaTestUtils {
 
 	
+	public static String monitorOutputFile(String scriptName)
+	{
+		return "./src/output_" + scriptName + ".txt";
+	}
+	
+	public static String traceFile(String fileName)
+	{
+		return "/Users/christian/Uni Drive/repositories/binrv/exp1/traces/" + fileName;
+	}
+	
+	
+	
+	
+	
 	public static boolean checkOccurrenceOutputFile(String scriptName, MatchCollection properties)
 	{
 		
@@ -16,7 +30,7 @@ public class LarvaTestUtils {
 		try { 
 			
 
-			File file = new File("./bin/output_" + scriptName + ".txt"); 
+			File file = new File(monitorOutputFile(scriptName)); 
 
 			br = new BufferedReader(new FileReader(file));
 

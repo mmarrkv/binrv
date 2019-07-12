@@ -5,12 +5,12 @@ node [shape = circle]; newsession server_connect step1 step2 fail close start;
 node [shape = octagon]; scrubprivkey_bad;
 node [shape = point]; _s_s;
 _s_s -> start;
+start -> newsession [ label = "(1) sslimport"];
+newsession -> server_connect [ label = "(1) prconnect"];
 step2 -> scrubprivkey_ok [ label = "(1) destroypke5"];
 step2 -> scrubprivkey_bad [ label = "(2) eot"];
-start -> newsession [ label = "(1) sslimport"];
-step1 -> step2 [ label = "(1) step\\( ( String ) ret ) . equals ( \" 0x0 \" ) "];
-step1 -> fail [ label = "(2) step"];
 server_connect -> step1 [ label = "(1) step\\( ( String ) ret ) . equals ( \" 0x0 \" ) "];
 server_connect -> fail [ label = "(2) step"];
-newsession -> server_connect [ label = "(1) prconnect"];
+step1 -> step2 [ label = "(1) step\\( ( String ) ret ) . equals ( \" 0x0 \" ) "];
+step1 -> fail [ label = "(2) step"];
 }

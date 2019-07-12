@@ -1,0 +1,31 @@
+[certerr]AUTOMATON::> certerr() STATE::>start
+[certerr]MOVED ON METHODCALL: void elements.MethodCall.call(String, String, Map) TO STATE::> newsession
+[localecvalid]AUTOMATON::> localecvalid() STATE::>start
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[abort]AUTOMATON::> abort() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>start
+[masterkeyderive]MOVED ON METHODCALL: void elements.MethodCall.call(String, String, Map) TO STATE::> newsession
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>start
+[scrubprivkey]MOVED ON METHODCALL: void elements.MethodCall.call(String, String, Map) TO STATE::> newsession
+[certerr]AUTOMATON::> certerr() STATE::>newsession
+[certerr]MOVED ON METHODCALL: void elements.MethodCall.call(String, String, Map) TO STATE::> server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>start
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[abort]AUTOMATON::> abort() STATE::>start
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>newsession
+[masterkeyderive]MOVED ON METHODCALL: void elements.MethodCall.call(String, String, Map) TO STATE::> server_connect
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>newsession
+[scrubprivkey]MOVED ON METHODCALL: void elements.MethodCall.call(String, String, Map) TO STATE::> server_connect
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>start
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[abort]AUTOMATON::> abort() STATE::>start
+[abort]MOVED ON METHODCALL: void elements.MethodCall.call(String, String, Map) TO STATE::> close
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>server_connect
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>server_connect
+[certerr]AUTOMATON::> certerr() STATE::>server_connect
+[localecvalid]AUTOMATON::> localecvalid() STATE::>start
+[remoteecvalid]AUTOMATON::> remoteecvalid() STATE::>start
+[abort]AUTOMATON::> abort() STATE::>close
+[masterkeyderive]AUTOMATON::> masterkeyderive() STATE::>server_connect
+[scrubprivkey]AUTOMATON::> scrubprivkey() STATE::>server_connect
