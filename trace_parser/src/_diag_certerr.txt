@@ -6,10 +6,10 @@ node [shape = octagon]; certerr_bad;
 node [shape = point]; _s_s;
 _s_s -> start;
 start -> newsession [ label = "(1) sslimport"];
+server_connect -> failed_cert_auth [ label = "(1) sslauthcertcompl"];
 failed_cert_auth -> close [ label = "(1) prclose\\\\mcParent = mc ; "];
 failed_cert_auth -> certerr_bad [ label = "(2) eot"];
-newsession -> server_connect [ label = "(1) prconnect"];
 close -> certerr_ok [ label = "(1) destroypk\\mc . hasParent ( mcParent ) "];
 close -> certerr_bad [ label = "(2) eot"];
-server_connect -> failed_cert_auth [ label = "(1) sslauthcertcompl"];
+newsession -> server_connect [ label = "(1) prconnect"];
 }

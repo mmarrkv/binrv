@@ -12,6 +12,7 @@ Global{
     Variables {
       MethodCall mcParent;
       
+      Channel setup;
       Channel step;
       Channel abort;
     }
@@ -45,6 +46,12 @@ Global{
       deriveKDF(mc) = {MethodCall mc.call(String n,*,*)} 
       filter {n.equals("PK11_PubDeriveWithKDF")}
       
+      
+      
+      %%channel event declarations
+      
+      setup() = {setup.receive()}
+      
       step(ret) = {step.receive(Object ret)}
       
       abort() = {abort.receive()}
@@ -57,7 +64,22 @@ Global{
       
   }
   
-  
+ 
+ Property setup {
+
+     States {
+       Accepting { done }
+       Bad       {  }   
+       Normal    { newsession }
+       Starting  { start }
+     }
+
+     Transitions {
+       start -> newsession           [sslimport]
+       newsession -> done            [prconnect\\setup.send();] 
+     }
+ }
+ 
   
 %% Rule 1: newsession[Start] ->  server_connect[Normal] -> failed_cert_auth[Normal] -> abort[Accepting]
 %% Rule 2: newsession[Start] ->  server_connect[Normal] -> failed_cert_auth[Normal] -> not abort[Bad]
@@ -75,8 +97,7 @@ Global{
      }
 
      Transitions {
-       start -> newsession           [sslimport]
-       newsession -> server_connect  [prconnect]
+       start -> server_connect  	[setup]
        server_connect -> failed_cert_auth   [sslauthcertcompl]
        failed_cert_auth -> close     [prclose\\mcParent=mc;]
        close -> certerr_ok 			 [destroypk\mc.hasParent(mcParent)]
@@ -95,32 +116,28 @@ Global{
   
   	States {
   	  Accepting { ok }
-  	  Normal    { step1 }
+  	  Normal    { create }
   	  Starting  { start }
   	}
   
   	Transitions {
-  	  start -> step1 [createpk] 
-  	  step1 -> ok [validatepk\\step.send(params.get("ret"));]
-  	
+  	  start -> create [createpk] 
+  	  create -> ok    [validatepk\\step.send(params.get("ret"));]
   	}
-  
   }
   
   Property remoteecvalid {
   
   	States {
   	  Accepting { ok }
-  	  Normal    { step1 }
+  	  Normal    { derive }
   	  Starting  { start }
   	}
   
   	Transitions {
-  	  start -> step1 [deriveKDF] 
-  	  step1 -> ok [validatepk\\step.send(params.get("ret"));]
-  	
+  	  start -> derive [deriveKDF] 
+  	  derive -> ok    [validatepk\\step.send(params.get("ret"));]
   	}
-  
   }
   
   Property abort {
@@ -155,8 +172,7 @@ Global{
      }
 
      Transitions {
-       start -> newsession           [sslimport]
-       newsession -> server_connect  [prconnect]
+       start -> server_connect       [setup]
        
        server_connect -> step1		 [step\((String)ret).equals("0x0")] 
        server_connect -> invalid	 [step]
@@ -201,8 +217,7 @@ Property scrubprivkey {
      }
 
      Transitions {
-       start -> newsession           [sslimport]
-       newsession -> server_connect  [prconnect]
+       start -> server_connect       [setup]
        
        server_connect -> step1		 [step\((String)ret).equals("0x0")] 
        server_connect -> fail		 [step]
@@ -212,25 +227,10 @@ Property scrubprivkey {
        
        step2 -> scrubprivkey_ok		 [destroypke5]   
        step2 -> scrubprivkey_bad	 [eot]
-       
  
      }
    
   }
 
-
-
-
-
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
    
 }

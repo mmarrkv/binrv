@@ -1,17 +1,14 @@
 package test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import test.LarvaTestUtils;
-
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import larva._cls_binrvff0;
+import larva._cls_binrvff_short0;
 import parser.Parser;
 
 class ParserTest {
@@ -84,7 +81,7 @@ class ParserTest {
 		for (String s : traceFiles) {
 			
 			//reset the monitor
-			_cls_binrvff0.initialize();
+			_cls_binrvff_short0.initialize();
 		
 			//parse and simulate trace file
 			Parser.processTraceFile(LarvaTestUtils.traceFile(s));
@@ -94,7 +91,7 @@ class ParserTest {
 			System.out.println("Going to look for:\r\n " + properties 
 					+ "\r\n in monitor output of trace file " + s+ "\r\n\r\n\r\n");
 			
-			boolean outcome = LarvaTestUtils.checkOccurrenceOutputFile("binrvff",properties);
+			boolean outcome = LarvaTestUtils.checkOccurrenceOutputFile("binrvff_short",properties);
 			
 			if (!outcome)
 				assertTrue(false,"Failed when looking for:\r\n "+ properties);

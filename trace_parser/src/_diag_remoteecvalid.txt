@@ -1,9 +1,9 @@
 digraph _logic_remoteecvalid {
 rankdir=LR;
 node [shape = doublecircle]; ok;
-node [shape = circle]; step1 start;
+node [shape = circle]; derive start;
 node [shape = point]; _s_s;
 _s_s -> start;
-start -> step1 [ label = "(1) deriveKDF"];
-step1 -> ok [ label = "(1) validatepk\\\\step . send ( params . get ( \" ret \" ) ) ; "];
+start -> derive [ label = "(1) deriveKDF"];
+derive -> ok [ label = "(1) validatepk\\\\step . send ( params . get ( \" ret \" ) ) ; "];
 }
