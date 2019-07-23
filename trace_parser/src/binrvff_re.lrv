@@ -47,14 +47,7 @@ Global{
       filter {n.equals("PK11_PubDeriveWithKDF")}
       
       
-      
-      %%channel event declarations
-      
-      setup() = {setup.receive()}
-      
-      step(ret) = {step.receive(Object ret)}
-      
-      abort() = {abort.receive()}
+ 
       
       
       
@@ -76,13 +69,15 @@ Global{
 
      Transitions {
        start -> newsession           [sslimport]
-       newsession -> done            [prconnect\\setup.send();] 
+       newsession -> done            [prconnect] 
      }
  }
  
   
 %% Rule 1: newsession[Start] ->  server_connect[Normal] -> failed_cert_auth[Normal] -> abort[Accepting]
 %% Rule 2: newsession[Start] ->  server_connect[Normal] -> failed_cert_auth[Normal] -> not abort[Bad]
+%% see property one below
+
 
    Property certerr {
 
@@ -97,10 +92,9 @@ Global{
      }
 
      Transitions {
-       start -> server_connect  	[setup]
-       server_connect -> failed_cert_auth   [sslauthcertcompl]
+       start -> failed_cert_auth     [sslauthcertcompl]
        failed_cert_auth -> close     [prclose\\mcParent=mc;]
-       close -> certerr_ok 			 [destroypk\mc.hasParent(mcParent)]
+       close -> certerr_ok 	     	 [destroypk\mc.hasParent(mcParent)]
 
        failed_cert_auth -> certerr_bad [eot]
        close -> certerr_bad            [eot]
@@ -111,6 +105,8 @@ Global{
   
   %% Rule 3: newsession[Start] ->  server_connect[Normal] -> (localecvalid -> remoteecvalid OR remoteecvalid -> localecvalid) -> not abort[Accepting]
   %% Rule 4: newsession[Start] ->  server_connect[Normal] -> (localecinvalid OR remoteecinvalid)  -> not abort[Bad]
+  %% see property two below
+  
   
   Property localecvalid {
   
@@ -122,7 +118,7 @@ Global{
   
   	Transitions {
   	  start -> create [createpk] 
-  	  create -> ok    [validatepk\\step.send(params.get("ret"));]
+  	  create -> ok    [validatepk\((String)params.get("ret")).equals("0x0")]
   	}
   }
   
@@ -136,7 +132,7 @@ Global{
   
   	Transitions {
   	  start -> derive [deriveKDF] 
-  	  derive -> ok    [validatepk\\step.send(params.get("ret"));]
+  	  derive -> ok    [validatepk\((String)params.get("ret")).equals("0x0")]
   	}
   }
   
@@ -150,87 +146,46 @@ Global{
   
   	Transitions {
   	  start -> close [prclose\\mcParent=mc;] 
-  	  close -> abort [destroypk\mc.hasParent(mcParent)\abort.send();]
+  	  close -> abort [destroypk\mc.hasParent(mcParent)]
   	}
   
   }
-  
-  
-   Property masterkeyderive {
 
-     States {
-       Accepting { masterkeyderive_ok }
-       Bad       { masterkeyderive_bad }   
-       Normal    { newsession 
-                   server_connect 
-                   step1
-                   step2
-                   invalid
-                   abort
-				 }
-       Starting  { start }
-     }
-
-     Transitions {
-       start -> server_connect       [setup]
-       
-       server_connect -> step1		 [step\((String)ret).equals("0x0")] 
-       server_connect -> invalid	 [step]
-       
-       step1 -> step2                [step\((String)ret).equals("0x0")]      
-       step1 -> invalid              [step]
-       
-       %% if aborted it doesn't accept or reject
-       start -> abort				 [abort]
-       newsession -> abort			 [abort]
-       server_connect -> abort		 [abort]
-       step1 -> abort				 [abort]
-       step2 -> abort				 [abort]
-       invalid -> abort				 [abort]				
-       
-       
-       step2 -> masterkeyderive_ok	    [eot]   
-
-       step1 -> masterkeyderive_bad		[eot]
-       invalid -> masterkeyderive_bad   [eot]
-     }
-   
-  }
   
   
   
   %% Rule 5: newsession[Start] ->  server_connect[Normal] -> master_session_key_derive[Normal] -> scrub_priv_key[Normal] -> END[Accepting]
   %% Rule 6: newsession[Start] ->  server_connect[Normal] -> master_session_key_derive[Normal] -> !scrub_priv_key -> END[Bad]
+  %% see property three below
 
-Property scrubprivkey {
-
-     States {
-       Accepting { scrubprivkey_ok }
-       Bad       { scrubprivkey_bad }   
-       Normal    { newsession 
-                   server_connect 
-                   step1
-                   step2
-                   fail
-                   close }
-       Starting  { start }
-     }
-
-     Transitions {
-       start -> server_connect       [setup]
-       
-       server_connect -> step1		 [step\((String)ret).equals("0x0")] 
-       server_connect -> fail		 [step]
-       
-       step1 -> step2                [step\((String)ret).equals("0x0")]      
-       step1 -> fail                 [step]
-       
-       step2 -> scrubprivkey_ok		 [destroypke5]   
-       step2 -> scrubprivkey_bad	 [eot]
- 
-     }
-   
+  
+  Property accept(one) {
+       accept(setup). accept(certerr)
   }
 
+  Property bad(one) {
+       accept(setup). bad(certerr)
+  }
+
+  %% "a set of actions" means that they both have to happen once in any order
+  %% "|" means that the two properties run "in parallel" (both have to be satisfied)
+  %% "no"/"yes" is used for single event occurrences (rather than automata)
+  Property accept(two) {
+      [(accept(setup). { accept(localecvalid), accept(remoteecvalid) }) | no(abort) ]. yes(eot)
+  }
+
+  %% "+" is a "disjunction" 
+  Property bad(two) {
+      [(accept(setup). ( bad(localecvalid) + bad(remoteecvalid) )) | no(abort) ]. yes(eot)
+  }
+
+
+  Property accept(three) {
+      accept(setup). { accept(localecvalid), accept(remoteecvalid) }. yes(destroypke5)
+  }
+
+  Property bad(three) {
+      accept(setup). { accept(localecvalid), accept(remoteecvalid) }. yes(eot)
+  }
    
 }
